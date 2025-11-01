@@ -35,7 +35,7 @@ export default function Ingredients() {
               <div className="mt-20 flex items-center justify-around text-accent">
                 <div className=" w-3/5 text-center flex-col justify-items-center ">
                     <p className="text-7xl mt-16  capitalize font-extrabold w-11/12 ">Human-grade, all-natural dog food made easy.</p>
-                    <p className="text-sm my-10 text-secondary font-satisfy font-thin w-3/5 "> Sundays for Dogs is what dog food always should have been: human-grade, vet-formulated, and air-dried to make dog parents' lives easier.</p>
+                    <p className="text-sm my-10 text-secondary font-satisfy font-thin w-3/5 "> Sundays for Dogs is what dog food always should have been: human-grade, vet-formulated, and air-dried to make dog parents lives easier.</p>
                     <span className="text-6xl font-light mt-4"> what makes us special </span>
                 </div>
             </div>

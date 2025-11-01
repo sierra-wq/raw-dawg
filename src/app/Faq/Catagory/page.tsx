@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Calendar, Globe, Paperclip, Space, Star, Verified } from "lucide-react";
+import { Calendar, Paperclip } from "lucide-react";
 import {
   Breadcrumb,
-  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,

@@ -1,14 +1,6 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
-import { Activity, CheckCircle, CircleX, FacebookIcon, Instagram, InstagramIcon, LogIn, MoveLeft, MoveRight, TwitterIcon, User, X } from "lucide-react";
-import { useState } from "react";
+import {  FacebookIcon,  InstagramIcon,  TwitterIcon,  } from "lucide-react";
 
 export default function Footer() {
 

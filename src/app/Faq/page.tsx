@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Star, Verified } from "lucide-react";
 
 export default function Faq() {
     const items = [

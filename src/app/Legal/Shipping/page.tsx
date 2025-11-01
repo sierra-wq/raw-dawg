@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { ArrowBigLeft, Globe, Home, Paperclip, SkipBack, Space, Star, Verified } from "lucide-react";
 
 export default function Post() {
   

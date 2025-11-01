@@ -1,8 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
-import { Globe, Paperclip, Space, Star, Verified } from "lucide-react";
-import { redirect, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 
 export default function Blg() {
 
