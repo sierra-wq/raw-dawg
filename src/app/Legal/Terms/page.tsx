@@ -1,13 +1,19 @@
 
+import Wave1 from "@/assets/layered-waves-haikei (1).svg"
+import Wave2 from "@/assets/layered-waves-haikei (2).svg"
+import Wave3 from "@/assets/layered-waves-haikei (3).svg"
+import Wave4 from "@/assets/layered-waves-haikei (4).svg"
+import Wave from "@/assets/layered-waves-haikei.svg"
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center ">
+         <div className=" flex-col content-center font-arvo justify-items-center bg-primary">
 
                 
-          <div className="py-20 text-center bg-secondary flex-col justify-items-center w-full font-satisfy ">
-                    <p className="text-7xl text-accent capitalize font-extrabold ">Raw Dawg</p>
-                </div>
+                 <figure className="w-full ">
+          <Wave4 className="w-full   fill-quaternary h-60" />
+          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
+        </figure>
                 
                
 
@@ -15,11 +21,11 @@ export default function Post() {
 
 
                 <div className="w-full flex flex-col items-center justify-center ">
-                    <div className="w-8/12 bg-white py-10 flex flex-wrap justify-around gap-[1rem]"
+                    <div className="w-8/12  py-10 flex flex-wrap justify-around gap-[1rem]"
                         
                     >
 
-                               <div className="blog-post-content bg-white text-neutral-800 dark:bg-black dark:text-neutral-100">
+                               <div className="blog-post-content text-quaternary ">
   
                                             <div className="max-w-4xl mx-auto px-4 py-10">
                                                 <section className="heading mb-10">
@@ -70,7 +76,7 @@ export default function Post() {
   <h2 className="text-2xl font-semibold mb-4">Copyright & DMCA Notice</h2>
   <p className="mb-4">
     We respect creativity. If you believe something on our site infringes your copyright, send a DMCA Takedown Notice to
-    <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent underline">hello@rawdawgnutrition.com</a> with the following:
+    <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent font-bold underline"> hello@rawdawgnutrition.com</a> with the following:
   </p>
   <ul className="list-disc ml-6 mb-4">
     <li>Your name and contact information</li>
@@ -90,7 +96,7 @@ export default function Post() {
     <li>You agree not to join a className-action against Raw Dawg.</li>
   </ul>
   <p className="mb-4">
-    To start a dispute, email hello@rawdawgnutrition.com. No claim can be brought more than one year after the issue arises.
+    To start a dispute, email <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent underline font-bold"> hello@rawdawgnutrition.com</a>. No claim can be brought more than one year after the issue arises.
   </p>
 
   

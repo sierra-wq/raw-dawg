@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {barlow, satisfy, arvo, inter, robotoMono, playfair} from '@/lib/fonts'
@@ -31,11 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} antialiased `}
       >
-        {
-          Header()
-        }
+        <Header/>
         {children}
         {
           Footer()

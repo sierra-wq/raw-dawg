@@ -15,43 +15,41 @@ import {
 export default function Article() {
   
   return (
-         <div className=" flex-col font-arvo content-center justify-items-center ">
+         <div className=" flex-col font-arvo bg-quaternary/50 pt-40 content-center justify-items-center ">
 
-                <div className="py-20 text-center flex-col justify-items-center w-full font-satisfy ">
-                    <p className="text-7xl mt-10 text-accent capitalize font-extrabold ">Raw Dawg</p>
-                </div>
+              
 
                 
-                 <div className=" w-7/12 p-0">
-                 <Breadcrumb>
+                 <div className="text-primary w-7/12">
+                  <Breadcrumb className="text-primary">
                       <BreadcrumbList>
                         <BreadcrumbItem>
                           <BreadcrumbLink asChild>
-                            <a href="/">Home</a>
+                            <a className="text-primary/60 font-bold text-lg"  href="/">Home</a>
                           </BreadcrumbLink>
                         </BreadcrumbItem>
-                        <BreadcrumbSeparator />
+                        <BreadcrumbSeparator className="text-primary/60 font-bold text-lg" />
                         <BreadcrumbItem>
                           <BreadcrumbLink asChild>
-                            <a href="/docs/components">Components</a>
+                            <a className="text-primary/60 font-bold text-lg" href="/docs/components">Components</a>
                           </BreadcrumbLink>
                         </BreadcrumbItem>
-                        <BreadcrumbSeparator />
+                        <BreadcrumbSeparator className="text-primary font-bold text-lg"/>
                         <BreadcrumbItem>
-                          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+                          <BreadcrumbPage className="text-primary font-bold text-lg underline">Breadcrumb</BreadcrumbPage>
                         </BreadcrumbItem>
                       </BreadcrumbList>
                     </Breadcrumb>
                 </div>
 
-                <span className="text-7xl text-accent font-inter flex w-7/12 items-center justify-start capitalize w-f font-light mt-10">
+                <span className="text-7xl text-primary font-arvo flex w-7/12 items-center justify-start capitalize w-f font-light mt-10">
                     Topic
                     </span>
 
         
 
-                <div className=" w-3/5 px-2 py-3 mt-10 border-t-4 border-accent/30">
-                    <article className="text-base font-barlow-condensed font-light mt-8  ">
+                <div className=" w-3/5 px-2 py-3 mt-10 border-t-8 border-primary/30 border-double">
+                    <article className="text-lg font-barlow-condensed text-quaternary leading-[2rem] font-semibold mt-8  ">
 
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Q
                             uae sed incidunt ipsum adipisci? Molestiae explicabo minus s
@@ -76,14 +74,14 @@ export default function Article() {
                             fuga illum doloribus assumenda. 
                             Officiis molestiae fugit provident animi consectetur. Saepe commodi dolores ex delectus sit explicabo sunt!    
                     </article>
-                    <div className="flex-col items-center justify-center my-10 gap-[2rem] border-t-2 border-accent/30 pt-10">
-                            <p className="text-2xl text-accent text-center capitalize font-extrabold mb-5">
+                    <div className="flex-col items-center justify-center my-24 gap-[2rem] border-t-8 border-primary/30 border-double pt-10">
+                            <p className="text-4xl text-primary text-center capitalize font-extrabold mb-5">
                                     What Do you think ?
                             </p>
                             
                             <div className="flex items-center justify-center gap-[2rem] ">
-                                <Button variant='outline' className=" rounded-full border-success p-2 size-24"> <ThumbsUp className="text-success" style={{width: "2.5rem", height: "2.5rem" }} /> </Button>
-                                <Button variant='outline' className=" rounded-full border-error p-2 size-24"> <ThumbsDown  className="text-error" style={{width: "2.5rem", height: "2.5rem" }}  /> </Button>
+                                <Button variant='outline' className="hover:bg-primary rounded-full border-quaternary p-2 size-24"> <ThumbsUp className="text-quaternary" style={{width: "2.5rem", height: "2.5rem" }} /> </Button>
+                                <Button variant='outline' className=" hover:bg-primary rounded-full border-quaternary p-2 size-24"> <ThumbsDown  className="text-quaternary" style={{width: "2.5rem", height: "2.5rem" }}  /> </Button>
                    
                             </div>
                             

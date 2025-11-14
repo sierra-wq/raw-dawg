@@ -1,13 +1,18 @@
-
+import Wave1 from "@/assets/layered-waves-haikei (1).svg"
+import Wave2 from "@/assets/layered-waves-haikei (2).svg"
+import Wave3 from "@/assets/layered-waves-haikei (3).svg"
+import Wave4 from "@/assets/layered-waves-haikei (4).svg"
+import Wave from "@/assets/layered-waves-haikei.svg"
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center ">
+         <div className=" flex-col content-center font-arvo justify-items-center bg-primary">
 
                 
-          <div className="py-20 text-center bg-secondary flex-col justify-items-center w-full font-satisfy ">
-                    <p className="text-7xl text-accent capitalize font-extrabold ">Raw Dawg</p>
-                </div>
+           <figure className="w-full ">
+          <Wave4 className="w-full   fill-quaternary h-60" />
+          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
+        </figure>
                 
                
 
@@ -15,11 +20,11 @@ export default function Post() {
 
 
                 <div className="w-full flex flex-col items-center justify-center ">
-                    <div className="w-8/12 bg-white py-10 flex flex-wrap justify-around gap-[1rem]"
+                    <div className="w-8/12 py-10 flex flex-wrap justify-around gap-[1rem]"
                         
                     >
 
-                               <div className="blog-post-content bg-white text-neutral-800 dark:bg-black dark:text-neutral-100">
+                               <div className="blog-post-content text-quaternary ">
   
                                             <div className="max-w-4xl mx-auto px-4 py-10">
                                                 <section className="heading mb-10">
@@ -39,7 +44,7 @@ export default function Post() {
     If we mess up -- wrong product, busted seal, damaged shipment -- we’ll make it right. Just do the following:
   </p>
   <ul className="list-disc ml-6 mb-4">
-    <li>Email <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent underline">hello@rawdawgnutrition.com</a> within 24 hours of delivery.</li>
+    <li>Email <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent font-bold underline">hello@rawdawgnutrition.com</a> within 24 hours of delivery.</li>
     <li>Include clear photos of the box and product.</li>
     <li>Add your order number and delivery date.</li>
   </ul>

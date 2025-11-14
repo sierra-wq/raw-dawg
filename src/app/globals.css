@@ -12,6 +12,15 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 
@@ -79,5 +88,35 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .paw-btn {
+    @apply relative bg-primary rounded-full w-16 h-16 flex items-center justify-center text-white transition-all duration-300 hover:bg-accent;
+  }
+  .paw-btn::before,
+  .paw-btn::after {
+    content: "";
+    position: absolute;
+    background: var(--tw-bg-opacity, #e63946);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 4px;
+  }
+  .paw-btn::before {
+    left: 10px;
+  }
+  .paw-btn::after {
+    right: 10px;
+  }
+  .paw-pad {
+    position: absolute;
+    bottom: 8px;
+    width: 32px;
+    height: 20px;
+    background: white;
+    border-radius: 40% 40% 60% 60%;
   }
 }

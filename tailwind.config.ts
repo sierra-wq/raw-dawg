@@ -10,8 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#E43D12",
+        primary: "#E3DAC9",
         secondary: "#111111",
+        tertiary: "#606C50",
+        quaternary: "#414739",
+        quinary: "#312D23",
         accent: "#F1B22E",
         success: "#16A34A",
         surface: "#FAFAFA",
@@ -97,6 +100,6 @@ const config: Config = {
 
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),require('@tailwindcss/forms'),],
 };
 export default config;
