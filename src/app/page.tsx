@@ -9,9 +9,7 @@ import {
 import { Check, CheckCircle, CircleX,  MoveLeft, MoveRight, X,  } from "lucide-react";
 import Wave1 from "@/assets/layered-waves-haikei (1).svg"
 import Wave2 from "@/assets/layered-waves-haikei (2).svg"
-import Wave3 from "@/assets/layered-waves-haikei (3).svg"
 import Wave4 from "@/assets/layered-waves-haikei (4).svg"
-import Wave from "@/assets/layered-waves-haikei.svg"
 
 import img1 from "@/assets/product1.jpg"
 import img2 from "@/assets/product2.jpg"
@@ -73,6 +71,22 @@ export default function Home() {
   
   
   const [activeProduct , setActiveProduct] = useState(0);
+
+const handleProductClick = (side: "left" | "right") => {
+  if (side === "left") {
+    if (activeProduct > 0) {
+      setActiveProduct(activeProduct - 1);
+    } else {
+      setActiveProduct(0);
+    }
+  } else {
+    if (activeProduct < 2) {
+      setActiveProduct(activeProduct + 1);
+    } else {
+      setActiveProduct(2);
+    }
+  }
+};
 
 
 
@@ -334,10 +348,10 @@ Integrity</td>
                     <div className="my-10 flex items-center justify-between ">
                       <p className="text-4xl w-3/5"> {items[activeProduct].name} </p>
                       <div >
-                        <Button variant={'outline'} onClick={() => {activeProduct > 0 ? setActiveProduct(activeProduct - 1) : setActiveProduct(0) }} className="bg-primary text-secondary  hover:bg-secondary hover:text-primary  border-secondary rounded-full size-12 " > 
+                        <Button variant={'outline'} onClick={() => handleProductClick('left') } className="bg-primary text-secondary  hover:bg-secondary hover:text-primary  border-secondary rounded-full size-12 " > 
                           <MoveLeft style={{ width: '2rem' , height: '2rem' }} /> 
                         </Button> 
-                        <Button variant={'outline'} onClick={() => {activeProduct < 2 ? setActiveProduct(activeProduct + 1) : setActiveProduct(2) }} className="bg-primary text-secondary  hover:bg-secondary hover:text-primary  border-secondary rounded-full size-12 ms-5" > 
+                        <Button variant={'outline'} onClick={() => handleProductClick('right')} className="bg-primary text-secondary  hover:bg-secondary hover:text-primary  border-secondary rounded-full size-12 ms-5" > 
                           <MoveRight style={{ width: '2rem' , height: '2rem' }}/> 
                         </Button>
                       </div>

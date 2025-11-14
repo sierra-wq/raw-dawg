@@ -95,8 +95,14 @@ export default function Login() {
     myth: "Raw Dawg delivers essential fatty acids and joint support naturally from whole prey sources—no synthetic oils needed.",
   },
     ];
-    function calculateRecommendation(answers: any) {
-  let scores = {
+    function calculateRecommendation(answers: {
+    age: string;
+    bodyCondition: string;
+    activity: string;
+    sensitivities: string;
+    goals: string;
+}) {
+  const scores = {
     beef: 0,
     turkey: 0,
     turkeySalmon: 0,
@@ -197,7 +203,13 @@ export default function Login() {
 
   return mapRecipe(bestRecipe as "beef" | "turkey" | "turkeySalmon", answers);
     }
-    function mapRecipe(recipe: "beef" | "turkey" | "turkeySalmon", answers: any) {
+    function mapRecipe(recipe: "beef" | "turkey" | "turkeySalmon", answers: {
+    age: string;
+    bodyCondition: string;
+    activity: string;
+    sensitivities: string;
+    goals: string;
+}) {
   const recipeMap = {
     'beef': {
       name: "Beef",
@@ -225,7 +237,13 @@ export default function Login() {
     heroLine: `Based on your dog’s profile, we recommend starting with our ${pick.name} recipe.`,
   };
     }
-    function getClosingMyth(answers: any) {
+    function getClosingMyth(answers: {
+    age: string;
+    bodyCondition: string;
+    activity: string;
+    sensitivities: string;
+    goals: string;
+}) {
         if (answers.goals === "joints")
             return "Raw cartilage naturally provides glucosamine and chondroitin — the same compounds sold as supplements.";
         if (answers.goals === "coat")
@@ -235,19 +253,17 @@ export default function Login() {
         return "Your dog isn’t a wolf, but his gut never got the memo — that’s why Raw Dawg fuels instinct, not industry.";
     }
 
-
-
     const [page , setPage] = useState(1);
     const [find , setFind] = useState(false);
     const [canFind , setCanFind] = useState(false);
 
-const [answers, setAnswers] = useState({
-  age: null,
-  bodyCondition: null,
-  activity: null,
-  sensitivities: null,
-  goals: null,
-});
+    const [answers, setAnswers] = useState({
+        age: "",
+        bodyCondition: "",
+        activity: "",
+        sensitivities: "",
+        goals: "",
+    });
 
 const [step, setStep] = useState(0);
 const [result, setResult] = useState<{
