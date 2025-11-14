@@ -72,7 +72,7 @@ export default function Home() {
   
   const [activeProduct , setActiveProduct] = useState(0);
 
-const handleProductClick = (side: "left" | "right") => {
+const handleProductClick = (side: "left"  | "right") => {
   if (side === "left") {
     if (activeProduct > 0) {
       setActiveProduct(activeProduct - 1);
