@@ -67,6 +67,8 @@ const config: Config = {
         roboto: ["var(--font-roboto)", "sans-serif"],
         arvo: ["var(--font-arvo)", "serif"],
         satisfy: ["var(--font-satisfy)", "cursive"],
+        acumin: ["var(--font-acumin)", "sans-serif"],
+        pinksunset: ["var(--font-pinksunset)", "cursive"],
       },
 
       keyframes: {

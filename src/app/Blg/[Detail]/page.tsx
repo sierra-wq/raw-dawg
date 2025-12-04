@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center ">
+         <div className=" flex-col content-center font-acumin justify-items-center ">
 
                 
           <div className="py-20 text-center bg-secondary flex-col justify-items-center w-full font-satisfy ">

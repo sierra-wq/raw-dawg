@@ -31,7 +31,7 @@ export default function Blg() {
 
 
   return (
-         <div className=" flex-col content-center justify-items-center font-arvo ">
+         <div className=" flex-col content-center justify-items-center font-acumin ">
 
                 <div className="bg-[url('https://images.pexels.com/photos/5789123/pexels-photo-5789123.jpeg')] w-full py-20 text-center flex-col justify-items-center h-[30rem]">
                     <span className="text-8xl font-extrabold block mt-10 text-accent "> The Raw Dawg Times </span>

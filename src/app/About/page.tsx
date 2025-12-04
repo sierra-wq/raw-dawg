@@ -7,7 +7,7 @@ import Wave from "@/assets/layered-waves-haikei.svg"
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center bg-primary">
+         <div className=" flex-col content-center font-acumin justify-items-center bg-primary">
 
                 
                  <figure className="w-full ">
@@ -30,7 +30,7 @@ export default function Post() {
                                             <div className="max-w-4xl mx-auto px-4 py-10">
                                                 <section className="heading mb-10">
                                                 
-                                                <h1 className="text-4xl text-center md:text-5xl font-arvo underline underline-offset-8 font-light leading-tight mb-2">
+                                                <h1 className="text-4xl text-center md:text-5xl font-acumin underline underline-offset-8 font-light leading-tight mb-2">
                                                     Our Story 
                                                 </h1>
 

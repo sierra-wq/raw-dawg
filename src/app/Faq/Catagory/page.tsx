@@ -34,7 +34,7 @@ import {
 export default function Faq() {
   
   return (
-         <div className="flex-col font-arvo py-40 bg-tertiary/70 content-center justify-items-center ">
+         <div className="flex-col font-acumin py-40 bg-tertiary/70 content-center justify-items-center ">
 
                 
 

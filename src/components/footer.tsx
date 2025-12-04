@@ -19,7 +19,7 @@ export default function Footer() {
           <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
         </figure>
             <div className=" w-full py-5 px-5 flex justify-between  ">
-                 <div className=" w-2/6 text-3xl font-arvo text-primary flex flex-col gap-[1.5rem] ">
+                 <div className=" w-2/6 text-3xl font-acumin text-primary flex flex-col gap-[1.5rem] ">
                       <a href="/" className="w-4/5 size-16 "> <Logo style={{width: '20rem', height: '5rem'}} className="fill-primary"/>  </a>
                       
                       <div className="text-sm " style={{lineHeight: '2rem'}}>
@@ -49,7 +49,7 @@ export default function Footer() {
 
                   
             
-                  <div className="w-3/6 text-3xl font-arvo content-center ">
+                  <div className="w-3/6 text-3xl font-acumin content-center ">
                      <p className=" my-5 text-primary"> Don't miss out </p>
                      <div>
                         <div className="flex w-4/5 items-center gap-2">

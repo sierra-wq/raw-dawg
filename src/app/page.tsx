@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Check, CheckCircle, CircleX,  MoveLeft, MoveRight, X,  } from "lucide-react";
+import { Check, CheckCircle, CircleX,  MoveLeft, MoveRight  } from "lucide-react";
 import Wave1 from "@/assets/layered-waves-haikei (1).svg"
 import Wave2 from "@/assets/layered-waves-haikei (2).svg"
 import Wave4 from "@/assets/layered-waves-haikei (4).svg"
@@ -18,11 +18,13 @@ import img4 from "@/assets/product4.png"
 
 import { StaticImageData } from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 
 export default function Home() {
 
+  const router = useRouter();
   const items : {
     img: StaticImageData;
     discription: string;
@@ -99,7 +101,7 @@ const handleProductClick = (side: "left"  | "right") => {
             <div className=" ms-10 mt-20 font-satisfy relative w-4/12 flex flex-col   items-center  ps-5">
                 
                 <p className="text-7xl mt-16 text-primary  text-center font-extrabold text-wrap italic ">FEED INSTINCT. NOT INDUSTRY</p>
-                <Button variant={'outline'} className="mt-20 h-auto text-2xl hover:bg-quaternary hover:text-primary text-tertiary border-quaternary border-2 rounded-[8rem] bg-primary"> start feeding instinct </Button>
+                <Button onClick={() => router.push('/Products')} variant={'outline'} className="mt-20 h-auto text-2xl hover:bg-quaternary hover:text-primary text-tertiary border-quaternary border-2 rounded-[8rem] bg-primary"> Shop Raw Blends </Button>
 
             </div>
 
@@ -125,41 +127,6 @@ const handleProductClick = (side: "left"  | "right") => {
           </div>
         </div>
 
-        
-        
-        <section className=" py-10 font-arvo flex-col justify-items-center justify-self-center">
-          
-            <p className="mb-10 text-5xl text-quaternary font-bold"> How It Works</p>
-            <div className="flex py-5  justify-between w-10/12 ">
-                 <div className="w-1/4 text-quaternary text-center">
-                      <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-quaternary text-primary">1</p>
-                     <p className="text-2xl font-light  my-4"> Tell Us About Your Dawg</p>
-                     <p > Answer a few quick questions about your dog’s age, weight, activity level, and quirks. In
-                        minutes, we’ll build a raw meal plan tailored to their biology. No guesswork, no generic charts.</p>
-                  </div>
-
-                  <div className="w-1/4 text-quaternary text-center">
-                     <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-quaternary text-primary">2</p>
-                     <p className="text-2xl font-light  my-4"> Get It Delivered</p>
-                     <p> We prep, portion, and ship meals frozen straight to your door. Every box is packed with
-                          eco-coolers to keep the cold chain unbroken, so it’s fresh, raw, and ready when you are. </p>
-                  </div>
-
-                  <div className="w-1/4 text-center text-quaternary">
-                     <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-quaternary text-primary">3</p>
-                     <p className="text-2xl font-light  my-4"> Watch Instinct Kick In</p>
-                     <p> The difference is visible. Shinier coats. Cleaner teeth. Stronger digestion. More energy. Happier
-                          tail wags. When you feed instinct, you’ll see biology at work.</p>
-                  </div> 
-            </div>
-            <Button  className="mt-10 hover:bg-quaternary hover:text-primary border-quaternary border-2 text-quaternary text-lg font-arvo font-bold h-auto"> Read More </Button>
-        </section>
-        
-         <figure className="w-full text-accent">
-          <Wave2 className="w-full -mb-40 fill-primary" />
-          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
-
         <section className="py-32 flex-col bg-quinary w-full font-arvo justify-items-center justify-self-center">
             <p className="mb-10 text-5xl text-primary font-bold"> Our Products</p>
             <div className="flex flex-wrap gap-[2rem] py-5 justify-around w-4/6  ">
@@ -177,9 +144,42 @@ const handleProductClick = (side: "left"  | "right") => {
                  }
                 
             </div>
-            <Button  className="mt-20  rounded-2xl hover:bg-primary hover:text-quaternary border-4 border-primary border-double bg-quaternary text-primary h-auto text-3xl font-bold"> Shop All Products  </Button>
+            <Button onClick={() => router.push('/Products')} className="mt-20  rounded-2xl hover:bg-primary hover:text-quaternary border-4 border-primary border-double bg-quaternary text-primary h-auto text-3xl font-bold"> Shop All Products  </Button>
         </section>
+      
+         <figure className="w-full text-accent">
+          <Wave2 className="w-full -mb-40 fill-primary" />
+          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
+        </figure>
 
+
+        <section className=" py-10 font-arvo flex-col justify-items-center justify-self-center">
+          
+            <p className="mb-10 text-5xl text-quaternary font-bold"> How It Works</p>
+            <div className="flex py-5  justify-between w-10/12 ">
+                 <div className="w-1/4 text-quaternary text-center">
+                      <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-quaternary text-primary">1</p>
+                     <p className="text-2xl font-light  my-4"> Tell Us About Your Dawg</p>
+                     <p > We build the perfect plan based on biology.</p>
+                  </div>
+
+                  <div className="w-1/4 text-quaternary text-center">
+                     <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-quaternary text-primary">2</p>
+                     <p className="text-2xl font-light  my-4"> Delivered Frozen. Always Raw. </p>
+                     <p> Cold chain protected. Never cooked. Never compromised. </p>
+                  </div>
+
+                  <div className="w-1/4 text-center text-quaternary">
+                     <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-quaternary text-primary">3</p>
+                     <p className="text-2xl font-light  my-4"> Watch Instinct Kick In</p>
+                     <p> Better digestion, stronger immunity, and a healthier, longer life.
+
+</p>
+                  </div> 
+            </div>
+            <Button  onClick={() => router.push('/About')} className="mt-10 hover:bg-quaternary hover:text-primary border-quaternary border-2 text-quaternary text-lg font-arvo font-bold h-auto"> Read More </Button>
+        </section>
+        
 
         <figure className="w-full ">
           <Wave4 className="w-full -mb-40 fill-quinary" />
@@ -242,7 +242,7 @@ const handleProductClick = (side: "left"  | "right") => {
 
 
         <section className="my-10  border-2 font-arvo text-quaternary border-tertiary  rounded-lg w-11/12 py-10 flex-col justify-items-center justify-self-center">
-            <p className="mb-10 text-5xl  font-bold "> Why Its Special</p>
+            <p className="mb-10 text-5xl  font-bold "> Raw Dawg vs The Industry </p>
             <p className="mb-10 text-1xl font-light text-lg italic"> Raw Dawg Vs Other Brands  </p>
             
             <table className="w-11/12 table-fixed">

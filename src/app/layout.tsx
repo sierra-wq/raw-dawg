@@ -1,11 +1,13 @@
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {barlow, satisfy, arvo, inter, robotoMono, playfair} from '@/lib/fonts'
+import {barlow, satisfy, arvo, inter,  robotoMono, playfair, acumin, pinksunset} from '@/lib/fonts'
 
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { CartProvider } from "@/store/provider";
+import { AuthProvider } from "@/store/authProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,13 +34,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} ${acumin.variable} ${pinksunset.variable} antialiased `}
       >
-        <Header/>
-        {children}
-        {
-          Footer()
-        }
+        <AuthProvider>
+          <CartProvider>
+          <Header/>
+          {children}
+          {
+            Footer()
+          }
+        </CartProvider>
+        </AuthProvider>
       </body>      
     </html>
   );

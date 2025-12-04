@@ -29,7 +29,7 @@ export default function Faq() {
     },
   ];
   return (
-         <div className=" flex-col bg-primary font-arvo content-center justify-items-center ">
+         <div className=" flex-col bg-primary font-acumin content-center justify-items-center ">
 
                  
 

@@ -15,7 +15,7 @@ import {
 export default function Article() {
   
   return (
-         <div className=" flex-col font-arvo bg-quaternary/50 pt-40 content-center justify-items-center ">
+         <div className=" flex-col font-acumin bg-quaternary/50 pt-40 content-center justify-items-center ">
 
               
 
@@ -42,7 +42,7 @@ export default function Article() {
                     </Breadcrumb>
                 </div>
 
-                <span className="text-7xl text-primary font-arvo flex w-7/12 items-center justify-start capitalize w-f font-light mt-10">
+                <span className="text-7xl text-primary font-acumin flex w-7/12 items-center justify-start capitalize w-f font-light mt-10">
                     Topic
                     </span>
 

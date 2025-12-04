@@ -308,7 +308,7 @@ useEffect(() => {
 
 
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center bg-primary pb-40">
+         <div className=" flex-col content-center font-acumin justify-items-center bg-primary pb-40">
 
                  <figure className="w-full ">
           <Wave4 className="w-full   fill-quaternary h-60" />
@@ -382,12 +382,12 @@ useEffect(() => {
                   </Button>
                 </div>
 
-                <div className={` flex-col content-center items-center font-arvo gap-8 h-[50vh] ${find ? 'flex' : 'hidden'}`}>
-                    <p className="font-arvo text-6xl animate-bounce text-quaternary"> Finding The Right Plan </p>
+                <div className={` flex-col content-center items-center font-acumin gap-8 h-[50vh] ${find ? 'flex' : 'hidden'}`}>
+                    <p className="font-acumin text-6xl animate-bounce text-quaternary"> Finding The Right Plan </p>
                     <Loader className="animate-spin size-20 text-quaternary"/>
                 </div>
 
-                <div className={` flex-col content-center items-center font-arvo gap-8 h-[50vh] ${result && !find ? 'flex' : 'hidden'}`}>
+                <div className={` flex-col content-center items-center font-acumin gap-8 h-[50vh] ${result && !find ? 'flex' : 'hidden'}`}>
                     <p>{result?.heroLine}</p>
 
                     <p className="text-lg mt-4">{result?.description}</p>

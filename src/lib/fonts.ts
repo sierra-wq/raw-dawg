@@ -79,3 +79,30 @@ export const satisfy = localFont({
   variable: "--font-satisfy",
   display: "swap",
 });
+
+/* ===========================
+   Pink Sunset
+=========================== */
+export const pinksunset = localFont({
+  src: [
+    { path: "../public/fonts/pink-sunset/PinkSunset-Regular.ttf", weight: "100 900", style: "normal" },
+    {path: "../public/fonts/pink-sunset/PinkSunset-Italic.ttf", weight: "100 900", style: "italic" },
+  ],
+  variable: "--font-pinksunset",
+  display: "swap",
+});
+
+
+/* ===========================
+   Pink Sunset
+=========================== */
+export const acumin = localFont({
+  src: [
+    { path: "../public/fonts/Acumin-variable/Acumin-Variable-Concept.ttf", weight: "100 900", style: "normal" },
+  ],
+  variable: "--font-acumin",
+  display: "swap",
+});
+
+
+

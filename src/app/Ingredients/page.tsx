@@ -64,7 +64,7 @@ export default function Ingredients() {
   ]
   
   return (
-         <div className=" flex-col content-center  bg-primary font-arvo justify-items-center ">
+         <div className=" flex-col content-center  bg-primary font-acumin justify-items-center ">
 
             <section className="py-20 w-full flex items-center bg-quaternary  justify-around text-primary">
                 <div className=" w-3/5 text-center flex-col justify-items-center ">
@@ -318,7 +318,7 @@ export default function Ingredients() {
               <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
             </figure>
 
-          <section className="bg-tertiary font-arvo text-primary  w-full flex flex-col items-center gap-[6rem]  py-16">
+          <section className="bg-tertiary font-acumin text-primary  w-full flex flex-col items-center gap-[6rem]  py-16">
                    <p className="text-5xl  px-4 text-primary text-center capitalize font-extrabold ">
                       No compromise , Fully Transparent.
                     </p>
@@ -508,7 +508,7 @@ health, not trends.
               <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
             </figure>
 
-          <section className="bg-quaternary/20 font-arvo text-quaternary  w-full flex flex-col items-center gap-[6rem]  py-16">
+          <section className="bg-quaternary/20 font-acumin text-quaternary  w-full flex flex-col items-center gap-[6rem]  py-16">
                    <p className="text-5xl  px-4  text-center capitalize font-extrabold ">
                         Trendy Ingredients to Watch Out For
                     </p>

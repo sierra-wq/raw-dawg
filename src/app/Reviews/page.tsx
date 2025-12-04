@@ -30,7 +30,7 @@ export default function Reviews() {
 
 
   return (
-         <div className=" flex-col font-arvo content-center justify-items-center ">
+         <div className=" flex-col font-acumin content-center justify-items-center ">
 
                 <div className="bg-[url('https://images.pexels.com/photos/29298410/pexels-photo-29298410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]  bg-cover pt-20 text-center flex-col h-[80vh] justify-items-center ">
                         <span className="text-3xl  flex gap-[1rem] font-extrabold "> 
