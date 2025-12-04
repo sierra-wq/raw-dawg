@@ -132,7 +132,7 @@ export default function Header() {
                       </p>
                       <p className="text-2xl font-bold text-quaternary "> {cart?.cost.totalAmount}$  </p>
                   </div>
-                  <Button className=" border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-2xl font-bold  rounded-[2rem] " type="submit">Checkout</Button>
+                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} className=" border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-2xl font-bold  rounded-[2rem] " type="submit">Checkout</Button>
                   
                 </SheetFooter>
                
