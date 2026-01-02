@@ -105,4 +105,16 @@ export const acumin = localFont({
 });
 
 
+/* ===========================
+   Pink Sunset
+=========================== */
+export const germania = localFont({
+  src: [
+    { path: "../public/fonts/Germania_One/GermaniaOne-Regular.ttf", weight: "100 900", style: "normal" },
+  ],
+  variable: "--font-germania",
+  display: "swap",
+});
+
+
 

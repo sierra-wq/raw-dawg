@@ -9,6 +9,13 @@ import Wave from "@/assets/layered-waves-haikei.svg"
 
 import img1 from "@/assets/product1.jpg"
 import img2 from "@/assets/product2.jpg"
+import img3 from "@/assets/product3.jpg"
+import img4 from "@/assets/product4.png"
+import img5 from "@/assets/ECOMM-RAWDAWG-BEEF-02.webp"
+import img6 from "@/assets/ECOMM-RAWDAWG-TURKEY&SALMON-02.webp"
+import img7 from "@/assets/ECOMM-RAWDAWG-TURKEY-02.webp"
+import img8 from "@/assets/RAW DAWG-PRODUCT -04.webp"
+import img9 from "@/assets/RAW DAWG-PRODUCT -28.webp"
 
 import Logo from "@/assets/RawDawg.svg";
 import { useRouter } from "next/navigation";
@@ -68,9 +75,8 @@ export default function Ingredients() {
 
             <section className="py-20 w-full flex items-center bg-quaternary  justify-around text-primary">
                 <div className=" w-3/5 text-center flex-col justify-items-center ">
-                    <p className="text-7xl mt-16  capitalize font-extrabold w-11/12 ">Human-grade, all-natural dog food made easy.</p>
-                    <p className="text-lg my-10 text-primary/90 font-satisfy font-thin w-3/5 "> Sundays for Dogs is what dog food always should have been: human-grade, vet-formulated, and air-dried to make dog parents lives easier.</p>
-                  
+                    <p className="text-7xl mt-16  capitalize font-satisfy w-11/12 ">Real, raw ingredients… <span className="block mt-3"> exactly how your dog likes it. </span></p>
+                    
                 </div>
             </section>
 
@@ -83,11 +89,9 @@ export default function Ingredients() {
 
              <section className="mt-40 flex w-11/12 mb-8 items-center justify-between">
                  
-                <div className="h-[32rem] bg-[url('https://images.pexels.com/photos/2255459/pexels-photo-2255459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]
-                         border-4 border-quaternary rounded-xl w-5/12 flex items-center justify-center object-cover">
-                    <p className="text-8xl text-primary mb-6 capitalize  font-extrabold ">
-                        Original
-                    </p>
+                <div className="h-[32rem] bg-center bg-contain bg-no-repeat bg-[url('..\/assets\/ECOMM-RAWDAWG-BEEF-02.webp')]
+                          rounded-xl w-5/12 flex items-center justify-center object-cover">
+                   
                 </div>
                 <div className=" py-10 px-5 rounded-lg  bg-quaternary text-primary/90 w-6/12 flex-col  ">
                     <p className="text-5xl mb-6  capitalize font-extrabold w-11/12 ">
@@ -132,22 +136,18 @@ export default function Ingredients() {
                       We're not reinventing dog food. We're correcting it.
                     </span>
                 </div>
-                <div className="h-[32rem] bg-[url('https://images.pexels.com/photos/4921185/pexels-photo-4921185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]
-                         border-4 border-quaternary rounded-xl w-5/12 flex items-center justify-center bg-cover">
-                    <p className="text-8xl text-primary mb-6 capitalize  font-extrabold ">
-                        Original
-                    </p>
+                                <div className="h-[32rem] bg-center bg-contain bg-no-repeat bg-[url('..\/assets\/ECOMM-RAWDAWG-TURKEY-02.webp')]
+                          rounded-xl w-5/12 flex items-center justify-center object-cover">
+                   
                 </div>
             </section>
 
 
             <section className="mt-40 flex w-11/12 mb-8 items-center justify-between">
                  
-                <div className="h-[32rem] bg-[url('https://images.pexels.com/photos/551627/pexels-photo-551627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]
-                         border-4 border-quaternary rounded-xl w-5/12 flex items-center justify-center bg-cover">
-                    <p className="text-8xl text-primary mb-6 capitalize  font-extrabold ">
-                        Original
-                    </p>
+                <div className="h-[32rem] bg-center bg-contain bg-no-repeat bg-[url('..\/assets\/ECOMM-RAWDAWG-TURKEY&SALMON-02.webp')]
+                          rounded-xl w-5/12 flex items-center justify-center object-cover">
+                   
                 </div>
                 <div className=" py-10 px-5 rounded-lg  bg-quaternary text-primary/90 w-6/12 flex-col  ">
                     <p className="text-4xl mb-6  capitalize font-extrabold w-11/12 ">
@@ -191,7 +191,7 @@ export default function Ingredients() {
           <section className=" p-8 my-20  flex gap-[3rem] w-full overflow-x-auto no-scrollbar  justify-self-start ">
                   <div className="bg-tertiary text-primary p-4 rounded-lg   w-2/5 shrink-0">
                         <picture className=" float-right -mt-16 me-2 "><source type="image/webp" 
-                          srcSet={img1.src}/>
+                          srcSet={img5.src}/>
                         <img alt="Progress Steps" className="h-[10rem] w-[10rem]"/>
                       </picture>
                         
@@ -201,10 +201,10 @@ export default function Ingredients() {
                             beef trachea, beef fur 
                         </span>
                     </div>
-
+      
                   <div className="bg-quaternary/20 text-tertiary p-4 rounded-lg   w-2/5 shrink-0">
                         <picture className=" float-right -mt-16 me-2 "><source type="image/webp" 
-                          srcSet={img2.src}/>
+                          srcSet={img6.src}/>
                         <img alt="Progress Steps" className="h-[10rem] w-[10rem]"/>
                       </picture>
                         
@@ -216,7 +216,7 @@ export default function Ingredients() {
 
                     <div className="bg-quaternary text-white p-4 rounded-lg   w-2/5 shrink-0">
                         <picture className=" float-right -mt-16 me-2 "><source type="image/webp" 
-                          srcSet="https://d3rekvgx2f3gtb.cloudfront.net/images/webp/redesign-v4/product-images/beef-angled-bowl.webp"/>
+                          srcSet={img7.src}/>
                         <img alt="Progress Steps" className="h-[10rem] w-[10rem]"/>
                       </picture>
                         

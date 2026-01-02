@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {barlow, satisfy, arvo, inter,  robotoMono, playfair, acumin, pinksunset} from '@/lib/fonts'
+import {barlow, satisfy, arvo, inter,  robotoMono, playfair, acumin, pinksunset, germania} from '@/lib/fonts'
 
 import "./globals.css";
 import Header from "@/components/header";
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} ${acumin.variable} ${pinksunset.variable} antialiased `}
+        className={`${geistSans.variable} ${germania.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} ${acumin.variable} ${pinksunset.variable} antialiased `}
       >
         <AuthProvider>
           <CartProvider>

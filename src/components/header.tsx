@@ -44,8 +44,8 @@ export default function Header() {
         </p>
 
         <div className="px-2 py-3 flex  justify-center items-center content-center relative ">
-            <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-sm bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 rounded-[2rem]"> <Activity/> Get Plan</Button>
-            <a href="/" className=" "> <Logo style={{width: '15rem', height: '4rem'}} className="fill-primary"/>  </a>
+            <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]"> <Activity/> Get Plan</Button>
+            <a href="/" className=" "> <Logo style={{width: '15rem', height: '4rem' }} />  </a>
 
             <div className="absolute right-2  flex  ">
                   

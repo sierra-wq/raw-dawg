@@ -69,6 +69,7 @@ const config: Config = {
         satisfy: ["var(--font-satisfy)", "cursive"],
         acumin: ["var(--font-acumin)", "sans-serif"],
         pinksunset: ["var(--font-pinksunset)", "cursive"],
+        germania : ["var(--font-germania)","sans-serif"]
       },
 
       keyframes: {
