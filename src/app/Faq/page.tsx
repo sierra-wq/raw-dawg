@@ -212,7 +212,7 @@ Real food covers the bases when it’s done right.`,
 
                 <div className="bg-tertiary h-[45vh] bg-cover bg-bottom w-full py-20 text-center flex-col content-center justify-items-center ">
                    
-                    <p className="text-9xl font-bold text-primary mt-28 capitalize font-germania w-7/12 ">Faq </p>
+                    <p className="text-9xl font-bold text-primary mt-28 capitalize font-germania w-7/12 ">FAQ's</p>
                    
                     <p className="text-4xl font-bold text-primary mt-10 capitalize font-satisfy w-7/12 ">All the help you ever need </p>
                    
@@ -225,7 +225,7 @@ Real food covers the bases when it’s done right.`,
 
 
                <section className=" pb-36  flex-col justify-items-center  font-arvo font-light w-3/5 gap-10 justify-self-center">
-            <p className="mb-10 text-7xl text-tertiary">  </p>
+            <p className="mb-10 text-7xl text-tertiary font-germania font-bold">FAQ's</p>
 
                 <Tabs defaultValue="Raw Feeding" onValueChange={(value)=> {
                             console.log("the value " , value);

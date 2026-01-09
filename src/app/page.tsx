@@ -22,6 +22,7 @@ import img7 from "@/assets/product-varaity.webp"
 import img8 from "@/assets/RAW DAWG-PRODUCT -04.webp"
 import img9 from "@/assets/RAW DAWG-PRODUCT -28.webp"
 import img10 from "@/assets/product-in-fridge.webp"
+import img11 from "@/assets/RAW DAWG-PRODUCT -56.webp"
 
 
 import { StaticImageData } from "next/image";
@@ -298,18 +299,62 @@ const handleProductClick = (side: "left"  | "right") => {
        
         <div  className="h-[90vh] bg-black/30 bg-blend-darken bg-[url(..\/assets\/RAW-14.webp)] bg-cover bg-center flex items-center justify-end ">
              
-            <div className=" ms-10 mt-20 font-germania relative w-4/12 flex flex-col   items-center  ps-5">
+            <div className=" ms-10 mt-20 font-germania relative w-4/12 flex items-start ps-5">
                 
-                <p className="text-7xl mt-16 text-primary  text-center font-extrabold text-wrap italic ">FEED INSTINCT. NOT INDUSTRY</p>
-                <Button onClick={() => router.push('/Products')} variant={'outline'} className="mt-20 h-auto text-2xl hover:bg-quaternary hover:text-primary text-tertiary border-quaternary border-2 rounded-[8rem] bg-primary"> Shop Raw Blends </Button>
+                <p className="text-7xl mt-16 text-primary text-left font-extrabold text-wrap italic ">
+                  Feed Instinct.
+                  <br />
+                  Not Industry.
+                </p>
+                <Button onClick={() => router.push('/Products')} variant={'outline'} className="mt-20 h-auto text-2xl hover:bg-quaternary hover:text-primary text-tertiary border-quaternary border-2 rounded-[8rem] bg-primary"> Shop All Blends </Button>
 
             </div>
 
         </div>
 
 
-      
-       
+        <section className="py-24 flex flex-col items-center font-arvo bg-quinary w-full">
+          <p className="mb-12 text-7xl font-germania text-primary font-bold">Meet the Raw Lineup</p>
+          <div className="flex flex-col lg:flex-row gap-12 w-10/12 items-center">
+            <div className="w-full lg:w-1/2">
+              <img alt="All Raw Dawg blends" className="w-full rounded-xl shadow-2xl" src={img8.src} />
+            </div>
+            <div className="w-full lg:w-1/2 flex flex-col gap-6">
+              {items.slice(0, 3).map((item, index) => (
+                <div
+                  key={item.name}
+                  className={`rounded-2xl border-2 p-6 transition-colors hover:bg-primary ${
+                    activeProduct === index
+                      ? "bg-primary/60 text-quinary border-tertiary"
+                      : "bg-primary/60 text-quinary border-primary/40"
+                  }`}
+                >
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <p className="text-3xl font-germania">{item.name}</p>
+                      <p className="mt-3 text-base italic font-light">{item.detail}</p>
+                    </div>
+                    <Button
+                      onClick={() => setActiveProduct(index)}
+                      className="self-start bg-tertiary text-primary hover:bg-primary hover:text-quaternary border-quaternary border-2"
+                    >
+                      Add to Cart
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <div className="flex justify-center bg-quinary pb-12">
+          <Button
+            onClick={() => router.push('/Products')}
+            variant={'outline'}
+            className="h-auto text-2xl bg-primary text-tertiary border-quaternary border-2 rounded-[8rem] hover:bg-quaternary hover:text-primary"
+          >
+            Shop Raw Blends
+          </Button>
+        </div>
 
         <div className="relative justify-self-center w-10/12 overflow-hidden my-4">
           <div className="flex justify-center whitespace-nowrap  gap-16">
@@ -324,168 +369,95 @@ const handleProductClick = (side: "left"  | "right") => {
           </div>
         </div>
 
-        <section className="py-32 flex-col bg-quinary w-full font-arvo justify-items-center justify-self-center">
-            <p className="mb-10 text-7xl text-primary font-germania font-bold"> Our Products</p>
-            <div className="flex flex-wrap gap-[2rem] py-5 justify-around w-4/6  ">
-                 
-                 {
-                  items.slice(0,3).map((item, index) => (
-                     <div className="px-10 flex flex-col items-center justify-between bg-primary group rounded-lg hover:bg-primary bg-primary/70 hover:text-tertiary text-quinary  w-3/12 text-clip text-center">
-                      <img alt="Progress Steps" className="w-64 justify-self-center " src={item.img.src}/>
-                     <p className="text-3xl font-bold  mb-3 hover:text-quaternary"> {item.price} <span className="ms-1 group-hover:text-quaternary/50 text-quinary/30 line-through decoration-double"> {item.canceledPrice} </span></p>
-                     <p className="text-xl text-center"> {item.discription}</p>
-                     <Button size={'default'} className="text-2xl my-5 group-hover:bg-tertiary border-quinary border-2  font-bold group-hover:text-primary bg-primary text-quinary"> Shop Now </Button>
-                  </div>
-                  ))
-                 }
-                
-            </div>
-            <Button onClick={() => router.push('/Products')} className="mt-20  rounded-2xl hover:bg-primary hover:text-quaternary border-4 border-primary border-double bg-quaternary text-primary h-auto text-4xl font-germania font-bold"> Shop All Products  </Button>
+      <section className="flex  justify-center p-4 gap-x-32 w-10/12 justify-self-center my-24">
+                   <div className="w-1/5">
+                            <div className="border-2 rounded-2xl border-secondary w-80 h-64 bg-cover bg-[url(..\/assets\/product-varaity.webp)]" />
+                            <p className="text-center mt-8 font-germania text-2xl"> we use whole-animal, ethically sourced ingredients </p>
+                   </div>
+
+                  <div className="w-1/5">
+                            <div className="border-2 rounded-2xl border-secondary w-80 h-64 bg-cover bg-center bg-[url(..\/assets\/product-dog.webp)]" />
+                            <p className="text-center mt-8 font-germania text-2xl"> Raw and frozen to preserve nutrients and protect instinct </p>
+                   </div>
+                   <div className="w-1/5">
+                            <div className="border-2 rounded-2xl border-secondary w-80 h-64 bg-cover bg-[url(..\/assets\/product-in-fridge.webp)]" />
+                            <p className="text-center mt-8 font-germania text-2xl"> And deliver it straight to your door. <br /> Ancestral nutrition made simple! </p>
+                   </div>
         </section>
-
-         <section className="py-32 flex-col w-full font-arvo justify-items-center justify-self-center">
-            <p className="mb-10 text-7xl font-germania text-tertiary font-bold"> Meet The Line Up</p>
-            <div className="flex flex-wrap gap-[2rem] text-tertiary  justify-around w-4/6 py-8 relative">
-                 
-                  <img alt="Progress Steps" className="w-100 my-8 justify-self-center  " src={img8.src}/>
-                  
-                   <div className="absolute -left-32 top-2/4 -translate-y-12 max-w-xs text-left">
-          <h3 className="font-bold font-satisfy text-2xl mb-2">
-            Turkey & Salmon
-          </h3>
-          <p className="text-sm text-quaternary">
-            Free-range turkey and wild salmon deliver clean protein,
-            essential organs, and natural omegas for full-body support.
-          </p>
-        </div>
-
-        {/* Center Callout */}
-        <div className="absolute  bottom-4 translate-x-28   text-center max-w-sm">
-          <h3 className="font-bold font-satisfy text-2xl mb-2">
-            GRASS-FED BEEF
-          </h3>
-          <p className="text-sm text-quaternary">
-            A dense, whole-prey blend of muscle meat, organs, bone,
-            trachea, and raw green tripe to support power,
-            endurance, and digestion.
-          </p>
-        </div>
-
-        {/* Right Callout */}
-        <div className="absolute -right-32 top-3/4 -translate-y-12  max-w-xs text-left">
-          <h3 className="font-bold font-satisfy text-2xl mb-2">
-            Free-Range Turkey
-          </h3>
-          <p className="text-sm text-quaternary">
-            A clean, lower-fat turkey blend made with muscle meat,
-            heart, gizzard, and liver for steady energy and easy digestion.
-          </p>
-        </div>
-                
-            </div>
-        </section>
-      
-   
-
-        <section className=" py-10 font-arvo bg-tertiary w-full flex-col justify-items-center justify-self-center">
-          
-            <div className="flex py-5 text-primary justify-between w-10/12 ">
-                 <div className="w-1/4  text-center">
-                      <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-primary text-quaternary">1</p>
-                     <p className="text-3xl font-light font-germania  my-4"> We use whole-animal, ethically sourced ingredients. </p>
-                  </div>
-
-                  <div className="w-1/4  text-center">
-                     <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-primary text-quaternary">2</p>
-                     <p className="text-3xl font-light font-germania  my-4">  Raw and frozen to preserve nutrients and protect instinct. </p>
-                  </div>
-
-                  <div className="w-1/4 text-center ">
-                     <p className="text-3xl justify-self-center  font-extrabold border-4 rounded-[10rem] flex items-center border-secondary/40 justify-center w-14 h-14 bg-primary text-quaternary">3</p>
-                     <p className="text-3xl font-light font-germania  my-4"> Watch Instinct <br /> Kick In</p>
-                  </div> 
-            </div>
-            <Button  onClick={() => router.push('/login')} className="mt-10 hover:bg-quaternary hover:text-primary border-quaternary border-2 text-quaternary text-lg font-arvo font-bold h-auto"> Join The Club </Button>
-            </section>
         
 
-       
-
-        <section className=" py-24 mt-20 flex-col font-arvo justify-items-center justify-self-center">
-            <p className="mb-10 text-7xl text-quaternary font-germania font-bold"> The Secret’s Out... </p>
-            <div className="flex py-5 justify-between items-center w-3/4 ">
-                 <div className="w-1/4 text-right">
-
-                     <p className="text-3xl font-satisfy text-quaternary "> Built for Biology </p>
-                     <p className=" mt-5 leading-[1.5rem] font-light font-roboto"> Ancestral, whole-prey formulas grounded in what dogs are made to eat (grounded in nature
-                     built for instinct)</p>
-                  </div>
-
-                  
-                  <div className="w-1/4   text-center">
-                     <p className="text-3xl font-satisfy text-quaternary "> No Fillers. No Bullsh*t.</p>
-                   <p className="mt-5 mb-10 leading-[1.5rem] font-light font-roboto"> No grains. No fillers. No seed oils. No synthetic vitamins. No artificial bullsh*t. No shortcuts. Just
-                  raw, real food for dogs.</p>
-                  
-                    <picture className=" flex justify-center"><source type="image/gif" srcSet={img4.src}/>
-                    <img alt="Progress Steps" className="h-80"/>
-                  </picture>
-
-                   <p className="mt-10 text-3xl font-satisfy text-quaternary "> Lab-backed</p>
-                   <p className="mt-5 leading-[1.5rem] font-light font-roboto"> 
-                    Balanced, pathogen-screened, and verified through lab analysis. No industry dogma. No
-                    vet-pharma agendas. Just primal proof.</p>
-                  
-                  </div> 
-
-                  <div className="w-1/4 text-left">
-
-                     <p className="text-3xl font-satisfy text-quaternary "> Whole Prey Formula </p>
-                     <p className=" mt-5 leading-[1.5rem] font-light font-roboto"> 
-                      Biologically appropriate nutrition from nose to tail — muscle, bone, organ, and connective
-                      tissue. Complete, balanced, and instinct-driven, just as nature intended.</p>
-                  </div>
+        <section className="py-24 mt-20 flex flex-col items-center bg-primary font-arvo text-quinary">
+          <p className="mb-16 text-6xl md:text-7xl font-germania font-bold text-quinary text-center">THE SECRET’S OUT… AND IT’S RAW DAWG.</p>
+          <div className="w-11/12 xl:w-10/12 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 items-center">
+            <div className="flex flex-col gap-10 text-right">
+              <div>
+                <p className="text-5xl font-germania">Whole-Animal Nutrition</p>
+                <p className="mt-3 leading-relaxed text-2xl">The ancestral diet built for the modern dog. Nose-to-tail exactly as nature intended.</p>
+              </div>
+              <div>
+                <p className="text-5xl font-germania">Restores Instinct & Immunity</p>
+                <p className="mt-3 leading-relaxed text-2xl">Raw food feeds the microbiome, supports digestion, fuels energy, and strengthens immunity. The way a species-appropriate diet should.</p>
+              </div>
             </div>
-          
+            <div className="relative flex justify-center">
+              <div className="relative w-[30rem] h-[30rem] md:w-[38rem] md:h-[38rem] rounded-full overflow-hidden border-8 ">
+                <img src={img11.src} alt="Raw Dawg bowl" className="w-full h-full object-cover" />
+                {/* <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-[140%] h-3 bg-quinary rotate-12 opacity-80"></div>
+                </div> */}
+              </div>
+            </div>
+            <div className="flex flex-col gap-10 text-left">
+              <div>
+                <p className="text-5xl font-germania">Canine-Grade Ingredients</p>
+                <p className="mt-3 leading-relaxed text-2xl">We feed dogs according to their biology. Rooted in evolution, not trendy human marketing or industry shortcut</p>
+              </div>
+              <div>
+                <p className="text-5xl font-germania">Lab Verified</p>
+                <p className="mt-3 leading-relaxed text-2xl">Every batch is pathogen-tested and verified for safety.without sacrificing the natural trace nutrients your dog's biology depends on.</p>
+              </div>
+            </div>
+          </div>
         </section>
 
           
 
-            <div className="w-full mb-32 py-16 bg-quinary flex flex-row items-center justify-center gap-16 ">/
-                <div className=" text-7xl gap-y-8 font-germania text-primary  px-4  justify-self-start leading-[5rem] flex flex-col ">
-                      <p >
-                          Some things are better raw
-                      </p>
-                      <p >
-                          including our ingridents
-                      </p>
-                </div>
-                <Dog className=" justify-self-end  size-60" />
+            <div className="w-full mb-32 py-16 bg-quinary flex flex-row items-center justify-center gap-16">
+              <div className="text-7xl gap-y-8 font-germania text-primary px-4 justify-self-start leading-[5rem] flex flex-col">
+                <p>Some things are better raw…</p>
+                <p>including our ingredients.</p>
+                <Button
+                  onClick={() => router.push('/Ingredients')}
+                  variant={'outline'}
+                  className="mt-6 w-fit h-auto text-2xl bg-primary text-quinary border-4 border-tertiary rounded-[8rem] hover:bg-tertiary hover:text-primary"
+                >
+                  LEARN MORE
+                </Button>
+              </div>
+              <Dog className=" justify-self-end  size-60" />
             </div>
 
           
 
 
         <section className="my-10  border-2 font-arvo text-quaternary border-tertiary  rounded-lg w-11/12 py-10 flex-col justify-items-center justify-self-center">
-            <p className="mb-10 text-7xl  font-bold font-germania "> Raw Dawg & The Industry </p>
-            <p className="mb-10 text-1xl font-light text-lg italic"> Raw Dawg Vs Other Brands  </p>
+            <p className="mb-10 text-7xl  font-bold font-germania ">Not All “Dog Food” Is Food </p>
+            <p className="mb-10 text-1xl font-light text-lg italic"> Here’s how Raw Dawg stacks up against the industry. </p>
             
             <table className="w-11/12 table-fixed">
                 <thead className="">
                     <tr >
                         <th></th>
                         <th>
-                              <p className="text-3xl font-light font-satisfy">Dry Food 
-                            </p>
+                          <p className="text-3xl font-germania font-bold">Dry Food</p>
                         </th>
                         {/* <th><img alt="Progress Steps" className="w-28 my-4 justify-self-center " src="https://magicspoon.com/cdn/shop/files/MS_G_VARIETY4_DCA_HERO.png?v=1738958405"/></th> */}
                         <th>
-                            <p className="text-3xl font-light font-satisfy">Gently Cooked 
-                            </p>
+                          <p className="text-3xl font-germania font-bold">Gently Cooked</p>
                         </th>
                        
                         
-                        <th className="bg-tertiary rounded-t-2xl text-primary font-bold font-satisfy text-3xl">
+                        <th className="bg-tertiary rounded-t-2xl text-primary font-bold font-germania text-3xl">
                           <p className="my-8">Raw Dawg</p>
                           </th>
                         
@@ -493,11 +465,10 @@ const handleProductClick = (side: "left"  | "right") => {
                 </thead>
                 <tbody className="text-center font-extralight italic">
                     <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center p-10 align-middle text-2xl font-bold font-germania ">Heat-Free
-Ingredients</td>
+                        <td className="text-center p-10 align-middle text-2xl font-bold font-germania ">Heat-Free</td>
                         <td className="p-10 align-middle ">< CircleX className="size-14 stroke-quaternary mx-auto" /></td>
                          <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-primary" /></td>
+                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
@@ -506,16 +477,16 @@ Ingredients</td>
                         <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">Species-Appropriate Ingredients</td>
                         <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
                          <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-primary" /></td>
+                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
 
                     <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">No Fillers, Synthetics</td>
+                        <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">No fillers or synthetics</td>
                         <td className="p-10 align-middle ">< CircleX className="size-14 stroke-quaternary mx-auto" /></td>
                          <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-primary" /></td>
+                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
@@ -523,7 +494,7 @@ Ingredients</td>
                         <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">100 % Animal Based</td>
                         <td className="p-10 align-middle ">< CircleX className="size-14 mx-auto" /></td>
                         <td className="p-10 align-middle "><CircleX className="size-14 stroke-quaternary mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-primary" /></td>
+                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
@@ -531,7 +502,7 @@ Ingredients</td>
                         <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">Built For Longevity</td>
                         <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
                          <td className="p-10 align-middle ">< CheckCircle className="size-14 stroke-quaternary  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-primary" /></td>
+                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
@@ -542,8 +513,30 @@ Ingredients</td>
           
         </section>
 
+        <section
+          className="w-full   bg-[url(..\/assets\/RAW DAWG-PRODUCT -04.webp)] bg-cover bg-center py-20 flex flex-col items-center justify-center gap-12 font-arvo text-quinary"
+        >
+          <div className="w-full lg:w-5/12 flex flex-col items-center text-center gap-6 px-6">
+            <center><p className="text-6xl md:text-7xl  mb-16 font-germania text-tertiary text-center leading-10" style={{ lineHeight: '1.5' }}>
+              The rebellion against Big Pet Food starts in your dog’s bowl.
+            </p>
+            <p className="text-[1.8rem] md:text-[1.8rem] mb-16 leading-relaxed text-quinary" style={{lineHeight:'1.5'}}>
+              Decades of ultra-processing, fillers, synthetic vitamins, and profit-driven shortcuts have turned dog food into a
+              billion-dollar lie, and our dogs are paying the price.
+            </p>
+            <Button
+              onClick={() => router.push('/About')}
+              variant={'outline'}
+              className="mt-2 h-auto text-2xl bg-primary rounded-[8rem] hover:bg-tertiary hover:text-primary px-14 py-6 min-w-[15rem]"
+              style={{ boxShadow: 'inset 8px 7px 6px rgba(0,0,0,0.15),inset -8px -7px 6px rgba(255,255,255,0.3)' }}
+            >
+              Learn More
+            </Button></center>
+          </div>
+        </section>
+
       
-        <section className=" w-full  flex-col my-24  mb-0 font-arvo justify-items-center justify-self-center">
+        {/* <section className=" w-full  flex-col my-24  mb-0 font-arvo justify-items-center justify-self-center">
             <p className="my-10 text-7xl text-quinary font-germania font-bold"> Recipes </p>
             <p className="w-3/5 text-center text-quinary/70 mb-10 text-xl font-satisfy font-light"> 
                  REAL, RAW INGREDIENTS… EXACTLY HOW YOUR DOG LIKES IT.
@@ -586,7 +579,7 @@ Ingredients</td>
             </div>
 
           
-        </section>
+        </section> */}
 
 
         <section className="mb-32 py-8 text-quinary font-arvo flex-col justify-items-center justify-self-center">
@@ -744,7 +737,7 @@ thrive!” <br /> <br />
 
        
         <section className=" pb-36  flex-col justify-items-center text-3xl font-arvo font-light w-3/5 justify-self-center">
-            <p className="mb-10 text-7xl font-bold font-germania first-letter:text-8xl text-tertiary"> FAQ </p>
+            <p className="mb-10 text-7xl font-bold font-germania first-letter:text-8xl text-tertiary"> FAQ's </p>
               <Tabs defaultValue="Raw Feeding" onValueChange={(value)=> {
                             console.log("the value " , value);
                             setMode(value as "Raw Feeding" | "Our Products");

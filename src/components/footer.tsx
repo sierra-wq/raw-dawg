@@ -20,13 +20,15 @@ export default function Footer() {
                       <a href="/" className="w-4/5 size-16 "> <Logo style={{width: '20rem', height: '5rem'}} className="fill-primary"/>  </a>
                       
                       <div className="text-lg " style={{lineHeight: '2rem'}}>
-                        <a className="me-3 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Terms"> Terms of Use </a>
-                        <a className="me-3 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Privacy"> Privacy Policy </a>
-                        <a className="me-3 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Ingredients"> Ingredients </a>
-                        <a className="me-3 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Shipping">  Shipping Policy  </a>
-                        <a className="me-3 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Refund"> Refund policy </a>
-                        
-                          
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/"> Home </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Products"> Shop </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Ingredients"> Ingredients </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/About"> Our Story </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Faq"> FAQ's </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Terms"> Terms of Use </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Privacy"> Privacy Policy </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Shipping"> Shipping Policy </a>
+                        <a className="me-2 hover:border-b-2 hover:text-2xl hover:border-primary" href="/Legal/Refund"> Refund Policy </a>
                       </div>
 
                       <div className=" flex ">
@@ -45,8 +47,8 @@ export default function Footer() {
                   
             
                   <div className="w-3/6 font-arvo content-center ">
-                     <p className=" my-2 text-4xl font-satisfy text-primary"> Don't miss out </p>
-                      <p className="text-lg font-thin  text-primary/60 first-letter:font-germania first-letter:text-3xl"> we would love for you to join our little Club , drop your <span className="font-germania text-3xl">Email *</span></p>
+                     <p className=" my-2 text-4xl font-germania font-bold text-primary"> JOIN THE PACK </p>
+                      <p className="text-lg font-thin  text-primary/60 first-letter:font-germania first-letter:text-3xl"> To get started, drop your <span className="font-germania text-3xl">Email *</span></p>
                      <div className="my-4">
                         <div className="flex w-4/5 items-center gap-2">
                         <Input className="py-5 active:outline-none border-quinary bg-primary text-primary font-extrabold text-2xl" type="email" placeholder="Email" />

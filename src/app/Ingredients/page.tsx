@@ -6,6 +6,7 @@ import Wave2 from "@/assets/layered-waves-haikei (2).svg"
 import Wave3 from "@/assets/layered-waves-haikei (3).svg"
 import Wave4 from "@/assets/layered-waves-haikei (4).svg"
 import Wave from "@/assets/layered-waves-haikei.svg"
+import IconLogo from "@/assets/Raw Dawg_iconlogo_4.svg"
 
 import img1 from "@/assets/product1.jpg"
 import img2 from "@/assets/product2.jpg"
@@ -21,73 +22,67 @@ import Logo from "@/assets/RawDawg.svg";
 import { useRouter } from "next/navigation";
 
 export default function Ingredients() {
-  const items = [
-    {
-      title: 'Item 1',
-      content: 'Content 1',
-    },
-    {
-      title: 'Item 2',
-      content: 'Content 2',
-    },
-    {
-      title: 'Item 3',
-      content: 'Content 3',
-    },
-     {
-      title: 'Item 3',
-      content: 'Content 3',
-    },
-     {
-      title: 'Item 3',
-      content: 'Content 3',
-    },
-  ];
-
-  const whatYouget = [
-    {
-      title : 'High-Quality Meats',
-      detail : `We start with premium cuts of beef, turkey, chicken, and salmon — responsibly sourced from
-                                  farms that raise animals right. No scraps, no waste-bin leftovers. Just clean, nutrient-dense
-                                  proteins that fuel strength, lean muscle, and vitality.`
-    },
-    {
-      title : 'Sourcing with Integrity',
-      detail : `every part of our process is intentional and transparent. We use regeneratively raised proteins 
-                                  from farms that actively heal the land, and we only work with animals raised with respect—never 
-                                  factory-farmed. Every cut is chosen for its nutrient density and alignment with true canine biology, 
-                                  and every ingredient is clearly listed. Nothing is hidden, nothing diluted, and absolutely no fillers 
-                                  or shortcuts ever make it into the bowl.`
-    },
-    {
-      title : "Benefits You'll See",
-      detail : `A raw, biologically aligned diet leads to better digestion with smaller, 
-                                 firmer stools, and supports stronger immunity through a balanced gut biome.
-                                The natural inclusion of cartilage and connective tissue promotes joint health and mobility,
-                                 while nutrient-dense whole foods fuel shiny coats, lean muscle, and boundless energy. 
-                                 Over time, this approach nurtures longer vitality and resilience—the way nature intended.`
-    },
-
-  ]
-  
   return (
          <div className=" flex-col content-center  bg-primary font-acumin justify-items-center ">
 
-            <section className="py-20 w-full flex items-center bg-quaternary  justify-around text-primary">
-                <div className=" w-3/5 text-center flex-col justify-items-center ">
-                    <p className="text-7xl mt-16  capitalize font-satisfy w-11/12 ">Real, raw ingredients… <span className="block mt-3"> exactly how your dog likes it. </span></p>
-                    
-                </div>
+            <section className="py-24 w-full flex flex-col items-center bg-[#82866D] text-[#0b0b0b] text-center px-24 mt-10">
+                <p className=" md:text-7xl font-germania uppercase mb-6">Ingredients chosen by biology,<br /> not industry trends.</p>
+                <p className="text-2xl max-w-5xl leading-relaxed">
+                  Dogs didn’t evolve eating formulas designed for shelf life.<br/> They evolved eating animals.
+                </p>
+
+                <p className="text-2xl max-w-5xl leading-relaxed mt-12">
+                  Raw Dawg’s recipes are built to reflect that reality.
+                </p>
             </section>
 
-            <figure className="w-full ">
-          <Wave2 className="w-full fill-quaternary" />
+            <div className="w-full flex justify-center bg-[#82866D]">
+              <div
+                className="h-40 w-80 rounded-t-full bg-[#4e5042] -mb-16 -translate-y-[62.5px] flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <IconLogo className="h-96 w-auto translate-y-[120px] translate-x-[-50px] text-[#0b0b0b]" />
+              </div>
+            </div>
+
+            {/* <figure className="w-full ">
+          <Wave2 className="w-full fill-[#60654b]" />
           <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
+        </figure> */}
 
 
 
-             <section className="mt-40 flex w-11/12 mb-8 items-center justify-between">
+            <section className="w-full mx-auto bg-[#4f533d] text-white py-56 px-8 flex flex-col items-center gap-8">
+              <p className="text-5xl md:text-7xl font-germania text-center text-[#0b0b0b]">The Whole Prey Formula</p>
+              <p className="text-lg md:text-2xl text-center max-w-4xl text-white/80">
+                RAW DAWG follows a whole-prey approach, meaning every recipe includes the full spectrum of what dogs instinctively consume in nature.
+              </p>
+              <p className="text-5xl md:text-7xl font-germania tracking-widest text-center mb-10">75 / 10 / 10 / 5</p>
+              <div className="grid grid-cols-1 md:grid-cols-2  gap-12  w-full max-w-5xl text-white/85">
+                <div className="-mx-20">
+                  <p className="text-4xl font-semibold mb-2 text-white">75% Muscle Meat</p>
+                  <p className="text-3xl leading-relaxed">Whole-animal muscle and skin deliver <br/> protein, fat, and amino acids dogs are <br/> biologically built to run on.</p>
+                </div>
+                <div className="ml-20">
+                  <p className="text-4xl font-semibold mb-2 text-white">10% Raw Meaty Bone</p>
+                  <p className="text-3xl leading-relaxed">Structure and minerals and <br/> bioavailable calcium and phosphorus <br/> no powders, no lab-made shortcuts.</p>
+                </div>
+                <div className="-mx-20">
+                  <p className="text-4xl font-semibold mb-2 text-white">10% Organs</p>
+                  <p className="text-3xl leading-relaxed">Nature’s multivitamin. Liver <br/> and secreting organs supply fat-soluble <br/> vitamins and trace minerals.</p>
+                </div>
+                <div className="ml-20">
+                  <p className="text-4xl font-semibold mb-2 text-white">5% Instinct Boost</p>
+                  <p className="text-3xl leading-relaxed">Green tripe, connective tissue, and <br/> fur support digestion, joints, and gut <br/> health.</p>
+                </div>
+              </div>
+              <p className="text-xl md:text-6xl font-germania text-center text-[#0b0b0b] mt-16">Nothing added. Nothing missing.</p>
+              <p className="text-base md:text-3xl text-center max-w-3xl text-[#0b0b0b] mt-4">
+                Every nutrient your dog needs is already present <br/> because it comes from the animal, not a lab.
+              </p>
+            </section>
+
+            <section className="mt-40 flex w-11/12 mb-8 items-center justify-between">
                  
                 <div className="h-[32rem] bg-center bg-contain bg-no-repeat bg-[url('..\/assets\/ECOMM-RAWDAWG-BEEF-02.webp')]
                           rounded-xl w-5/12 flex items-center justify-center object-cover">
@@ -106,42 +101,6 @@ export default function Ingredients() {
                        </span>
                 </div>
             </section>
-
-            <section className="mt-40 flex w-11/12 mb-8 items-center justify-between">
-                 
-                <div className=" py-10 px-5 rounded-lg  bg-quaternary text-primary/90 w-6/12 flex-col  ">
-                    <p className="text-4xl mb-6  capitalize font-extrabold w-11/12 ">
-                        Whole Prey Formula
-                    </p>
-                    <span className="text-sm  font-light mt-4"> 
-
-                      At Raw Dawg we offer raw, instinct-driven meals built on real, whole-animal nutrition. Every
-                      recipe follows our proprietary Whole Prey Formula (75/10/10/5)
-
-                        <span className="flex items-center w-2/4"> <Dot className="size-10"/> 75 percent meat </span>
-                        <span className="flex items-center w-2/4"> <Dot className="size-10"/>  10 percent vegetables</span> 
-                        <span className="flex items-center w-2/4"> <Dot className="size-10"/>  10 percent fruits</span>
-                        <span className="flex items-center w-2/4"> <Dot className="size-10"/>  5 percent nuts</span>
-
-                      This framework delivers the full spectrum of nutrients dogs need - from muscle to marrow -
-                      without preservatives, fillers, or synthetic Band-Aids.
-                      <br/>
-                      <br/>
-                      Inspired by the ancestral diet of the gray wolf - before agriculture, before kibble, before
-                      compromise. Our recipes are designed for modern dogs who still share 99% of their DNA with
-                      their wild relatives. 
-                      <br/>
-                      <br/>
-                      Most are fed food their bodies were never built to digest.
-                      We're not reinventing dog food. We're correcting it.
-                    </span>
-                </div>
-                                <div className="h-[32rem] bg-center bg-contain bg-no-repeat bg-[url('..\/assets\/ECOMM-RAWDAWG-TURKEY-02.webp')]
-                          rounded-xl w-5/12 flex items-center justify-center object-cover">
-                   
-                </div>
-            </section>
-
 
             <section className="mt-40 flex w-11/12 mb-8 items-center justify-between">
                  
@@ -233,84 +192,21 @@ export default function Ingredients() {
 
           </section>
 
-          <section className=" p-8 flex  w-full justify-center  ">   
-              <a href="/About" className=" w-1/6 p-3 text-3xl h-auto text-primary text-center bg-tertiary hover:bg-quaternary hover:text-white hover:border-double hover:border-2 hover:border-primary rounded-[4rem]"> Learn More </a>
-          </section>
-
-          <section className=" p-8 my-20 flex-col  ">
-                    
-                    <div className=" flex justify-between">
-
-                      <div className="bg-quaternary text-primary p-4 rounded-lg  sm:w-4/6 xl:w-3/5 shrink-0 ">
-                          <div className=" flex justify-between">
-                              <Button className="p-3 w-1/6 hover:bg-primary hover:text-quaternary
-                                 bg-qatext-quaternary text-primary border-2
-                                 border-primary  text-lg hover:font-bold h-auto font-light"> 
-                                    Minirals 
-                                 </Button>
-                              <Button className="p-3 w-1/6 hover:bg-primary hover:text-quaternary
-                                 bg-qatext-quaternary text-primary border-2
-                                 border-primary  text-lg hover:font-bold h-auto font-light"> Supplements </Button>
-                              <Button className="p-3 w-1/6 hover:bg-primary hover:text-quaternary
-                                 bg-qatext-quaternary text-primary border-2
-                                 border-primary  text-lg hover:font-bold h-auto font-light"> Vitamins </Button>
-                              
-                            
-                          </div>
-                          <span className="text-xl w-11/12 block font-extralight mt-6"> 
-                              Here's what makes our recipes special 
-                              makes our recipes special Here's what makes our hyhy recipes special 
-                              makes our recipes special Here's what makes our recipes special 
-                              makes our recipes special Here's what makes our recipes special 
-                          </span>
-
-                      </div>
-
-                      <div className="border-2 border-tertiary  p-4 rounded-lg  w-1/5 shrink-0 text-tertiary">
-                          <picture className=" float-right -mt-16 me-2 "><source type="image/gif" 
-                            srcSet="https://sundaysfordogs.com/assets/v4/dr-tory-sm-03215bf3e071aef635b0d561318285648128c8e319bc465201d0bf5612a4197c.svg"/>
-                          <img alt="Progress Steps" className="h-[5rem] w-[5rem]"/>
-                        </picture>
-                          
-                          <span className="text-sm  font-light mt-4"> 
-                              <strong className="font-bold text-2xl block   ">Dr. Lisa </strong>
-                              Co-Founder & Practicing Veterinarian
-                          </span>
-                          <p className="text-sm mt-3  w-11/12 ">We source all of our ingredients in the USA, except for beef bone and fish oil, which come from New Zealand. We prefer local sources, but we’re willing to go the distance.</p>
-                          
-                      </div>
-
-                    </div>
-
-                    <div className=" p-8 my-20 flex gap-[3rem] w-full overflow-x-auto no-scrollbar  justify-self-start ">
-                    
-                    {
-                      items.map((item, index) => (
-                         <div key={index} className="border-4 border-tertiary group rounded-lg h-[35rem]  w-2/6 shrink-0 flex-col content-end
-                        bg-[url(https://images.pexels.com/photos/4946940/pexels-photo-4946940.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-cover bg-bg-center
-                      ">
-                          <div className="bg-quaternary/90 p-8 py-6 text-primary ">
-                            <p className="text-3xl mb-3  capitalize font-extrabold w-11/12 ">Food made easy.</p>
-                            <span className="text-lg  font-light mt-4 hidden group-hover:block"> 
-                                <strong className="font-bold">Here's what makes our recipes special </strong>
-                                makes our recipes special Here's what makes our hyhy recipes special 
-                                makes our recipes special Here's what makes our recipes special 
-                                makes our recipes special Here's what makes our recipes special ...
-                            </span>
-                          </div>
-                        </div>
-
-                      ))
-                    }
-
-                     
-                    
-                     
-
+          <section className="mt-32 w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-quaternary text-primary rounded-2xl p-8">
+              <p className="text-3xl font-germania mb-3">Minerals — From Bone, Not Powder</p>
+              <p className="text-lg leading-relaxed">Calcium, phosphorus, magnesium, and trace minerals come from raw meaty bones and connective tissue — the same way dogs have always consumed them.</p>
+              <p className="text-lg leading-relaxed mt-3">No bone meal. No calcium carbonate. No synthetic balancing.</p>
             </div>
-
-             
-                      
+            <div className="bg-quaternary text-primary rounded-2xl p-8">
+              <p className="text-3xl font-germania mb-3">Vitamins — From Organs, Not Pills</p>
+              <p className="text-lg leading-relaxed">Liver and secreting organs supply fat-soluble vitamins A, D, E, and K in their natural, bioavailable form.</p>
+              <p className="text-lg leading-relaxed mt-3">These nutrients can’t be replicated synthetically without losing their biological context.</p>
+            </div>
+            <div className="bg-quaternary text-primary rounded-2xl p-8">
+              <p className="text-3xl font-germania mb-3">Functional Nutrition — From Instinct, Not Supplements</p>
+              <p className="text-lg leading-relaxed">Green tripe, cartilage, trachea, fur, and connective tissue provide enzymes, collagen, probiotics, and joint-supporting compounds — without isolates or additives.</p>
+            </div>
           </section>
 
            <figure className="w-full ">
