@@ -25,84 +25,10 @@ import img10 from "@/assets/dog-eating.webp"
 import img11 from "@/assets/RAW DAWG-PRODUCT -56.webp"
 
 
-import { StaticImageData } from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs"
-
-export const items : {
-    img: StaticImageData;
-    discription: string;
-    detail : string;
-    price: string;
-    content: string[];
-    id : string;
-    analysis_results: {
-      [key: string]: string;
-    };
-    canceledPrice: string;
-    name : string;
-    tags : string[];
-}[]  = [
-    {
-      img: img1,
-      id: 'grass-fed-beef-instinct-blend',
-      discription : 'A dense, whole-prey blend of muscle meat, organs, bone, trachea, and raw green tripe to support power, endurance, and real digestive health',
-      detail : "A whole-prey beef recipe built for strength, stamina, and durability. Lean beef and heart support muscle and sustained energy, while liver, kidney, and spleen deliver essential nutrients for immune and metabolic health. Ground bone, green tripe, and trachea provide natural minerals, digestive support, and joint resilience.",
-      price : '50$',
-      content : ['Beef (ground beef, beef heart, beef liver, beef kidney, beef spleen)', 'ground beef bone', 'green tripe', 'beef trachea'],
-       analysis_results: {
-        'Calories (min)': ' 109 kcal per 100g',
-        'Crude Protein (min)': '17.40%',
-        'Crude Fat (min)': '5.65%',
-        'Crude Fiber (max)': '0.22%',
-        'Moisture (max)': '74.20%',
-        'Ash (max)': '2.61%',
-      },
-      canceledPrice : '70$',
-      name : 'GRASS-FED BEEF',
-      tags : ["Built for strength", "Single-Protein" , "Strength-Building" ,"Mineral-Dense"]
-    },
-    {
-      img: img2,
-      id: 'free-range-turkey-ancestral-blend',
-      discription : 'A clean, lower-fat turkey blend made with muscle meat, heart, gizzard and liver for steady energy and easy digestion.',
-      detail : "A clean, single-protein turkey recipe for sensitive dogs and simplified feeding. Lean turkey provides highly digestible protein, while heart, liver, and gizzard supply essential nutrients for energy, immunity, and digestion. Turkey necks deliver natural calcium and phosphorus for strong bones and teeth.",
-      price : '50$',
-      content : ['Whole turkey', 'turkey heart', 'turkey neck', 'turkey gizzard', 'turkey liver'],
-      analysis_results: {
-        'Calories (min)': ' 109 kcal per 100g',
-        'Crude Protein (min)': '17.40%',
-        'Crude Fat (min)': '5.65%',
-        'Crude Fiber (max)': '0.22%',
-        'Moisture (max)': '74.20%',
-        'Ash (max)': '2.61%',
-      },
-      canceledPrice : '70$',
-      name : ' Free-Range Turkey ​',
-      tags : ["Lean & Clean ","Single-Protein" , "Lean",  "Sensitive-Dog Friendly"]
-    },
-
-    {
-      img: img3,
-      id: 'turkey-salmon-wild-blend',
-      discription : 'Free-range turkey and wild salmon deliver clean protien, essential organs, and natural omegas for full-body support.',
-       detail : "A dual-protein recipe designed to support skin, joints, and balanced energy. Lean turkey fuels muscle and daily vitality, while wild-caught salmon delivers omega-3s for inflammation control and coat health. Bone, organs, and cartilage supply natural minerals and connective tissue support.",
-      price : '50$',
-      content : ['Wild salmon (with skin)', 'whole turkey', 'turkey heart', 'turkey gizzard', 'ground turkey neck', 'turkey liver', 'salmon head'],
-      analysis_results: {
-        'Calories (min)': ' 123 kcal per 100g',
-        'Crude Protein (min)': '17.00%',
-        'Crude Fat (min)': '6.68%',
-        'Crude Fiber (max)': '0.20%',
-        'Moisture (max)': '73.90%',
-        'Ash (max)': '2.33%',
-      },
-      canceledPrice : '70$',
-      name : ' TURKEY & SALMON ​',
-      tags : ["Complete balance", "Dual-Protein" , "Omega-Rich" , "Anti-Inflammatory"]
-    },
-  ];
+import { items } from "@/constants/constants";
 
 export default function Home() {
 

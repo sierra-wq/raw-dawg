@@ -16,7 +16,7 @@ import { client } from "@/lib/shopifyClient";
 import { useCart } from "@/store/provider";
 import ReviewDialog from "@/components/ReviewDialogue";
 import { useAuth } from "@/store/authProvider";
-import { items } from "@/app/page";
+import { items } from "@/constants/constants";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
  type Review = {
@@ -362,7 +362,7 @@ const handleProductClick = (side: "left"  | "right") => {
                               <input type='radio' checked={selectedOption !== 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
                               <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania"> Every Week Subscription </p>
                           </div>
-                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${(product?.variants?.edges[portion]?.node?.price.amount ?? 0) - ((product?.variants?.edges[portion]?.node?.price.amount ?? 0) * (product?.sellingPlan ? product?.sellingPlan.priceAdjustment/100 : 1 )) } </p>
+                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) - (Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) * (product?.sellingPlan ? Number(product?.sellingPlan.priceAdjustment/100) : 1 )) } </p>
                       </div>
 
                       <div tabIndex={0}  className="flex w-full justify-between bg-primary mt-5   rounded-[4rem]">

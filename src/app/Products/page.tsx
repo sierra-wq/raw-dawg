@@ -15,6 +15,24 @@ export type Product = {
     featuredImage: string;
     maxPrice : number;
     minPrice : number;
+    images : {
+      edges: {
+        node: {
+          url: string;
+        };
+      }[];
+    };
+    variants : {
+      edges: {
+        node: {
+          id: string;
+          title: string;
+          price: {
+            amount : string;
+          };
+        };
+      }[];
+    };
     sellingPlan ?: {
       id: string;
       name: string;
