@@ -67,22 +67,22 @@ export default function LogIn() {
     
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-      <Card className="text-primary bg-quaternary">
+      <Card className="text-primary text-2xl bg-quaternary">
         <CardHeader>
           <CardTitle>LogIn</CardTitle>
-          <CardDescription className="text-surface font-bold">
+          <CardDescription className="text-surface text-xl">
             Welcome back, Dawg.
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="grid gap-6">
+        <CardContent className="grid gap-6 ">
           <FieldSet>
             <FieldGroup>
               {/* USERNAME */}
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <FieldLabel className="text-xl" htmlFor="email">Email</FieldLabel>
 
-                <FieldDescription className="text-surface/70">
+                <FieldDescription className="text-surface/70 text-lg">
                   Enter your email
                 </FieldDescription>
 
@@ -90,7 +90,7 @@ export default function LogIn() {
                   id="email"
                   type="text"
                   placeholder="Max Leiter"
-                  className="focus:border-2 focus-within:border-primary"
+                  className="focus:border-2 text-lg focus-within:border-primary"
                   {...register("email")}
                 />
 
@@ -99,9 +99,9 @@ export default function LogIn() {
 
               {/* PASSWORD */}
               <Field>
-                <FieldLabel htmlFor="password">Password</FieldLabel>
+                <FieldLabel className="text-xl" htmlFor="password">Password</FieldLabel>
 
-                <FieldDescription className="text-surface/70">
+                <FieldDescription className="text-surface/70 text-lg">
                   Must be at least 8 characters long.
                 </FieldDescription>
 
@@ -109,7 +109,7 @@ export default function LogIn() {
                   id="password"
                   type="password"
                   placeholder="••••••••"
-                  className="focus:border-2 focus-within:border-primary"
+                  className="focus:border-2 text-lg focus-within:border-primary"
                   {...register("password")}
                 />
 
@@ -123,14 +123,14 @@ export default function LogIn() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="bg-primary text-secondary font-bold w-full"
+            className="bg-primary text-secondary text-xl font-bold w-full"
           >
             {isSubmitting ? "Logging In..." : "LogIn"}
           </Button>
 
           <Button
             type="button"
-            className="bg-primary/40 text-primary font-bold w-full"
+            className="bg-primary/40 text-xl text-primary font-bold w-full"
             onClick={() => (window.location.href = "/")}
           >
             Cancel

@@ -6,13 +6,10 @@ import Wave from "@/assets/layered-waves-haikei.svg"
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-acumin justify-items-center bg-primary">
+         <div className=" flex-col text-xl content-center font-acumin justify-items-center h-[80vh] bg-primary">
 
                 
-           <figure className="w-full ">
-          <Wave4 className="w-full   fill-quaternary h-60" />
-          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
+       
                 
                
 
@@ -20,7 +17,7 @@ export default function Post() {
 
 
                 <div className="w-full flex flex-col items-center justify-center ">
-                    <div className="w-8/12 py-10 flex flex-wrap justify-around gap-[1rem]"
+                    <div className="w-8/12 mt-24 py-10 flex flex-wrap justify-around gap-[1rem]"
                         
                     >
 
@@ -29,7 +26,7 @@ export default function Post() {
                                             <div className="max-w-4xl mx-auto px-4 py-10">
                                                 <section className="heading mb-10">
                                                 
-                                                <h1 className="text-4xl text-center md:text-5xl font-acumin underline underline-offset-8 font-light leading-tight mb-2">
+                                                <h1 className="text-6xl text-center font-germania underline underline-offset-8 font-light leading-tight mb-2">
                                                     Refund  
                                                 </h1>
 
@@ -38,8 +35,8 @@ export default function Post() {
                                               
                                                 <div className=" max-w-none dark:prose-invert">
 
-                                                    <section className="max-w-4xl mx-auto px-6 py-12">
-  <h1 className="text-3xl font-bold mb-6 text-brand-primary">Refund Policy</h1>
+                                                    <section className="max-w-4xl font-arvo mx-auto px-6 py-12">
+  <h1 className="text-3xl font-germania underline mb-6 ">Refund Policy</h1>
   <p className="mb-4">
     If we mess up -- wrong product, busted seal, damaged shipment -- we’ll make it right. Just do the following:
   </p>
@@ -51,7 +48,7 @@ export default function Post() {
   <p className="mb-4">
     If it’s on us, we’ll fix it. Replacement or store credit, your choice.
   </p>
-  <h2 className="text-2xl font-semibold mt-8 mb-4">Refunds & Returns</h2>
+  <h2 className="text-3xl font-germania underline mt-8 mb-4">Refunds & Returns</h2>
   <p className="mb-4">
     Because we sell perishable, raw food, returns and refunds aren’t an option once your order ships.
     We’ll only replace or credit verified Raw Dawg™ errors.

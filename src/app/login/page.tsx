@@ -57,11 +57,8 @@ export default function Login() {
   return (
          <div className=" flex-col pb-20 content-center font-acumin justify-items-center bg-primary ">
 
-                     <figure className="w-full ">
-          <Wave4 className="w-full   fill-quaternary h-60" />
-          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
-                <div className="w-full h-screen flex flex-col items-center justify-center ">
+              
+                <div className="w-full h-screen flex font-germania flex-col items-center justify-center ">
                     <div className="flex w-full max-w-sm  flex-col gap-6">
                         
                         <Tabs defaultValue="login" onValueChange={(value)=> {
@@ -69,9 +66,9 @@ export default function Login() {
                             setMode(value as "login" | "signup");
                             setFormReset(true);
                         }}>
-                            <TabsList className="bg-quaternary " >
-                            <TabsTrigger value="login" className="data-[state=active]:bg-primary data-[state=inactive]:text-primary data-[state=active]:font-bold ">LogIn</TabsTrigger>
-                            <TabsTrigger value="signup" className=" data-[state=active]:bg-primary data-[state=inactive]:text-primary data-[state=active]:font-bold  " >Signup</TabsTrigger>
+                            <TabsList className="bg-quaternary  " >
+                            <TabsTrigger value="login" className=" text-lg data-[state=active]:bg-primary data-[state=inactive]:text-primary data-[state=active]:font-bold ">LogIn</TabsTrigger>
+                            <TabsTrigger value="signup" className=" text-lg data-[state=active]:bg-primary data-[state=inactive]:text-primary data-[state=active]:font-bold  " >Signup</TabsTrigger>
                             </TabsList>
                             <TabsContent value="signup">
                                 <SignUp />

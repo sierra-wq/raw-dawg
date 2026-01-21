@@ -208,9 +208,10 @@ Real food covers the bases when it’s done right.`,
   return (
          <div className=" flex-col bg-primary font-acumin content-center  ">
 
+                <div className="text-3xl bg-quaternary w-full p-2 h-24 my-5 text-center justify-between " />
                  
 
-                <div className="bg-tertiary h-[45vh] bg-cover bg-bottom w-full py-20 text-center flex-col content-center justify-items-center ">
+                {/* <div className="bg-tertiary h-[45vh] bg-cover bg-bottom w-full py-20 text-center flex-col content-center justify-items-center ">
                    
                     <p className="text-9xl font-bold text-primary mt-28 capitalize font-germania w-7/12 ">FAQ's</p>
                    
@@ -221,10 +222,10 @@ Real food covers the bases when it’s done right.`,
                    <figure className="w-full ">
           <Wave2 className="w-full fill-tertiary" />
           <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
+        </figure> */}
 
 
-               <section className=" pb-36  flex-col justify-items-center  font-arvo font-light w-3/5 gap-10 justify-self-center">
+               <section className=" pb-36 mt-44 flex-col justify-items-center  font-arvo font-light w-3/5 gap-10 justify-self-center">
             <p className="mb-10 text-7xl text-tertiary font-germania font-bold">FAQ's</p>
 
                 <Tabs defaultValue="Raw Feeding" onValueChange={(value)=> {

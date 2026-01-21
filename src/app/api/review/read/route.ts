@@ -1,19 +1,21 @@
-import { list } from "@vercel/blob";
 import { NextResponse } from "next/server";
+import { connectMongo } from "@/lib/mongodb";
+import { Review } from "@/lib/mongodb";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const productId = searchParams.get("productId");
 
-  // List all blobs for the product
-  const { blobs } = await list({ prefix: `reviews/${productId}/` });
-
-  const reviews = [];
-
-  for (const blob of blobs) {
-    const data = await fetch(blob.url).then((r) => r.json());
-    reviews.push(data);
+  if (!productId) {
+    return NextResponse.json({ ok: false, error: "Missing productId" }, { status: 400 });
   }
 
-  return NextResponse.json(reviews);
+  await connectMongo();
+
+  const reviews = await Review.find({ productId })
+    .sort({ createdAt: -1 })
+    .lean();
+
+  return NextResponse.json({ ok: true, reviews });
 }
+

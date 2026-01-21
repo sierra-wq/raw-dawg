@@ -7,20 +7,14 @@ import Wave from "@/assets/layered-waves-haikei.svg"
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-acumin justify-items-center bg-primary ">
+         <div className=" flex-col content-center  text-xl font-acumin justify-items-center bg-primary ">
 
                 
-                  <figure className="w-full ">
-          <Wave4 className="w-full   fill-quaternary h-60" />
-          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
                 
-               
-
                 
 
 
-                <div className="w-full flex flex-col items-center justify-center ">
+                <div className="w-full h-[80vh] flex flex-col items-center justify-center ">
                     <div className="w-8/12  py-10 flex flex-wrap justify-around gap-[1rem]"
                         
                     >
@@ -30,7 +24,7 @@ export default function Post() {
                                             <div className="max-w-4xl mx-auto px-4 py-10">
                                                 <section className="heading mb-10">
                                                 
-                                                <h1 className="text-4xl text-center md:text-5xl font-acumin underline underline-offset-8 font-light leading-tight mb-2">
+                                                <h1 className="text-6xl text-center font-germania underline underline-offset-8 font-light leading-tight mb-2">
                                                     Privacy Policy
                                                 </h1>
 
@@ -39,10 +33,9 @@ export default function Post() {
                                               
                                                 <div className=" max-w-none dark:prose-invert">
 
-<section className="max-w-4xl mx-auto px-6 py-12">
-  <h1 className="text-3xl font-bold mb-6 text-brand-primary">Privacy Policy</h1>
-
-  <p className="mb-4">
+<section className="max-w-4xl  font-arvo mx-auto px-6 py-12">
+ 
+  <p className="mb-4 ">
     We respect your privacy as much as your dog respects a fresh bone.
     Our Privacy Policy explains how we collect, use, and protect your information when you visit our site,
     place orders, or contact our team.

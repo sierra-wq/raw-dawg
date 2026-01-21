@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "@/components/ui/button";
-import { Activity, Minus, Plus, ShoppingBag, User, X } from "lucide-react";
+import { Activity, ArrowRight, Minus, Plus, ShoppingBag, User, X } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -12,7 +12,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Logo from "@/assets/RawDawg3.svg";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCart } from "@/store/provider";
 import { useState } from "react";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
@@ -21,11 +21,16 @@ import { useAuth } from "@/store/authProvider";
 import { Badge } from "./ui/badge";
 export default function Header() {
   const router = useRouter();
+  const path = usePathname();
+  const pathname = usePathname();
   const { open , setOpen, cart , updateItem, removeItem } = useCart();
   const {customer, logout } = useAuth();
   const [total, setTotal] = useState(0);
   const [count  , setCount] = useState(0);
+  const noBg= ["","about","ingredients"].includes(pathname?.toLowerCase().split(/\//)[1]);
+  const hidePlanCta = pathname?.toLowerCase() === "/ingredients";
 
+  
   function handleLogIn() {
     router.push("/login");
   }
@@ -38,13 +43,15 @@ export default function Header() {
   return (
 
    <header className=" absolute w-full top-0 flex-col font-acumin">
-        <p className="bg-primary w-full px-2 text-2xs font-medium text-quaternary text-center">
+        <p className="bg-primary w-full px-2 text-2xs font-germania text-quaternary text-center">
             hellow this is the announcement message! 
-            <span className="font-extrabold ps-2 underline underline-offset-2"> View More</span> 
+            <span className="text-xl ps-2 underline underline-offset-2"> View More</span> 
         </p>
 
-        <div className="px-2 py-3 flex  justify-center items-center content-center relative ">
-            <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]"> <Activity/> Customize Your Plan</Button>
+        <div className={`px-2 py-3 flex  justify-center items-center content-center relative ${noBg ? "" : "bg-quaternary "}`}>
+            {!hidePlanCta && (
+              <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]"> <Activity/> Customize Your Plan</Button>
+            )}
             <a href="/" className=" "> <Logo style={{width: '15rem', height: '4rem' }} />  </a>
 
             <div className="absolute right-2  flex  ">
@@ -54,7 +61,7 @@ export default function Header() {
       <DropdownMenuTrigger asChild>
         <Button  variant={'outline'} size={'icon'} className=" bg-primary hover:bg-white text-quaternary p-0 rounded-full me-3 group " > <User className=" group-hover:stroke-quaternary stroke-tertiary "/> </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-tertiary text-primary" align="start">
+      <DropdownMenuContent className="bg-tertiary font-germania text-primary" align="start">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
           { customer && <>
             <DropdownMenuItem onClick={handleProfile}>Profile</DropdownMenuItem>
@@ -82,16 +89,16 @@ export default function Header() {
               
               </div>
               </SheetTrigger>
-              <SheetContent className="sm:max-w-[30rem] bg-primary">
+              <SheetContent className="sm:max-w-[30rem] bg-primary font-germania">
                 <SheetHeader className="  " >
-                  <SheetTitle className=" items-center text-3xl flex text-quaternary justify-between font-acumin">
+                  <SheetTitle className=" items-center  text-4xl flex text-quaternary justify-between ">
                     <p>Your Cart</p>
                     <SheetClose asChild onClick={()=> setOpen(false)}>
-                      <X className="size-8 hover:cursor-grab hover:stroke-error" />
+                      <ArrowRight className="size-8 hover:cursor-grab hover:stroke-error" />
                     </SheetClose>
                   </SheetTitle>
                   
-                  <SheetDescription>
+                  <SheetDescription className=" text-xl ">
                     All The Products You Have In Your Cart
                   </SheetDescription>
               </SheetHeader>
@@ -100,10 +107,10 @@ export default function Header() {
                   {cart?.lines.map((item, index) => (
                     
                     <div key={index} className="relative flex gap-3 border-b-2 pb-2 border-quaternary ">
-                      <Minus onClick={() => removeItem(item.id)} className="absolute top-0 right-0 hover:cursor-grab hover:stroke-quaternary" />
+                      <X onClick={() => removeItem(item.id)} className="absolute top-0 right-0 hover:cursor-grab hover:stroke-quaternary" />
                       <img src={item.featuredImage} alt="product" className="w-1/4 h-1/2" />
                       <div className="flex flex-col justify-between text-quaternary w-full ">
-                          <p className=" text-xl font-acumin">{item.title}</p>
+                          <p className=" text-xl w-4/5 ">{item.title}</p>
                           <div className="flex justify-between mt-3">
                             <div className="flex items-center  ms-3">
                               <Button  onClick={() => {
@@ -117,7 +124,7 @@ export default function Header() {
                               }} variant={'outline'} size={'icon'} className="rounded-full w-[1.5rem] h-[1.5rem] border-quaternary hover:bg-quaternary/10 "> <Plus className="stroke-quaternary"/> </Button>
                               
                             </div>
-                            <p className=" text-xl font-bold self-end">{(item.price - (item.sellingPlanId?.priceAdjustments ?? 0)) * item.quantity}</p>
+                            <p className=" text-xl font-bold self-end">{(item.price ).toFixed(2)}</p>
                           </div>
                       </div>
                     </div>
@@ -125,14 +132,14 @@ export default function Header() {
                   ))}
                 
                 </div>
-                <SheetFooter className=" flex flex-col font-acumin text-quaternary pe-4">
+                <SheetFooter className=" flex flex-col  text-quaternary pe-4">
                   <div className="flex justify-between items-end my-2">
-                      <p className="text-xl font-bold ">
-                        Total {cart?.totalQuantity}({" Items"})
+                      <p className="text-2xl  ">
+                        Total : {cart?.totalQuantity} <span className="text-xl">Items</span>
                       </p>
-                      <p className="text-2xl font-bold text-quaternary "> {cart?.cost.totalAmount}$  </p>
+                      <p className="text-3xl font-bold text-quaternary "> {cart?.cost.totalAmount} <span className="text-2xl">$</span>  </p>
                   </div>
-                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} className=" border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-2xl font-bold  rounded-[2rem] " type="submit">Checkout</Button>
+                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} className=" border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
                   
                 </SheetFooter>
                
@@ -147,6 +154,5 @@ export default function Header() {
     </header>
   );
 }
-
 
 

@@ -308,25 +308,22 @@ useEffect(() => {
 
 
   return (
-         <div className=" flex-col content-center font-acumin justify-items-center bg-primary pb-40">
+         <div className=" flex-col content-center font-acumin  items-center  h-[80vh] bg-primary pb-40">
 
-                 <figure className="w-full ">
-          <Wave4 className="w-full   fill-quaternary h-60" />
-          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
+            
 
-                <div className={`w-full  ${ result ?  'hidden' : 'flex' } flex-col items-center justify-center gap-16 `}>
+                <div className={`w-full  ${ result ?  'hidden' : 'flex' } flex-col items-center mt-32 justify-center gap-16 `}>
                     
                     
-                   <div className="flex flex-col  w-3/5  text-quaternary">
-                             <div className={`${ page !== 1 ? 'hidden' : 'flex'}  flex-col justify-center items-center  gap-10`}>
+                   <div className="flex flex-col font-germania   w-3/5  text-quaternary">
+                             <div className={`${ page !== 1 ? 'hidden' : 'flex'}  flex-col justify-center items-center  gap-16`}>
                                        {
                                             quizSteps.map((step) => (
                                                 <div className="flex  gap-8 w-3/5 justify-center text-center ">
                                                         
-                                                        <p className="text-xl font-bold shrink-0"> {step.question} </p>
+                                                        <p className="text-2xl font-bold shrink-0"> {step.question} </p>
                                                         <Select onValueChange={(value) => next(value)}>
-                                                        <SelectTrigger className=" rounded-none text-quaternary text-lg border-0 border-dotted border-b-4 border-quaternary/70 hover:border-quaternary  focus:not-focus:border-0 focus:ring-0  data-[placeholder]:text-quaternary/40 ">
+                                                        <SelectTrigger className=" rounded-none text-tertiary text-xl border-0 border-dotted border-b-4 border-quaternary/70 hover:border-quaternary  focus:not-focus:border-0 focus:ring-0  data-[placeholder]:text-quaternary/40 ">
                                                             <SelectValue placeholder="Please Answer" />
                                                         </SelectTrigger>
                                                         <SelectContent className="bg-quaternary text-primary focus-within:ring-black"  >
@@ -377,7 +374,7 @@ useEffect(() => {
                            handleFind();
                         }} 
                         disabled={!canFind}
-                       className="text-lg h-auto w-3/12 hover:text-primary hover:bg-quaternary hover:border-quaternary text-quaternary border-2 border-quaternary font-semibold rounded-[2rem]">
+                       className="text-2xl h-auto w-3/12 hover:text-primary hover:bg-quaternary hover:border-quaternary text-quaternary border-4 border-quaternary font-germania rounded-[2rem]">
                              Find My Plan 
                   </Button>
                 </div>

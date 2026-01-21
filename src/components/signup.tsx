@@ -71,10 +71,10 @@ export default function SignUp() {
     
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-                                    <Card className="text-primary bg-quaternary">
+                                    <Card className="text-primary text-2xl bg-quaternary">
                                 <CardHeader>
                                 <CardTitle>SignUp</CardTitle>
-                                <CardDescription className="text-surface font-bold">
+                                <CardDescription className="text-surface text-xl font-bold">
                                     Join the Pack. Stay Raw
                                     
                                 </CardDescription>
@@ -85,16 +85,16 @@ export default function SignUp() {
           <FieldGroup>
             {/* FIRST NAME */}
             <Field>
-              <FieldLabel htmlFor="firstname">Firstname</FieldLabel>
+              <FieldLabel className="text-xl" htmlFor="firstname">Firstname</FieldLabel>
 
-              <FieldDescription className="text-surface/70">
+              <FieldDescription className="text-surface/70 text-lg">
                 Enter your first name
               </FieldDescription>
 
               <Input
                 id="firstname"
                 placeholder="Max Leiter"
-                className="focus:border-2 focus-within:border-primary"
+                className="focus:border-2 text-lg focus-within:border-primary"
                 {...register("firstName")}
               />
 
@@ -105,16 +105,16 @@ export default function SignUp() {
 
             {/* Email */}
             <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldLabel className="text-xl" htmlFor="email">Email</FieldLabel>
 
-              <FieldDescription className="text-surface/70">
+              <FieldDescription className="text-surface/70 text-lg">
                 Enter your email
               </FieldDescription>
 
               <Input
                 id="email"
                 placeholder="Max Leiter"
-                className="focus:border-2 focus-within:border-primary"
+                className="focus:border-2 text-lg focus-within:border-primary"
                 {...register("email")}
               />
 
@@ -125,9 +125,9 @@ export default function SignUp() {
 
             {/* PASSWORD */}
             <Field>
-              <FieldLabel htmlFor="password">Password</FieldLabel>
+              <FieldLabel className="text-xl" htmlFor="password">Password</FieldLabel>
 
-              <FieldDescription className="text-surface/70">
+              <FieldDescription className="text-surface/70 text-lg">
                 Must be at least 8 characters long.
               </FieldDescription>
 
@@ -135,7 +135,7 @@ export default function SignUp() {
                 id="password1"
                 type="password"
                 placeholder="••••••••"
-                className="focus:border-2 focus-within:border-primary"
+                className="focus:border-2 text-lg focus-within:border-primary"
                 {...register("password")}
               />
 
@@ -146,9 +146,9 @@ export default function SignUp() {
 
             {/* CONFIRM PASSWORD */}
             <Field>
-              <FieldLabel htmlFor="password">Re-Type Password</FieldLabel>
+              <FieldLabel className="text-xl" htmlFor="password">Re-Type Password</FieldLabel>
 
-              <FieldDescription className="text-surface/70">
+              <FieldDescription className="text-surface/70 text-lg">
                 Retype your password.
               </FieldDescription>
 
@@ -156,7 +156,7 @@ export default function SignUp() {
                 id="password"
                 type="password"
                 placeholder="••••••••"
-                className="focus:border-2 focus-within:border-primary"
+                className="focus:border-2 text-lg focus-within:border-primary"
                 {...register("confirmPassword")}
               />
 
@@ -170,8 +170,8 @@ export default function SignUp() {
 
       
                                <CardFooter className="flex flex-col justify-center gap-3">
-                                <Button type="submit" disabled={isSubmitting} className="bg-primary text-quaternary font-bold  w-full">{isSubmitting ? "Creating account..." : "Sign Up"}</Button>
-                                <Button className="bg-primary/40 text-primary font-bold w-full">Cancel</Button>
+                                <Button type="submit" disabled={isSubmitting} className="bg-primary text-2xl text-quaternary font-bold  w-full">{isSubmitting ? "Creating account..." : "Sign Up"}</Button>
+                                <Button className="bg-primary/40 text-primary text-2xl font-bold w-full">Cancel</Button>
                                 </CardFooter>
       
     

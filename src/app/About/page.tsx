@@ -4,132 +4,118 @@ import Wave2 from "@/assets/layered-waves-haikei (2).svg"
 import Wave3 from "@/assets/layered-waves-haikei (3).svg"
 import Wave4 from "@/assets/layered-waves-haikei (4).svg"
 import Wave from "@/assets/layered-waves-haikei.svg"
+import img6 from "@/assets/founders.webp"
+
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center bg-primary">
-
-                
-                 <figure className="w-full ">
-          <Wave4 className="w-full   fill-quaternary h-60" />
-          <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
-        </figure>
-                
-               
+         <div className=" flex-col content-center font-arvo justify-items-center bg-secondary">
 
                 
 
 
                 <div className="w-full flex flex-col items-center justify-center ">
-                    <div className="w-8/12  py-10 flex flex-wrap justify-around gap-[1rem]"
+                    <div className="w-11/12  flex flex-wrap justify-around gap-[1rem]"
                         
                     >
 
-                               <div className="blog-post-content text-quaternary ">
-  
-                                            <div className="max-w-4xl mx-auto px-4 py-10">
-                                                <section className="heading mb-10">
-                                                
-                                                <h1 className="text-4xl text-center md:text-5xl  underline underline-offset-8 font-light leading-tight mb-2">
-                                                    Nature Didn't Fail Our Dogs. <span className="block mt-5"> The Industry Did </span>
-                                                </h1>
 
-                                                </section>
+                                  <section className=" w-10/12 justify-self-center  py-32 px-20  text-lime-400 flex flex-col gap-16  font-arvo  ">
 
-                                              
-                                                <div className=" max-w-none dark:prose-invert">
+                                                      <div className="w-6/12 self-start ">
+                                                          <p className="text-3xl my-6 font-light"> WHY WE EXIST AND WHY <span className="font-bold font-germania text-6xl">RAW DAWG?</span> </p>
+                                                          <p className="my-4 text-lg leading-[2.3em]" >
+                                                            Raw Dawg exists to restore what the modern dog food industry abandoned: real nourishment
+                                                            built for health, not profit. Big Pet Food optimized for shelf life and margins, and the result isn’t
+                                                            health. It’s chronic illness, normalized and dismissed as “aging.” That isn’t normal.
+                                                          
+                                                            Raw Dawg makes food dogs are built to thrive on, not tolerate. This isn’t a trend or an extreme
+                          position. It’s a direct response to a broken system.
+                                                            <br /><br />
+                                                            The name Raw Dawg reflects that mindset. While the industry hides behind soft language and
+                          reassurance layered over hard processing, we chose the opposite. A name that cuts through
+                          the noise and says exactly what it means.
+                                                            <br /><br />
+                                                            Raw Dawg refuses to sanitize reality to make it more comfortable or more marketable. Just like
+                          the food, the name stays intact. Unfiltered. Unprotected.
+                                                            </p>
 
-                                                    <section className="max-w-4xl mx-auto px-6 py-12">
-  
-  <h2 className="text-2xl font-semibold mb-4">Mission</h2>
-  <p className="mb-4">
-    At Raw Dawg, we’re redefining canine nutrition by grounding it in instinct, not industry.
-We create raw, biologically appropriate meals inspired by the ancestral diet of the gray wolf —
-built to deliver effortless, optimal health for the modern dog. No grains, no seed oils, no fillers,
-no preservatives.
-Raw Dawg exists to disrupt an industry built on compromise. One that profits off chronic illness
-and over-processed convenience. We believe dogs deserve better: primal nutrition, ethically
-sourced ingredients, and food that supports their biology.
-Our mission is simple: Feed instinct over industry. Make raw feeding simple, accessible, and
-effective. And put real health back in the bowl, where it belongs.
-This isn’t pet food. It’s a rebellion against big kibble, glossy labels, and the quiet sickness
-plaguing our pets. We’re not here to follow rules. We’re here to raise the standard, one bowl at a
-time.
-  </p>
+                                                      </div> 
 
-  <h2 className="text-2xl font-semibold mb-4">Origin Story</h2>
-  <p className="mb-4">
-    Raw DawgTM didn’t begin as a business. It began as a lifeline—for a dog who meant everything
-to us.
-At just four years old, our mini schnauzer Bojangles got sick. He was in and out of the
-vet—bloodwork, diagnostics, “prescription” kibble, endless meds. No answers. Just mounting
-bills and a dog who was fading fast.
-We followed every recommendation. Switched foods. Tried the “science-backed” stuff. But
-nothing worked. That’s when we stopped looking for a better bag of kibble—and started
-questioning the system itself. What exactly were we feeding him? Why was it labeled “complete
-and balanced” if it left our dog so depleted?
-The more we learned, the worse it got. Mystery meats. High-heat processing. Synthetic
-additives to replace nutrients lost in production. Food designed for shelf life, not dogs.So we
-stripped it all back.
-No more kibble. No more fake fixes. We fed Bojangles what nature intended: raw, real food, built
-for his biology. And the change was almost instant. His energy came back. His eyes were clear.
-His coat glowed. He played like a puppy again.
-That’s when we realized this wasn’t just a diet. It was a return to instinct.
-That’s when Raw DawgTM was born — for Bo, and for every dog who deserves the same.
-  </p>
+                                                      <div className="w-6/12 self-end">
+                                                          <p className="text-5xl my-6 font-bold font-germania  "> OUR STORY </p>
+                                                          <p className="my-4 text-lg leading-[2.3em]" >
+                                                            Raw Dawg didn’t begin as a business. It began as a lifeline!
+                                                          
+                                                        <br /><br />
+                                                            When our puppy, Bojangles, got sick, we did exactly what we were told to do. Vet visits.
+                                                            Prescription food. Medications. Trust the system. Trust the label. But he kept getting worse. So
+                                                            we slowed down and looked closer. What we found wasn’t nourishment. It was food engineered
+                                                            for convenience, shelf life, and margins, not for dogs. We stripped everything back and fed Bo
+                                                            food his body recognized. The response didn’t need interpretation. That’s when we understood
+                                                            this wasn’t just a diet. It was a return to instinct. Raw Dawg was born for Bo, and for every dog
+                                                            who deserves the same chance.
+                                                          </p>
+                                                        
+                                                      </div>
 
-  <h2 className="text-2xl font-semibold mb-4">The Raw Truth</h2>
-  <p className="mb-4">
-    Why we feed ancestral raw. Why it matters. And why kibble never had a chance.
-Let’s start with biology.
-Dogs still share 99% of their DNA with the gray wolf. For thousands of years, wolves survived
-on a raw, whole-prey diet—meat, bone, organ, fur. No fillers. No “formulas.” Just what their
-bodies were built for.
-Then came humans.
-Man and wolf evolved side by side. They hunted together. Moved together. Survived together.
-We tossed them bones, and they warned us when danger came. We traded meat for protection
-and built a bond on instinct, movement, and survival.
-But everything changed with agriculture.
-We stopped chasing prey and started planting crops. We settled. Farmed. Processed. And we
-pulled our dogs into a world they were never built for—one filled with grains, seed oils, and
-convenience over nutrition.
-<br/>
-That was the first mistake.
-<br/>
-The second? Kibble.
-<br/>
-Invented in the 1920s to make dog food cheap, shelf-stable, and easy to mass-produce. And it
-worked... For companies, not for dogs.
-Kibble is an over-processed, high-heat, low-nutrient product. Stripped of its natural value.
-Packed with fillers and seed oils. “Enriched” with synthetic vitamins that try to replace what the
-cooking process destroyed. It’s not food. It’s a product.
-Since kibble hit the shelves, dog health has plummeted—cancer, inflammation, allergies,
-chronic disease.
-But here’s what most people miss: Dogs aren’t humans. They weren’t built for cooked food
-at all.
-We evolved to cook. Our bodies need it—long digestive tracts, slower metabolism, higher risk of
-foodborne illness. But dogs? They’re built for raw. Their stomachs are highly acidic. Their
-digestive systems are short and fast. Their jaws don’t grind—they rip and crush. Everything
-about their biology points to one thing: real meat, raw and unprocessed.
-Cooking destroys key nutrients—enzymes, amino acids, healthy fats—that dogs rely on. Raw
-food delivers those nutrients in the form their bodies recognize. It’s not a diet trend. It’s a
-biological match.
-Once you know that, you can’t un-know it.
-That’s why we feed raw. Not because it’s trendy. Not because it’s cute. Because it’s what their
-biology still remembers. Because they weren’t made for processed pellets and lab-made
-additives. They were made for real food. Whole prey. Raw nutrition.
-At Raw DawgTM, we follow that blueprint. Muscle meat. Bone. Organs. No grains. No garbage.
-No compromise. Just what they were always meant to eat.
-We’re not here to soften the blow. We’re here to feed the wolf. 
-  </p>
+                                                      <div className=" self-center ">
+                                                          <p className="text-3xl my-6 text-center font-light"> THE ANCESTRAL <span className="font-bold font-germania text-5xl">BLUEPRINT</span> </p>
+                                                          <div className="flex text-lg justify-center gap-20">
+                                                              <p className="w-4/12  my-4 leading-[2.3em]" >
+                                                          Dogs are still built like the animals they came from. Their biology was shaped long before
+                          modern food systems existed. Humans and dogs evolved alongside each other. We hunted
+                          together, moved together, survived together. That alignment held until humans changed how
+                          food was produced. Agriculture replaced hunting. Processing replaced preparation.
+                          Convenience replaced necessity. And dogs were pulled into a food system their bodies were
+                          never designed for.
+                          <br /><br />
+                          The biggest break came with kibble.
+                                                            </p>
+                                                            <p className="w-4/12 my-4 leading-[2.3em]" >
+                                                          introduced in the 1920s, kibble was designed to be cheap, shelf-stable,
+                          and easy to mass-produce. It solved a manufacturing problem, not a biological one. From that
+                          point on, dog food became increasingly shaped by processing, preservation, and scale.
+                          <br /><br />
+                          Dogs are not small humans. They aren’t built for cooked, ultra-processed diets. Their stomach
+                          acid is highly acidic. Their digestive tract is short and fast. Their jaws tear and crush, not grind.
+                          Every part of their anatomy points to raw, unprocessed food.
+                                                            </p>
+                                                            <p className="w-4/12 my-4 leading-[2.3em]" >
+                                                          Cooking destroys nutrients dogs rely on. Raw food delivers nourishment in a form their bodies
+                          recognize. This isn’t a trend. It’s a biological match. Once you understand that, kibble stops
+                          making sense.
+                          That’s why we feed raw. Not because it’s extreme or fashionable, but because it aligns with how
+                          dogs are built. At Raw Dawg, we follow that original blueprint. No grains. No fillers. No
+                          compromises. Just food that respects biology.
+                                                            </p>
+                                                          </div>
+                                                      </div>
 
-  
-</section>
+                                                      <div className="mt-40 gap-20 justify-center items-center self-center w-4/5 flex">
+                                                             <div className="border-2 rounded-2xl border-secondary w-[24em] h-[26em] bg-cover bg-[url(..\/assets\/founders-02.webp)]" />
+                            
 
+                                                            
+                                                          <div className="w-3/5">
+                                                              <p className="text-3xl text-center font-light"> From our <span className="font-bold font-germania text-6xl">Founders </span> </p>
+                                                                  
+                                                            <p className="text-start mt-4"> 
+                                                              “We made Raw Dawg for our dog just as much as we made it for every dog out there. Dogs give
+                                  us everything without hesitation. Their energy. Their loyalty. Their presence. We believe feeding
+                                  them should be just as intentional. Raw Dawg was built for the dogs who run with us, sleep next
+                                  to us, grow old with us, and make our lives better just by being in them. It’s for anyone who sees
+                                  their dog not as a pet, but as a best friend, and wants to give them food that actually helps them
+                                  thrive!” <br /> <br />
+                                  
+                                                            </p>
+                                                            <span className="block text-end"> Sierra & Blake</span>
+                                                          </div>
+                                                    </div>
 
-                                                </div>
-                                            </div>
-                                    </div>
+                                              </section>
+
+            
   
                         
                     </div>
@@ -138,6 +124,25 @@ We’re not here to soften the blow. We’re here to feed the wolf.
 
                    
                 </div>
+
+                  <section className="flex flex-col w-full bg-tertiary items-center justify-center p-4 gap-x-32  justify-self-center py-24 text-lime-300">
+                   
+                   <p className="text-center text-7xl font-germania"> Get intimate with <br /> @my.rawdawg</p>
+                   
+                   <div className="mt-16 gap-5 justify-center items-center self-center w-full flex">
+                       <div className=" grow flex flex-col items-center ">
+                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573438722_17872348749449043_4133407408990391695_n.jpg?stp=dst-jpg_e35_p720x720_tt6&_nc_cat=102&ig_cache_key=Mzc1OTUzNjg0Mjc1NzYxMzUyNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0MTR4MTg1NC5zZHIuQzMifQ%3D%3D&_nc_ohc=OxDcwE4sqrIQ7kNvwFhhn82&_nc_oc=AdkU_hdEHFf8-s6OGqoa513AOili8jByPQDg6bJF-bLmm-f4Mcg2soBYZgZRxRASb1M&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=ZE1faD2sq7vJfSgSzn5R2Q&oh=00_Afqese8Y7-1FihY41-52OrcV0c5AoCcNxak9ZHbyQnKiMQ&oe=6975AB6A)]" />
+                            </div>
+
+                  <div className=" grow flex flex-col items-center">
+                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-center bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573738695_17872348686449043_8437033119087355205_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=103&ig_cache_key=Mzc1OTUzNjg0MjkyNTQwMTkzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTg4OC5zZHIuQzMifQ%3D%3D&_nc_ohc=yJXxMiUMbzEQ7kNvwE3SRt6&_nc_oc=Adm2pXRkEYPsApx0e5YQ2AwCh4b5hZcxH6N5XhpLmjxVXH-HskVTcSHRclqQyMon7MM&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=ZE1faD2sq7vJfSgSzn5R2Q&oh=00_Afo9_N6eKe7qWC-7e1oSrJ3VcwvhQn7F8An7C3y21ciCtQ&oe=6975BF80)]" />
+                            </div>
+                   <div className=" grow flex flex-col items-center ">
+                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd2-1.fna.fbcdn.net/v/t51.82787-15/571688832_17871490392449043_1255662984145577576_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=111&ig_cache_key=Mzc1MzQ4MDI0NjcwOTQwOTIwOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=A1nSZ4B2dXUQ7kNvwFpI5rZ&_nc_oc=AdmOY3XjKRTWHsdtBApaqt8aM-ZvaoOkOFHzWJkevxD1wyu9lQAKOfIYbll3FGG3XYM&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd2-1.fna&_nc_gid=h5EIBEqxujk5ZBOQnq_bcg&oh=00_AfpLT4q1UhdbEUeMdt0XFfZLISOdluRw9Ol6QIq0BndmqA&oe=6975B29F)]" />
+                            </div>
+                   </div>
+                  
+        </section>
             
 
 

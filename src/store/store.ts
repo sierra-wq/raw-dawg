@@ -298,7 +298,7 @@ export const CartStore = {
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
       description: e.node.merchandise.product.description,
-      price: parseFloat(e.node.merchandise.product.priceRange.maxVariantPrice.amount),
+      price: parseFloat(data.cartLinesAdd.cart.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
       merchandiseId: e.node.merchandise.id,
       sellingPlanId: {id: e.node.merchandise.product.sellingPlanGroups?.edges[0]?.node.sellingPlans.edges[0]?.node.id , 
@@ -308,9 +308,9 @@ export const CartStore = {
       id: data.cartLinesAdd.cart.id,
       checkoutUrl: data.cartLinesAdd.cart.checkoutUrl,
       cost : {
-        checkoutChargeAmount: data.cartLinesAdd.cart.cost.checkoutChargeAmount.amount,
-        subtotalAmount: data.cartLinesAdd.cart.cost.subtotalAmount.amount,
-        totalAmount: data.cartLinesAdd.cart.cost.totalAmount.amount
+        checkoutChargeAmount: parseFloat(data.cartLinesAdd.cart.cost.checkoutChargeAmount.amount),
+        subtotalAmount: parseFloat(data.cartLinesAdd.cart.cost.subtotalAmount.amount),
+        totalAmount: parseFloat(data.cartLinesAdd.cart.cost.totalAmount.amount)
       },
       totalQuantity : data.cartLinesAdd.cart.totalQuantity,
       lines: items,
@@ -433,7 +433,7 @@ export const CartStore = {
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
       description: e.node.merchandise.product.description,
-      price: parseFloat(e.node.merchandise.product.priceRange.maxVariantPrice.amount),
+      price: parseFloat(data.cartLinesRemove.cart.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
       merchandiseId: e.node.merchandise.id,
       sellingPlanId: {id: e.node.merchandise.product.sellingPlanGroups?.edges[0]?.node.sellingPlans.edges[0]?.node.id , 
@@ -443,9 +443,9 @@ export const CartStore = {
       id: data.cartLinesRemove.cart.id,
       checkoutUrl: data.cartLinesRemove.cart.checkoutUrl,
       cost : {
-        checkoutChargeAmount: data.cartLinesRemove.cart.cost.checkoutChargeAmount.amount,
-        subtotalAmount: data.cartLinesRemove.cart.cost.subtotalAmount.amount,
-        totalAmount: data.cartLinesRemove.cart.cost.totalAmount.amount
+        checkoutChargeAmount: parseFloat(data.cartLinesRemove.cart.cost.checkoutChargeAmount.amount),
+        subtotalAmount: parseFloat(data.cartLinesRemove.cart.cost.subtotalAmount.amount),
+        totalAmount: parseFloat(data.cartLinesRemove.cart.cost.totalAmount.amount)
       },
       totalQuantity : data.cartLinesRemove.cart.totalQuantity,
       lines: items,
@@ -560,12 +560,13 @@ export const CartStore = {
     const variables = { cartId, lines: [{ id: lineId, quantity }] };
 
     const  { data, errors, extensions }  = await client.request(QUERY,{variables});
+    console.log("the responsee data for the product " , data);
     const items = data.cartLinesUpdate.cart?.lines.edges.map((e: any) => ({
       id: e.node.id,
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
       description: e.node.merchandise.product.description,
-      price: parseFloat(e.node.merchandise.product.priceRange.maxVariantPrice.amount),
+      price: parseFloat(data.cartLinesUpdate.cart.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
       merchandiseId: e.node.merchandise.id,
       sellingPlanId: {id: e.node.merchandise.product.sellingPlanGroups?.edges[0]?.node.sellingPlans.edges[0]?.node.id , 
@@ -575,9 +576,9 @@ export const CartStore = {
       id: data.cartLinesUpdate.cart.id,
       checkoutUrl: data.cartLinesUpdate.cart.checkoutUrl,
       cost : {
-        checkoutChargeAmount: data.cartLinesUpdate.cart.cost.checkoutChargeAmount.amount,
-        subtotalAmount: data.cartLinesUpdate.cart.cost.subtotalAmount.amount,
-        totalAmount: data.cartLinesUpdate.cart.cost.totalAmount.amount
+        checkoutChargeAmount: parseFloat(data.cartLinesUpdate.cart.cost.checkoutChargeAmount.amount),
+        subtotalAmount: parseFloat(data.cartLinesUpdate.cart.cost.subtotalAmount.amount),
+        totalAmount: parseFloat(data.cartLinesUpdate.cart.cost.totalAmount.amount)
       },
       totalQuantity : data.cartLinesUpdate.cart.totalQuantity,
       lines: items,
