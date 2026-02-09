@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import {  useRouter } from "next/navigation";
 
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { client } from "@/lib/shopifyClient";
+import varietyPackImg from "@/assets/product4.png";
 
 export type Product = {
     id: string;
@@ -46,6 +47,9 @@ export default function Products() {
     const router = useRouter();
     const [products , setProducts] = useState<Product[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [orderedProducts, setOrderedProducts] = useState<Product[]>([]);
+    const varietyHandle = "best-seller-variety-pack";
+    const turkeyHandle = "free-range-turkey-ancestral-blend";
     const items = [
     {
       title: 'Item 1',
@@ -135,6 +139,38 @@ export default function Products() {
   },[])
 
 
+    useMemo(() => {
+    const existingVariety = products.find(
+      (product) =>
+        product.handle === varietyHandle
+    );
+    const turkeyProduct = products.find((product) => product.handle === turkeyHandle);
+    const rest = products.filter(
+      (product) => product.handle !== varietyHandle && product.handle !== turkeyHandle
+    );
+   
+    console.log("Existing Variety Pack:", existingVariety);
+    console.log("Turkey Product:", turkeyProduct);
+
+     setOrderedProducts(turkeyProduct && existingVariety ? [ existingVariety,...rest, turkeyProduct] : existingVariety ? [ existingVariety,...rest] : rest);
+  }, [products]);
+
+  const displayTitle = (product: Product) => {
+    console.log("Product handle:", product.handle);
+    switch (product.handle) {
+      case "grass-fed-beef-instinct-blend":
+        return "Instinct Blend";
+      case "free-range-turkey-ancestral-blend":
+        return "Ancestral Blend";
+      case "turkey-salmon-wild-blend":
+        return "Wild Blend";
+      case "best-seller-variety-pack":
+        return "Bestseller Variety Pack";
+      default:
+        return product.title;
+    }
+  };
+
   return (
          <div className="min-h-screen flex flex-col bg-primary content-center justify-items-center font-acumin ">
 
@@ -153,11 +189,18 @@ export default function Products() {
                             <div className="size-12 rounded-full border-4 border-quaternary border-t-transparent animate-spin" />
                           </div>
                         ) : (
-                          products.map((item, index) => (
+                          orderedProducts.map((item, index) => (
                      <div className=" flex flex-col items-center justify-between group rounded-lg hover:cursor-pointer  shrink  w-[26em] text-clip text-center">
                       <img alt="Progress Steps" className="w-[26em] h-[36em] justify-self-center border-black mb-5 rounded-lg border-2 " src={item.featuredImage}/>
-                     <p className="text-3xl font-germania text-center text-tertiary  "> {item.title}</p>
-                     <Button onClick={()=> router.push(`/Products/${item.handle}`)} size={'default'} className="my-5  font-germania text-2xl border-2  bg-tertiary hover:bg-tertiary hover:text-3xl py-5  text-primary w-3/4 "> Starting From - $ {item.minPrice} </Button>
+                     <p className="text-3xl font-germania text-center text-tertiary  ">{displayTitle(item)}</p>
+                     <Button
+                       disabled={item.handle === varietyHandle}
+                       onClick={() => router.push(`/Products/${item.handle}`)}
+                       size={'default'}
+                       className="my-5  font-germania text-2xl border-2  bg-tertiary hover:bg-tertiary hover:text-3xl py-5  text-primary w-3/4 disabled:opacity-60 disabled:cursor-not-allowed"
+                     >
+                       Add to cart — $TBD
+                     </Button>
                   </div>
                   ))
                         )}

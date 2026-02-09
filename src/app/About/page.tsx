@@ -9,7 +9,7 @@ import img6 from "@/assets/founders.webp"
 export default function Post() {
   
   return (
-         <div className=" flex-col content-center font-arvo justify-items-center bg-secondary">
+         <div className=" flex-col content-center font-arvo justify-items-center bg-quinary">
 
                 
 
@@ -23,19 +23,19 @@ export default function Post() {
                                   <section className=" w-10/12 justify-self-center  py-32 px-20  text-lime-400 flex flex-col gap-16  font-arvo  ">
 
                                                       <div className="w-6/12 self-start ">
-                                                          <p className="text-3xl my-6 font-light"> WHY WE EXIST AND WHY <span className="font-bold font-germania text-6xl">RAW DAWG?</span> </p>
-                                                          <p className="my-4 text-lg leading-[2.3em]" >
+                                                          <p className="text-3xl my-6 font-light"> WHY WE EXIST AND  <span className="font-bold font-germania block text-6xl">WHY RAW DAWG?</span> </p>
+                                                          <p className="mt-4 text-lg" >
                                                             Raw Dawg exists to restore what the modern dog food industry abandoned: real nourishment
                                                             built for health, not profit. Big Pet Food optimized for shelf life and margins, and the result isn’t
                                                             health. It’s chronic illness, normalized and dismissed as “aging.” That isn’t normal.
                                                           
                                                             Raw Dawg makes food dogs are built to thrive on, not tolerate. This isn’t a trend or an extreme
                           position. It’s a direct response to a broken system.
-                                                            <br /><br />
+                                                          
                                                             The name Raw Dawg reflects that mindset. While the industry hides behind soft language and
                           reassurance layered over hard processing, we chose the opposite. A name that cuts through
                           the noise and says exactly what it means.
-                                                            <br /><br />
+                                                          
                                                             Raw Dawg refuses to sanitize reality to make it more comfortable or more marketable. Just like
                           the food, the name stays intact. Unfiltered. Unprotected.
                                                             </p>
@@ -44,10 +44,10 @@ export default function Post() {
 
                                                       <div className="w-6/12 self-end">
                                                           <p className="text-5xl my-6 font-bold font-germania  "> OUR STORY </p>
-                                                          <p className="my-4 text-lg leading-[2.3em]" >
+                                                          <p className="mt-4 text-lg" >
                                                             Raw Dawg didn’t begin as a business. It began as a lifeline!
                                                           
-                                                        <br /><br />
+                                                       
                                                             When our puppy, Bojangles, got sick, we did exactly what we were told to do. Vet visits.
                                                             Prescription food. Medications. Trust the system. Trust the label. But he kept getting worse. So
                                                             we slowed down and looked closer. What we found wasn’t nourishment. It was food engineered
@@ -62,26 +62,26 @@ export default function Post() {
                                                       <div className=" self-center ">
                                                           <p className="text-3xl my-6 text-center font-light"> THE ANCESTRAL <span className="font-bold font-germania text-5xl">BLUEPRINT</span> </p>
                                                           <div className="flex text-lg justify-center gap-20">
-                                                              <p className="w-4/12  my-4 leading-[2.3em]" >
+                                                              <p className="w-4/12 mt-4 text-lg" >
                                                           Dogs are still built like the animals they came from. Their biology was shaped long before
                           modern food systems existed. Humans and dogs evolved alongside each other. We hunted
                           together, moved together, survived together. That alignment held until humans changed how
                           food was produced. Agriculture replaced hunting. Processing replaced preparation.
                           Convenience replaced necessity. And dogs were pulled into a food system their bodies were
                           never designed for.
-                          <br /><br />
+                          
                           The biggest break came with kibble.
                                                             </p>
-                                                            <p className="w-4/12 my-4 leading-[2.3em]" >
+                                                            <p className="w-4/12 mt-4 text-lg" >
                                                           introduced in the 1920s, kibble was designed to be cheap, shelf-stable,
                           and easy to mass-produce. It solved a manufacturing problem, not a biological one. From that
                           point on, dog food became increasingly shaped by processing, preservation, and scale.
-                          <br /><br />
+                          
                           Dogs are not small humans. They aren’t built for cooked, ultra-processed diets. Their stomach
                           acid is highly acidic. Their digestive tract is short and fast. Their jaws tear and crush, not grind.
                           Every part of their anatomy points to raw, unprocessed food.
                                                             </p>
-                                                            <p className="w-4/12 my-4 leading-[2.3em]" >
+                                                            <p className="w-4/12 mt-4 text-lg" >
                                                           Cooking destroys nutrients dogs rely on. Raw food delivers nourishment in a form their bodies
                           recognize. This isn’t a trend. It’s a biological match. Once you understand that, kibble stops
                           making sense.
@@ -125,7 +125,7 @@ export default function Post() {
                    
                 </div>
 
-                  <section className="flex flex-col w-full bg-tertiary items-center justify-center p-4 gap-x-32  justify-self-center py-24 text-lime-300">
+                  <section className="flex flex-col w-full bg-quinary items-center justify-center p-4 gap-x-32  justify-self-center py-24 text-lime-300">
                    
                    <p className="text-center text-7xl font-germania"> Get intimate with <br /> @my.rawdawg</p>
                    

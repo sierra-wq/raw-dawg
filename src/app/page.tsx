@@ -18,11 +18,13 @@ import img3 from "@/assets/product3.png"
 import img4 from "@/assets/product4.png"
 import img5 from "@/assets/product-dog.webp"
 import img6 from "@/assets/contents-01.webp"
-import img7 from "@/assets/product-varaity.webp"
+import img7 from "@/assets/meal2.png"
 import img8 from "@/assets/RAW-DAWG-PRODUCT_bg-removed.png"
+
 import img9 from "@/assets/RAW DAWG-PRODUCT -28.webp"
-import img10 from "@/assets/dog-eating.webp"
+import img10 from "@/assets/rebellion2.png"
 import img11 from "@/assets/RAW DAWG-PRODUCT -56.webp"
+
 
 
 import { useState } from "react";
@@ -103,7 +105,7 @@ const handleProductClick = (side: "left"  | "right") => {
 
 
         <section className="py-24 flex flex-col items-center  font-germania  w-full">
-          <p className="mb-8 text-7xl  text-quaternary font-bold">Meet the Raw Dawg Lineup</p>
+          <p className="mb-8 text-7xl  text-quaternary font-bold">Meet the  Lineup</p>
           <div className="flex flex-col  w-10/12 items-center">
             <div className="">
               <img alt="All Raw Dawg blends" className="w-[64em] rounded-xl " src={img8.src} />
@@ -159,7 +161,7 @@ const handleProductClick = (side: "left"  | "right") => {
       <section className="flex  justify-center p-4 gap-x-16 w-10/12 justify-self-center my-36">
                    <div className="w-1/5 flex flex-col items-center ">
                             <div className="border-2 rounded-2xl border-secondary w-80 h-64 bg-cover bg-[url(..\/assets\/contents-01.webp)]" />
-                            <p className="text-center mt-8 font-germania text-xl"> we use whole-animal, ethically sourced ingredients </p>
+                            <p className="text-center mt-8 font-germania text-xl"> We use whole-animal, ethically sourced ingredients </p>
                    </div>
 
                   <div className="w-1/5 flex flex-col items-center ">
@@ -187,8 +189,8 @@ const handleProductClick = (side: "left"  | "right") => {
               </div>
             </div>
             <div className="relative flex justify-center">
-              <div className="relative w-[30rem] h-[30rem] bg-quaternary md:w-[38rem] md:h-[38rem] rounded-full overflow-hidden border-8 ">
-                <img src={img11.src} alt="Raw Dawg bowl" className="w-full h-full object-cover" />
+              <div className="relative w-[30rem] h-[30rem] md:w-[38rem] md:h-[38rem] rounded-full overflow-hidden  ">
+                <img src={img7.src} alt="Raw Dawg bowl" className="w-full h-full object-cover" />
                 
               </div>
             </div>
@@ -349,24 +351,26 @@ const handleProductClick = (side: "left"  | "right") => {
         </section> */}
 
 
-        <section className="my-32 py-8 text-quinary  font-arvo flex-col justify-items-center justify-self-center">
+        <section className="my-32 py-8 text-quinary w-9/12  font-arvo flex-col justify-items-center justify-self-center">
             
             <div className="flex justify-between items-center bg-quaternary ">
                  
-                 <div className="w-4/6  text-3xl font-serif text-center">
+                 <div className="  text-3xl relative font-serif w-[46em] h-[26em] text-center ">
 
-                    <picture className="bg-fuchsia-400 w-1/4"><source type="image/gif"/>
-                    <img alt="Progress Steps" className="h-full" src={img9.src}/>
-                  </picture>
+                    
+                  
+                  <div className=" rounded-2xl  -top-48 absolute border-secondary w-[46em] h-[46em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)]" />
+                            
 
                   </div> 
 
 
 
-              <div className="w-3/6 py-4 flex flex-col items-center text-center gap-6 px-6">
+              <div className=" py-4 flex flex-col items-center text-center gap-6 px-6">
                   <center><p className="text-6xl md:text-7xl  mb-16 font-germania text-primary text-center " style={{ lineHeight: '1.5' }}>
                     The rebellion against Big Pet Food starts in your dog’s bowl.
                   </p>
+
                   <p className="text-[1.8rem] md:text-[1.8rem] mb-16 leading-relaxed text-primary/70" style={{lineHeight:'1.5'}}>
                     Decades of ultra-processing, fillers, synthetic vitamins, and profit-driven shortcuts have turned dog food into a
                     billion-dollar lie, and our dogs are paying the price.

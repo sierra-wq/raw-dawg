@@ -257,7 +257,8 @@ Real food covers the bases when it’s done right.`,
                             
                                   </Accordion>
 
-            
+             <p className="mt-32 text-center text-7xl text-tertiary font-germania"> Get intimate with <br /> @my.rawdawg</p>
+                  
           
         </section>
           

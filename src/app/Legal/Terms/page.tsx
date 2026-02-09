@@ -70,7 +70,8 @@ export default function Post() {
   <h2 className="text-3xl underline font-germania mb-4">Copyright & DMCA Notice</h2>
   <p className="mb-4 text-xl">
     We respect creativity. If you believe something on our site infringes your copyright, send a DMCA Takedown Notice to
-    <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent font-bold underline"> hello@rawdawgnutrition.com</a> with the following:
+    <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent font-bold underline"> sierra@rawdawgnutrition.com
+</a> with the following:
   </p>
   <ul className="list-disc text-xl text-quinary ml-6 mb-4">
     <li>Your name and contact information</li>
@@ -90,7 +91,8 @@ export default function Post() {
     <li>You agree not to join a className-action against Raw Dawg.</li>
   </ul>
   <p className="mb-4 text-xl">
-    To start a dispute, email <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent underline font-bold"> hello@rawdawgnutrition.com</a>. No claim can be brought more than one year after the issue arises.
+    To start a dispute, email <a href="mailto:hello@rawdawgnutrition.com" className="text-brand-accent underline font-bold"> sierra@rawdawgnutrition.com
+</a>. No claim can be brought more than one year after the issue arises.
   </p>
 
   

@@ -56,9 +56,9 @@ export default function Ingredients() {
             <section className="w-full mx-auto bg-[#4f533d] text-white py-56 px-8 flex flex-col items-center gap-8">
               <p className="text-5xl md:text-7xl font-germania text-center text-[#0b0b0b]">The Whole Prey Formula</p>
               <p className="text-lg md:text-2xl font-arvo text-center max-w-4xl text-white/80">
-                RAW DAWG follows a whole-prey approach, meaning every recipe includes the full spectrum of what dogs instinctively consume in nature.
+                RAW DAWG doesn't  "balance" nutrition in a lab. <br /> We  build it the way nature already solved it: through whole prey.
               </p>
-              <p className="text-5xl md:text-7xl font-germania tracking-widest text-center mb-10">75 / 10 / 10 / 5</p>
+              <p className="text-5xl md:text-7xl font-germania tracking-widest text-center mb-10">75-10-10-5</p>
               <div className="font-arvo grid grid-cols-1 md:grid-cols-2  gap-12  w-full max-w-5xl text-white/85">
                 <div className="-mx-20">
                   <p className="text-4xl  mb-2 text-white">75% Muscle Meat</p>
@@ -112,17 +112,17 @@ export default function Ingredients() {
 
                         <p className="text-5xl mb-3  capitalize  w-11/12 font-germania ">BEEF</p>
                         <span className="block w-4/5 text-xl leading-relaxed capitalize font-arvo mt-4"> 
-                            Beef muscle meat, heart, liver, kidney, spleen, ground bone, green tripe,
-                            beef trachea, beef fur 
+                            Beef muscle meat, beef heart, beef liver, beef kidney, beef spleen, ground beef bone, raw green tripe, beef trachea
                         </span>
                     </div>
 
-                  <div className="bg-accent/40 text-tertiary p-4 rounded-lg relative w-3/12 shrink-0">
+                  <div className="bg-quaternary/20 text-quaternary p-4 rounded-lg relative w-3/12 shrink-0">
                         <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-cover bg-right bg-[url('..\/assets\/product1.png')]"/>
                         
                         <p className="text-5xl mb-3  capitalize font-germania w-11/12 ">TURKEY </p>
                         <span className="text-xl block w-4/5 font-arvo capitalize mt-4"> 
-                             Whole turkey, turkey heart, gizzard, neck, liver.
+                             Free-range turkey muscle meat, turkey heart, turkey gizzard, turkey neck bone, turkey liver.
+
                         </span>
                     </div>
 
@@ -131,7 +131,8 @@ export default function Ingredients() {
                         
                         <p className="text-5xl mb-3  capitalize font-germania w-11/12 "> TURKEY + SALMON </p>
                         <span className="text-xl block w-4/5 font-arvo capitalize leading-relaxed mt-4"> 
-                          Wild salmon (with skin and head), whole turkey, heart, gizzard, neck, liver.
+                          Wild-caught salmon (with skin), free-range turkey muscle meat, turkey heart, turkey gizzard, turkey neck bone, turkey liver, wild-caught salmon head.
+
                         </span>
                     </div>
                     
@@ -147,26 +148,24 @@ export default function Ingredients() {
             </Button>
           </div>
 
-          <section className="my-32 w-11/12 mx-auto">
-            <div className="bg-[rgb(130_134_109_/_var(--tw-bg-opacity,_1))] font-arvo text-primary rounded-2xl text-center">
-              <div className="p-8">
-                <p className="text-3xl font-germania mb-3 text-quaternary ">Minerals </p>
-                <p className="text-lg leading-relaxed">— From Bone, Not Powder</p>
+          <section className="my-32 w-11/12 mx-auto text-center">
+              <div className="py-8">
+                <p className="text-6xl md:text-7xl font-germania font-bold mb-3 text-quaternary">Minerals</p>
+                <p className="text-3xl md:text-4xl font-bold leading-relaxed ">From Bone, Not Powder</p>
                 {/* <p className="text-lg leading-relaxed">Calcium, phosphorus, magnesium, and trace minerals come from raw meaty bones and connective tissue — the same way dogs have always consumed them.</p>
                 <p className="text-lg leading-relaxed mt-3">No bone meal. No calcium carbonate. No synthetic balancing.</p> */}
               </div>
-              <div className="p-8">
-                <p className="text-3xl font-germania mb-3 text-quaternary ">Vitamins </p>
-                <p className="text-lg leading-relaxed">— From Organs, Not Pills</p>
+              <div className="py-8">
+                <p className="text-6xl md:text-7xl font-germania font-bold mb-3 text-quaternary">Vitamins</p>
+                <p className="text-3xl md:text-4xl font-bold leading-relaxed ">From Organs, Not Pills</p>
                 {/* <p className="text-lg leading-relaxed">Liver and secreting organs supply fat-soluble vitamins A, D, E, and K in their natural, bioavailable form.</p>
                 <p className="text-lg leading-relaxed mt-3">These nutrients can’t be replicated synthetically without losing their biological context.</p> */}
               </div>
-              <div className="p-8">
-                <p className="text-3xl font-germania mb-3 text-quaternary ">Functional Nutrition </p>
-                <p className="text-lg leading-relaxed">— From Instinct, Not Supplements</p>
+              <div className="py-8">
+                <p className="text-6xl md:text-7xl font-germania font-bold mb-3 text-quaternary">Functional Nutrition</p>
+                <p className="text-3xl md:text-4xl font-bold leading-relaxed ">From Instinct, Not Supplements</p>
                 {/* <p className="text-lg leading-relaxed">Green tripe, cartilage, trachea, fur, and connective tissue provide enzymes, collagen, probiotics, and joint-supporting compounds — without isolates or additives.</p> */}
               </div>
-            </div>
           </section>
 
            {/* <figure className="w-full ">
@@ -454,7 +453,14 @@ health, not trends.
                     
           </section>
 
-         <Dog2 className="mb-32 justify-self-center size-full fill-primary " />
+        
+
+         <section className="relative w-full overflow-hidden">
+   <Dog2 className=" justify-self-center size-full fill-primary " />
+
+  {/* Fade overlay */}
+  <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-b from-transparent to-quaternary" />
+</section>
 
          </div>
   )

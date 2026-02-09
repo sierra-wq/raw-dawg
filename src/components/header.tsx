@@ -38,7 +38,7 @@ export default function Header() {
     router.push("/profile");
   }
   function handlePlan() {
-    router.push("/Plan");
+    router.push("/Products");
   }
   return (
 
@@ -50,7 +50,7 @@ export default function Header() {
 
         <div className={`px-2 py-3 flex  justify-center items-center content-center relative ${noBg ? "" : "bg-quaternary "}`}>
             {!hidePlanCta && (
-              <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]"> <Activity/> Customize Your Plan</Button>
+              <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]"> <Activity/> Get Raw </Button>
             )}
             <a href="/" className=" "> <Logo style={{width: '15rem', height: '4rem' }} />  </a>
 
@@ -139,7 +139,13 @@ export default function Header() {
                       </p>
                       <p className="text-3xl font-bold text-quaternary "> {cart?.cost.totalAmount} <span className="text-2xl">$</span>  </p>
                   </div>
-                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} className=" border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
+                  <p className="text-sm text-quaternary/70 font-arvo mt-2">
+                    Minimum shippable order is 15 lb.
+                  </p>
+                  <div className="mt-3 rounded-2xl border-2 border-quaternary bg-quaternary/10 px-4 py-3 text-center">
+                    <p className="text-xl font-germania text-quaternary">15 lb minimum</p>
+                  </div>
+                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} className="mt-4 border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
                   
                 </SheetFooter>
                
@@ -154,5 +160,3 @@ export default function Header() {
     </header>
   );
 }
-
-
