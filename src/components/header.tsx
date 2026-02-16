@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Logo from "@/assets/RawDawg3.svg";
+import Logo2 from "@/assets/Raw Dawg_logo-3.svg";
 import { usePathname, useRouter } from "next/navigation";
 import { useCart } from "@/store/provider";
 import { useState } from "react";
@@ -22,13 +23,15 @@ import { Badge } from "./ui/badge";
 export default function Header() {
   const router = useRouter();
   const path = usePathname();
-  const pathname = usePathname();
+  const pathname = usePathname()?.toLocaleLowerCase().split(/\//);
   const { open , setOpen, cart , updateItem, removeItem } = useCart();
   const {customer, logout } = useAuth();
   const [total, setTotal] = useState(0);
   const [count  , setCount] = useState(0);
-  const noBg= ["","about","ingredients"].includes(pathname?.toLowerCase().split(/\//)[1]);
-  const hidePlanCta = pathname?.toLowerCase() === "/ingredients";
+  const noBg= ["","products","about","ingredients"].includes(pathname[1]);
+  const productsPath = pathname[1] === "products" && pathname.length === 2;
+  const hidePlanCta = pathname[1]?.toLowerCase() === "ingredients";
+  const totalSize = cart?.lines.reduce((acc, item) => acc + (item.size * item.quantity), 0) ?? 0;
 
   
   function handleLogIn() {
@@ -40,6 +43,9 @@ export default function Header() {
   function handlePlan() {
     router.push("/Products");
   }
+  
+  console.log("cart in header: ", cart);
+  
   return (
 
    <header className=" absolute w-full top-0 flex-col font-acumin">
@@ -50,16 +56,16 @@ export default function Header() {
 
         <div className={`px-2 py-3 flex  justify-center items-center content-center relative ${noBg ? "" : "bg-quaternary "}`}>
             {!hidePlanCta && (
-              <Button onClick={()=> handlePlan()} variant={'outline'} className=" absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]"> <Activity/> Get Raw </Button>
+              <Button onClick={()=> handlePlan()} variant={'outline'} className={` ${productsPath ? "border-2 border-tertiary" : ""} absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]`} > <Activity/> Get Raw </Button>
             )}
-            <a href="/" className=" "> <Logo style={{width: '15rem', height: '4rem' }} />  </a>
+            <a href="/" className=" "> {productsPath ? <Logo2 style={{width: '15rem', height: '4rem' , }} /> : <Logo style={{width: '15rem', height: '4rem' }} /> } </a>
 
             <div className="absolute right-2  flex  ">
                   
             
       <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button  variant={'outline'} size={'icon'} className=" bg-primary hover:bg-white text-quaternary p-0 rounded-full me-3 group " > <User className=" group-hover:stroke-quaternary stroke-tertiary "/> </Button>
+        <Button  variant={'outline'} size={'icon'} className={` bg-primary hover:bg-white text-quaternary p-0 rounded-full me-3 group ${productsPath ? "border-2 border-tertiary" : ""}`} > <User className=" group-hover:stroke-quaternary stroke-tertiary "/> </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-tertiary font-germania text-primary" align="start">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -85,7 +91,7 @@ export default function Header() {
         >
           {cart?.totalQuantity && cart?.totalQuantity > 5 ? "5 +" : cart?.totalQuantity }
         </Badge>
-                <Button onClick={()=> setOpen(true) } variant="outline" size={'icon'} className="bg-primary hover:bg-white text-quaternary p-0 rounded-full me-3 group"> <ShoppingBag className=" group-hover:stroke-quaternary stroke-tertiary" /></Button>
+                <Button onClick={()=> setOpen(true) } variant="outline" size={'icon'} className={`bg-primary hover:bg-white text-quaternary p-0 rounded-full me-3 group ${productsPath ? "border-2 border-tertiary" : ""}`}> <ShoppingBag className=" group-hover:stroke-quaternary stroke-tertiary" /></Button>
               
               </div>
               </SheetTrigger>
@@ -135,17 +141,15 @@ export default function Header() {
                 <SheetFooter className=" flex flex-col  text-quaternary pe-4">
                   <div className="flex justify-between items-end my-2">
                       <p className="text-2xl  ">
-                        Total : {cart?.totalQuantity} <span className="text-xl">Items</span>
+                        Total : {cart?.totalQuantity}  <span className="text-xl">Items {cart?.totalQuantity ? `(${totalSize} lb)` : ''}</span>
                       </p>
                       <p className="text-3xl font-bold text-quaternary "> {cart?.cost.totalAmount} <span className="text-2xl">$</span>  </p>
                   </div>
-                  <p className="text-sm text-quaternary/70 font-arvo mt-2">
+                  <p className={` ${totalSize < 15 ? 'text-error' : 'hidden'}  text-lg font-bold font-arvo mt-2`}>
                     Minimum shippable order is 15 lb.
                   </p>
-                  <div className="mt-3 rounded-2xl border-2 border-quaternary bg-quaternary/10 px-4 py-3 text-center">
-                    <p className="text-xl font-germania text-quaternary">15 lb minimum</p>
-                  </div>
-                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} className="mt-4 border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
+                  
+                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} disabled={totalSize  < 15} className="mt-4 border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
                   
                 </SheetFooter>
                

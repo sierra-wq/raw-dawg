@@ -2,7 +2,9 @@ import {client} from "@/lib/shopifyClient"
 
 export interface CartLine {
   id: string;
+  handle: string;
   quantity: number;
+  size: number;
   title: string;
     description: string;
 featuredImage: string;
@@ -94,11 +96,16 @@ export const CartStore = {
                 merchandise{
                     ...on ProductVariant{
                         id
+                        selectOptions{
+                            name
+                            value
+                        }
                         product{
-                            description
+                            
                             featuredImage{
                                 url
                             }
+                            handle
                             title
                             sellingPlanGroups(
                 first:10
@@ -154,10 +161,14 @@ export const CartStore = {
         id : id
     }
     const  { data, errors, extensions }  = await client.request(QUERY,{variables});
+    console.log("the responsee44 data for the product " , data);
+
     const items = data.cart.lines.edges.map((e: any) => ({
       id: e.node.id,
       quantity: e.node.quantity,
-      title: e.node.merchandise.product.title,
+      title: e.node.merchandise.title,
+      handle: e.node.merchandise.product.handle,
+      size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
       Price: parseFloat(e.node.merchandise.product.priceRange.maxVariantPrice.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
@@ -211,13 +222,20 @@ export const CartStore = {
                     }
                 }
                 merchandise{
+                    __typename
                     ...on ProductVariant{
                         id
+                        selectedOptions{
+                            name
+                            value
+                        }
                         product{
+                            handle
                             description
                             featuredImage{
                                 url
-                            }
+                             }
+                            
                             priceRange{
                 maxVariantPrice{
                     amount
@@ -297,6 +315,8 @@ export const CartStore = {
       id: e.node.id,
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
+      handle: e.node.merchandise.product.handle,
+      size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
       price: parseFloat(data.cartLinesAdd.cart.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
@@ -356,6 +376,10 @@ export const CartStore = {
                 merchandise{
                     ...on ProductVariant{
                         id
+                        selectedOptions{
+                                name
+                                value
+                            }
                         product{
                             description
                             featuredImage{
@@ -370,6 +394,7 @@ export const CartStore = {
                 }
             }
                             title
+                            handle
                             sellingPlanGroups(
                 first:10
             ){
@@ -432,6 +457,8 @@ export const CartStore = {
       id: e.node.id,
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
+      handle: e.node.merchandise.product.handle,
+      size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
       price: parseFloat(data.cartLinesRemove.cart.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
@@ -491,6 +518,10 @@ export const CartStore = {
                 merchandise{
                     ...on ProductVariant{
                         id
+                        selectedOptions{
+                                name
+                                value
+                            }
                         product{
                             description
                             featuredImage{
@@ -505,6 +536,7 @@ export const CartStore = {
                 }
             }
                             title
+                            handle
                             sellingPlanGroups(
                 first:10
             ){
@@ -565,6 +597,8 @@ export const CartStore = {
       id: e.node.id,
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
+      handle: e.node.merchandise.product.handle,
+      size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
       price: parseFloat(data.cartLinesUpdate.cart.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,

@@ -6,7 +6,6 @@ import {  useRouter } from "next/navigation";
 
 import { useEffect, useMemo, useState } from "react";
 import { client } from "@/lib/shopifyClient";
-import varietyPackImg from "@/assets/product4.png";
 
 export type Product = {
     id: string;
@@ -92,6 +91,9 @@ export default function Products() {
       edges {
         node {
           id
+          price {
+                amount
+              }
           title
         }
       }
@@ -190,16 +192,16 @@ export default function Products() {
                           </div>
                         ) : (
                           orderedProducts.map((item, index) => (
-                     <div className=" flex flex-col items-center justify-between group rounded-lg hover:cursor-pointer  shrink  w-[26em] text-clip text-center">
+                     <div key={index} className=" flex flex-col items-center justify-between group rounded-lg hover:cursor-pointer  shrink  w-[26em] text-clip text-center">
                       <img alt="Progress Steps" className="w-[26em] h-[36em] justify-self-center border-black mb-5 rounded-lg border-2 " src={item.featuredImage}/>
                      <p className="text-3xl font-germania text-center text-tertiary  ">{displayTitle(item)}</p>
                      <Button
-                       disabled={item.handle === varietyHandle}
+                       
                        onClick={() => router.push(`/Products/${item.handle}`)}
                        size={'default'}
                        className="my-5  font-germania text-2xl border-2  bg-tertiary hover:bg-tertiary hover:text-3xl py-5  text-primary w-3/4 disabled:opacity-60 disabled:cursor-not-allowed"
                      >
-                       Add to cart — $TBD
+                       Add to cart — ${item?.variants?.edges[0]?.node?.price?.amount}
                      </Button>
                   </div>
                   ))

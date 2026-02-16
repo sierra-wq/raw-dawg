@@ -108,7 +108,7 @@ export default function Ingredients() {
                    
                   
                   <div className="bg-tertiary text-primary p-4  rounded-lg relative   w-3/12 shrink-0">
-                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-cover bg-right bg-[url('..\/assets\/product3.png')]"/>
+                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/beef.png')]"/>
 
                         <p className="text-5xl mb-3  capitalize  w-11/12 font-germania ">BEEF</p>
                         <span className="block w-4/5 text-xl leading-relaxed capitalize font-arvo mt-4"> 
@@ -117,7 +117,7 @@ export default function Ingredients() {
                     </div>
 
                   <div className="bg-quaternary/20 text-quaternary p-4 rounded-lg relative w-3/12 shrink-0">
-                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-cover bg-right bg-[url('..\/assets\/product1.png')]"/>
+                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/turkey.png')]"/>
                         
                         <p className="text-5xl mb-3  capitalize font-germania w-11/12 ">TURKEY </p>
                         <span className="text-xl block w-4/5 font-arvo capitalize mt-4"> 
@@ -127,7 +127,7 @@ export default function Ingredients() {
                     </div>
 
                     <div className="bg-quinary text-white p-4 rounded-lg relative w-3/12 shrink-0">
-                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-cover bg-right bg-[url('..\/assets\/product2.png')]"/>
+                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/wild.png')]"/>
                         
                         <p className="text-5xl mb-3  capitalize font-germania w-11/12 "> TURKEY + SALMON </p>
                         <span className="text-xl block w-4/5 font-arvo capitalize leading-relaxed mt-4"> 

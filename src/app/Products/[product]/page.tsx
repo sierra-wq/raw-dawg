@@ -18,6 +18,7 @@ import ReviewDialog from "@/components/ReviewDialogue";
 import { useAuth } from "@/store/authProvider";
 import { items } from "@/constants/constants";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
  type Review = {
     productId: string,
@@ -54,12 +55,14 @@ export default function ProductDetail({
 
     const displayTitle = (handle: string | undefined, title: string | undefined) => {
       switch (handle) {
-        case "grass-fed-beef-instinct-blend":
+        case "instinct-blend-5-pack-1-lb-each":
           return "Instinct Blend";
-        case "free-range-turkey-ancestral-blend":
+        case "ancestral-blend-5-pack-1-lb-each":
           return "Ancestral Blend";
-        case "turkey-salmon-wild-blend":
+        case "wild-blend-5-pack-1-lb-each":
           return "Wild Blend";
+        case "best-seller-variety-pack":
+          return "Variety Pack";
         default:
           return title ?? "";
       }
@@ -254,15 +257,72 @@ const handleProductClick = (side: "left"  | "right") => {
 
                 <div className="w-2/5 flex flex-col items-center justify-center ">
                     <div className="w-10/12 text-primary mt-10 py-10 flex flex-col items-start gap-[1rem]">
-                        <p className="text-4xl font-germania">
-                          {displayTitle(product?.handle ?? params.product, product?.title)}
-                        </p>
+                        
                        
                         { customer?.id && <ReviewDialog
                           productId={product?.handle as string}
                           customerId={customer?.id as string}
                           customerName={`${customer?.firstName} ${customer?.lastName}`}
                         />}
+
+                      <div tabIndex={0} onClick={() => handleSelect('one-time')} className="flex w-full justify-between items-center bg-primary mt-5 border-2 py-2 px-4 rounded-[4rem]">
+                          <div className="flex items-center gap-[3rem] w-2/3">
+                              <input type='radio' checked={selectedOption === 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
+                              <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania "> One Time purchase </p>
+                          </div>
+                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${product?.variants?.edges[portion]?.node?.price.amount} </p>
+                      </div>
+
+                      <div tabIndex={0} onClick={() => handleSelect(null)} className={`flex w-full justify-between ${product?.sellingPlan?.id !== undefined ?  '' : 'hidden'}  items-center bg-primary mt-5  py-2 px-4 rounded-[4rem]`}>
+                          <div className="flex items-center gap-[3rem] w-2/3">
+                              <input type='radio' checked={selectedOption !== 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
+                              <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania"> Subscribe &amp; Save </p>
+                          </div>
+                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) - (Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) * (product?.sellingPlan ? Number(product?.sellingPlan.priceAdjustment/100) : 1 )) } </p>
+                      </div>
+                      <p className={`text-lg mb-1 py-2 border-b-0 border-primary font-germania mt-3 ${product?.sellingPlan?.id !== undefined ? '' : 'hidden'}`}>
+                        Subscription orders ship every 2 weeks.
+                      </p>
+
+                      <div tabIndex={0}  className="flex w-full justify-between bg-primary mt-5 p-2  rounded-[4rem]">
+                          
+                          <div className="flex items-center w-1/3 ms-3">
+                              <Tooltip>
+                                 <TooltipTrigger asChild>
+                                    <Button   onClick={() => setCount(count - 1)} variant={'outline'} size={'icon'} className="rounded-full  border-quaternary hover:bg-quaternary/10"> <Minus className="stroke-quaternary"/> </Button>
+                                  </TooltipTrigger>
+                                 <TooltipContent className="bg-quaternary text-primary rounded-lg p-2">
+                                    <p> Sold in 5 lb increments (minimum 5 lb) </p>
+                                  </TooltipContent>
+                              </Tooltip>
+                              
+                              <p className="text-3xl font-germania mx-5 text-quaternary"> {count} </p>
+                              <Tooltip>
+                                 <TooltipTrigger asChild>
+                                      <Button onClick={() => setCount(count + 1)} variant={'outline'} size={'icon'} className="rounded-full border-quaternary hover:bg-quaternary/10 "> <Plus className="stroke-quaternary"/> </Button>
+                                  </TooltipTrigger>
+                                 <TooltipContent className="bg-quaternary text-primary rounded-lg p-2">
+                                    <p> Sold in 5 lb increments (minimum 15 lb) </p>
+                                  </TooltipContent>
+                              </Tooltip>
+                          </div>
+                          <div className="w-2/3 flex me-3  items-center justify-end">
+                                      <p className="text-quaternary text-4xl font-germania" > ${count * (parseFloat(product?.variants?.edges[portion]?.node?.price?.amount ?? "0"))} <span className="text-xl">({count* parseInt(product?.variants?.edges[portion]?.node?.title?.split(" ")[0] ?? "0")} lb)</span></p>
+                          </div>
+                          
+                      </div>
+
+                      <Button onClick={() => {
+                            const subscriptionDiscounts = selectedOption !== 'one-time' && product?.sellingPlan ? product?.sellingPlan.id : "";
+                            const cartnow = addItem(product?.variants?.edges[portion]?.node?.id ?? "", count,subscriptionDiscounts );
+                            console.log("the cart now  " ,cartnow)
+                            setOpen(true);
+                          }} variant={'outline'} className="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
+                      
+                        <p className="text-4xl mt-12 font-germania">
+                          {displayTitle(product?.handle ?? params.product, product?.title)}
+                        </p>
+
                        <Accordion
                                   type="single"
                                   collapsible
@@ -278,16 +338,18 @@ const handleProductClick = (side: "left"  | "right") => {
                                           <AccordionTrigger className="text-xl capitalize text-start leading-8 hover:underline"> Feeding Guide </AccordionTrigger>
                                           <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-base text-start">
                                               <p className=""> 
-                                                Feed based on your dog’s age, activity level, and life stage (including pregnant or nursing females). 
-                                                As a general rule, adult dogs thrive on 2–3% of their ideal adult body weight per day, adjusted as needed 
-                                                based on energy output and condition.
-                                                Puppies:
-                                                Growing dogs require more fuel. We recommend feeding around 5% of current body weight daily, 
-                                                split into 2–3 meals per day until adulthood. Adjust portions as growth slows and structure fills out.
-                                                Trust your dog’s body. Adjust portions based on condition, not marketing charts.
+                                               Feed based on your dog's age, activity level, and life stage. Every dog is an individual—these guidelines are a starting point, not a prescription.                                                
+                                                 
+                                                 <ul className="my-3">
+                                                    <li className="list-disc list-inside">Adult Dogs: Feed 2–3% of ideal body weight per day. Active dogs need more, less active dogs need less.</li>
+<li className="list-disc list-inside">Puppies: Feed 5–6% of current body weight daily, split into 2–3 meals. Reduce gradually as growth slows.
+</li>
+<li className="list-disc list-inside">Pregnant/Nursing Females: Increase to 4–8% of body weight depending on stage and litter size.
+</li>
+                                                 </ul>
 
-                                                
-                                                 </p>
+                                                  Trust your dog's body. Ribs should be easily felt but not visible, with a defined waist from above. Adjust portions based on condition, not charts.
+</p>
                                             </AccordionContent>
                                   </AccordionItem>
                                   <AccordionItem value={"item-2"} className="mb-1 py-2 border-b-0 border-primary">
@@ -350,41 +412,7 @@ const handleProductClick = (side: "left"  | "right") => {
                         </Accordion>
 
 
-                      <div tabIndex={0} onClick={() => handleSelect('one-time')} className="flex w-full justify-between items-center bg-primary mt-5 border-2 py-2 px-4 rounded-[4rem]">
-                          <div className="flex items-center gap-[3rem] w-2/3">
-                              <input type='radio' checked={selectedOption === 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
-                              <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania "> One Time purchase </p>
-                          </div>
-                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${product?.variants?.edges[portion]?.node?.price.amount} </p>
-                      </div>
-
-                      <div tabIndex={0} onClick={() => handleSelect(null)} className={`flex w-full justify-between ${product?.sellingPlan?.id !== undefined ?  '' : 'hidden'}  items-center bg-primary mt-5  py-2 px-4 rounded-[4rem]`}>
-                          <div className="flex items-center gap-[3rem] w-2/3">
-                              <input type='radio' checked={selectedOption !== 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
-                              <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania"> Subscribe &amp; Save </p>
-                          </div>
-                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) - (Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) * (product?.sellingPlan ? Number(product?.sellingPlan.priceAdjustment/100) : 1 )) } </p>
-                      </div>
-                      <p className={`text-lg mb-1 py-2 border-b-0 border-primary font-germania mt-3 ${product?.sellingPlan?.id !== undefined ? '' : 'hidden'}`}>
-                        Subscription orders ship every 2 weeks.
-                      </p>
-
-                      <div tabIndex={0}  className="flex w-full justify-between bg-primary mt-5   rounded-[4rem]">
-                          
-                          <div className="flex items-center w-2/3 ms-3">
-                              <Button  onClick={() => setCount(count - 1)} variant={'outline'} size={'icon'} className="rounded-full  border-quaternary hover:bg-quaternary/10"> <Minus className="stroke-quaternary"/> </Button>
-                              <p className="text-3xl font-germania mx-5 text-quaternary"> {count} </p>
-                              <Button onClick={() => setCount(count + 1)} variant={'outline'} size={'icon'} className="rounded-full border-quaternary hover:bg-quaternary/10 "> <Plus className="stroke-quaternary"/> </Button>
-                              
-                          </div>
-                          <Button onClick={() => {
-                            const subscriptionDiscounts = selectedOption !== 'one-time' && product?.sellingPlan ? product?.sellingPlan.id : "";
-                            const cartnow = addItem(product?.variants?.edges[portion]?.node?.id ?? "", count,subscriptionDiscounts );
-                            console.log("the cart now  " ,cartnow)
-                            setOpen(true);
-                          }} variant={'outline'} className="h-full w-2/3 p-4 hover:bg-quaternary text-xl hover:text-2xl font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
-                      </div>
-
+                  
                      
                         
                     </div>

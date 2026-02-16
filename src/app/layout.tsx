@@ -8,6 +8,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { CartProvider } from "@/store/provider";
 import { AuthProvider } from "@/store/authProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,7 +40,9 @@ export default function RootLayout({
         <AuthProvider>
           <CartProvider>
           <Header/>
-          {children}
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
           {
             Footer()
           }
