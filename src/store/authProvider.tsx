@@ -152,10 +152,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   async function updateAddress(address : MailingAddressInput)
   {
     console.log("the address " , customer?.address);
-    const {customerAddressUpdate} =  await ( customer?.address?.address1 === undefined || customer?.address?.address1 === "" ? createCustomerAddressApi(token as string, address) : updateCustomerAddressApi(token as string, customer.address?.id as string ,address));
-    if (customerAddressUpdate.userErrors && customerAddressUpdate.userErrors.length) {
-      return { ok: false, errors: customerAddressUpdate.userErrors };
+    const {customerAddressUpdate,customerAddressCreate} =  await ( customer?.address?.address1 === undefined || customer?.address?.address1 === "" ? createCustomerAddressApi(token as string, address) : updateCustomerAddressApi(token as string, customer.address?.id as string ,address));
+    
+    if ((customerAddressUpdate && customerAddressUpdate.userErrors && customerAddressUpdate.userErrors.length) || (customerAddressCreate && customerAddressCreate.customerUserErrors && customerAddressCreate.customerUserErrors.length)) {
+      return { ok: false, errors: customerAddressUpdate?.userErrors || customerAddressCreate?.customerUserErrors };
     }
+    
     const c = await getCustomer(token as string);
     setCustomer(c);
     return { ok: true };

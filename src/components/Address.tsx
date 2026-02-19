@@ -75,10 +75,6 @@ export const ShippingAddressSchema = z.object({
     .min(2, "City name is too short")
     .max(50, "City too long"),
 
-  state: z
-    .string()
-    .min(2, "State is required")
-    .max(50, "State too long"),
 
   zip: z
     .string()
@@ -96,7 +92,7 @@ export default function Address() {
         resolver: zodResolver(ShippingAddressSchema),
         defaultValues: {
           ...customer?.address as ShippingAddressType,
-          state: customer?.address?.province as string
+         
         }
       });
         const {
@@ -117,7 +113,7 @@ export default function Address() {
             company: customer.address?.company as string,
             country: customer.address?.country as string,
             city: customer.address?.city as string,
-            state: customer.address?.province as string,
+            
             zip: customer.address?.zip as string,
           });
         }

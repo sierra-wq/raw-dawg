@@ -1,5 +1,4 @@
 'use client'
-import Wave4 from "@/assets/layered-waves-haikei (4).svg"
 import { useEffect, useState } from "react"
 import { useAuth } from "@/store/authProvider"
 import { useCart } from "@/store/provider"
@@ -11,25 +10,29 @@ import { CircleQuestionMark } from "lucide-react"
 
 export default function CustomerProfile() {
   
-  const { signup, login } = useAuth();
   const router = useRouter();
-  const { cart } = useCart(); // optional: attach cart.id
   const { customer } = useAuth();
-  const [formReset , setFormReset] = useState(false);
-  const [mode, setMode] = useState<"login" | "signup">("login");
-  const isSignup = mode === "signup";
+  const [loading, setLoading] = useState(true);
 
   console.log("customer in profile page", customer);
- const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem("shopify_customer_token")
-      : null;
+  
+  useEffect(() => {
+    const token = localStorage.getItem("shopify_customer_token");
 
-  if (token === null || token === undefined || token === "") {
-    window.location.href = "/login";
-    //router.replace("/login");
-    return <div></div>; // prevent flash
+    if (!token) {
+      router.replace("/login");
+    } else {
+      setLoading(false);
+    }
+  }, [router]);
+
+
+
+  if (loading) {
+    return null;
   }
+
+  
   return (
          <div className=" flex-col pb-20 content-center font-acumin justify-items-center bg-primary ">
 

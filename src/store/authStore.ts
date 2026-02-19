@@ -230,7 +230,7 @@ export async function createCustomerAddress(customerAccessToken: string, address
   const { data, errors, extensions } = await client.request(query, { variables: { customerAccessToken, address } });
   console.log(" the data for the customer " , data);
   console.log(" the errors  ", errors);
-  return data?.customerAddressCreate;
+  return data;
 }
 
 export async function attachCustomerToCart(cartId: string, customerAccessToken: string) {
