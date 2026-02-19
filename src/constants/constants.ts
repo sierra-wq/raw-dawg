@@ -36,25 +36,7 @@ export const items : {
       name : 'GRASS-FED BEEF',
       tags : ["Built for strength", "Single-Protein" , "Strength-Building" ,"Mineral-Dense"]
     },
-    {
-      img: img1,
-      id: 'best-seller-variety-pack',
-      discription : 'A dense, whole-prey blend of muscle meat, organs, bone, trachea, and raw green tripe to support power, endurance, and real digestive health',
-      detail : "Give your dog the benefits of dietary variety with our three ancestral recipes in one convenient pack. Rotating proteins supports digestive resilience, reduces sensitivity risks, and provides a broader spectrum of nutrients than feeding a single protein. This pack includes our nutrient-dense Beef with whole prey nutrition, our gentle single-protein Turkey for sensitive systems, and our omega-rich Turkey & Salmon for joint and cognitive support. Perfect for dogs at any life stage who thrive on ancestral, species-appropriate nutrition.",
-      price : '50$',
-      content : ['Beef (ground beef, beef heart, beef liver, beef kidney, beef spleen)', 'ground beef bone', 'green tripe', 'beef trachea' ,'Whole turkey', 'turkey heart', 'turkey neck', 'turkey gizzard', 'turkey liver' , 'Wild salmon (with skin)', 'whole turkey', 'turkey heart', 'turkey gizzard', 'ground turkey neck', 'turkey liver', 'salmon head'],
-       analysis_results: {
-        'Calories (min)': ' 109 kcal per 100g',
-        'Crude Protein (min)': '17.40%',
-        'Crude Fat (min)': '5.65%',
-        'Crude Fiber (max)': '0.22%',
-        'Moisture (max)': '74.20%',
-        'Ash (max)': '2.61%',
-      },
-      canceledPrice : '70$',
-      name : 'GRASS-FED BEEF',
-      tags : ["Built for strength", "Single-Protein" , "Strength-Building" ,"Mineral-Dense"]
-    },
+    
     {
       img: img2,
       id: 'ancestral-blend-5-pack-1-lb-each',
@@ -93,5 +75,24 @@ export const items : {
       canceledPrice : '70$',
       name : ' TURKEY & SALMON ​',
       tags : ["Complete balance", "Dual-Protein" , "Omega-Rich" , "Anti-Inflammatory"]
+    },
+    {
+      img: img1,
+      id: 'best-seller-variety-pack',
+      discription : 'A dense, whole-prey blend of muscle meat, organs, bone, trachea, and raw green tripe to support power, endurance, and real digestive health',
+      detail : "Give your dog the benefits of dietary variety with our three ancestral recipes in one convenient pack. Rotating proteins supports digestive resilience, reduces sensitivity risks, and provides a broader spectrum of nutrients than feeding a single protein. This pack includes our nutrient-dense Beef with whole prey nutrition, our gentle single-protein Turkey for sensitive systems, and our omega-rich Turkey & Salmon for joint and cognitive support. Perfect for dogs at any life stage who thrive on ancestral, species-appropriate nutrition.",
+      price : '50$',
+      content : ['Beef (ground beef, beef heart, beef liver, beef kidney, beef spleen)', 'ground beef bone', 'green tripe', 'beef trachea' ,'Whole turkey', 'turkey heart', 'turkey neck', 'turkey gizzard', 'turkey liver' , 'Wild salmon (with skin)', 'whole turkey', 'turkey heart', 'turkey gizzard', 'ground turkey neck', 'turkey liver', 'salmon head'],
+       analysis_results: {
+        'Calories (min)': ' 109 kcal per 100g',
+        'Crude Protein (min)': '17.40%',
+        'Crude Fat (min)': '5.65%',
+        'Crude Fiber (max)': '0.22%',
+        'Moisture (max)': '74.20%',
+        'Ash (max)': '2.61%',
+      },
+      canceledPrice : '70$',
+      name : 'GRASS-FED BEEF',
+      tags : ["Built for strength", "Single-Protein" , "Strength-Building" ,"Mineral-Dense"]
     },
   ];

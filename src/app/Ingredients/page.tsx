@@ -20,7 +20,7 @@ import img8 from "@/assets/RAW DAWG-PRODUCT -04.webp"
 import img9 from "@/assets/RAW DAWG-PRODUCT -28.webp"
 
 import Logo from "@/assets/RawDawg.svg";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Ingredients() {
   return (
@@ -143,9 +143,11 @@ export default function Ingredients() {
 
           </section>
           <div className="w-full flex justify-center">
-            <Button className="bg-quaternary text-white hover:bg-quinary hover:text-primary font-germania text-2xl px-10 py-6 rounded-[2rem]">
-              Shop Raw Blends
-            </Button>
+            <Link href="/Products">
+              <Button className="bg-quaternary text-white hover:bg-quinary hover:text-primary font-germania text-2xl px-10 py-6 rounded-[2rem]">
+                Shop Raw Blends
+              </Button>
+            </Link>
           </div>
 
           <section className="my-32 w-11/12 mx-auto text-center">

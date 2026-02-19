@@ -44,6 +44,7 @@ export default function ProductDetail({
 
     const handleSelect = (option: 'one-time' | null) => setSelectedOption(option);
     const [count, setCount] = useState(1);
+    const formatPrice = (value: number) => value.toFixed(2);
 
     const [product , setProduct] = useState<Product>();
     const [reviews, setReviews] = useState<Review[]>([]);
@@ -99,6 +100,13 @@ const handleProductClick = (side: "left"  | "right") => {
       content: ['pork'],
     },
   ];
+
+    const unitPrice = Number(product?.variants?.edges[portion]?.node?.price?.amount ?? 0);
+    const subscriptionPrice =
+      unitPrice -
+      unitPrice *
+        (product?.sellingPlan ? Number(product.sellingPlan.priceAdjustment / 100) : 0);
+    const totalPrice = unitPrice * count;
 
     const productQuery = `
       query ProductByHandle($handle: String!) {
@@ -259,12 +267,6 @@ const handleProductClick = (side: "left"  | "right") => {
                     <div className="w-10/12 text-primary mt-10 py-10 flex flex-col items-start gap-[1rem]">
                         
                        
-                        { customer?.id && <ReviewDialog
-                          productId={product?.handle as string}
-                          customerId={customer?.id as string}
-                          customerName={`${customer?.firstName} ${customer?.lastName}`}
-                        />}
-
                       <div tabIndex={0} onClick={() => handleSelect('one-time')} className="flex w-full justify-between items-center bg-primary mt-5 border-2 py-2 px-4 rounded-[4rem]">
                           <div className="flex items-center gap-[3rem] w-2/3">
                               <input type='radio' checked={selectedOption === 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
@@ -278,7 +280,7 @@ const handleProductClick = (side: "left"  | "right") => {
                               <input type='radio' checked={selectedOption !== 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
                               <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania"> Subscribe &amp; Save </p>
                           </div>
-                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) - (Number(product?.variants?.edges[portion]?.node?.price.amount ?? 0) * (product?.sellingPlan ? Number(product?.sellingPlan.priceAdjustment/100) : 1 )) } </p>
+                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${formatPrice(subscriptionPrice)} </p>
                       </div>
                       <p className={`text-lg mb-1 py-2 border-b-0 border-primary font-germania mt-3 ${product?.sellingPlan?.id !== undefined ? '' : 'hidden'}`}>
                         Subscription orders ship every 2 weeks.
@@ -289,7 +291,15 @@ const handleProductClick = (side: "left"  | "right") => {
                           <div className="flex items-center w-1/3 ms-3">
                               <Tooltip>
                                  <TooltipTrigger asChild>
-                                    <Button   onClick={() => setCount(count - 1)} variant={'outline'} size={'icon'} className="rounded-full  border-quaternary hover:bg-quaternary/10"> <Minus className="stroke-quaternary"/> </Button>
+                                    <Button
+                                      onClick={() => count > 1 ? setCount((prev) => Math.max(0, prev - 1)) : null}
+                                      disabled={count === 0}
+                                      variant={'outline'}
+                                      size={'icon'}
+                                      className="rounded-full  border-quaternary hover:bg-quaternary/10"
+                                    >
+                                      <Minus className="stroke-quaternary"/>
+                                    </Button>
                                   </TooltipTrigger>
                                  <TooltipContent className="bg-quaternary text-primary rounded-lg p-2">
                                     <p> Sold in 5 lb increments (minimum 5 lb) </p>
@@ -299,7 +309,7 @@ const handleProductClick = (side: "left"  | "right") => {
                               <p className="text-3xl font-germania mx-5 text-quaternary"> {count} </p>
                               <Tooltip>
                                  <TooltipTrigger asChild>
-                                      <Button onClick={() => setCount(count + 1)} variant={'outline'} size={'icon'} className="rounded-full border-quaternary hover:bg-quaternary/10 "> <Plus className="stroke-quaternary"/> </Button>
+                                      <Button onClick={() =>  setCount((prev) => prev + 1)} variant={'outline'} size={'icon'} className="rounded-full border-quaternary hover:bg-quaternary/10 "> <Plus className="stroke-quaternary"/> </Button>
                                   </TooltipTrigger>
                                  <TooltipContent className="bg-quaternary text-primary rounded-lg p-2">
                                     <p> Sold in 5 lb increments (minimum 15 lb) </p>
@@ -307,7 +317,7 @@ const handleProductClick = (side: "left"  | "right") => {
                               </Tooltip>
                           </div>
                           <div className="w-2/3 flex me-3  items-center justify-end">
-                                      <p className="text-quaternary text-4xl font-germania" > ${count * (parseFloat(product?.variants?.edges[portion]?.node?.price?.amount ?? "0"))} <span className="text-xl">({count* parseInt(product?.variants?.edges[portion]?.node?.title?.split(" ")[0] ?? "0")} lb)</span></p>
+                                      <p className="text-quaternary text-4xl font-germania" > ${formatPrice(totalPrice)} <span className="text-xl">({count* parseInt(product?.variants?.edges[portion]?.node?.title?.split(" ")[0] ?? "0")} lb)</span></p>
                           </div>
                           
                       </div>
@@ -317,7 +327,14 @@ const handleProductClick = (side: "left"  | "right") => {
                             const cartnow = addItem(product?.variants?.edges[portion]?.node?.id ?? "", count,subscriptionDiscounts );
                             console.log("the cart now  " ,cartnow)
                             setOpen(true);
-                          }} variant={'outline'} className="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
+                          }} variant={'outline'} className="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
+
+                        { customer?.id && <ReviewDialog
+                          productId={product?.handle as string}
+                          customerId={customer?.id as string}
+                          customerName={`${customer?.firstName} ${customer?.lastName}`}
+                          triggerClassName="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-primary text-quaternary"
+                        />}
                       
                         <p className="text-4xl mt-12 font-germania">
                           {displayTitle(product?.handle ?? params.product, product?.title)}

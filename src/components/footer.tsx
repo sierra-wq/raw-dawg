@@ -30,9 +30,9 @@ export default function Footer() {
                         <a className="hover:text-primary/80" href="/Legal/Refund">Refund Policy</a>
                       </div>
                       <div>
-                        <Button className="px-8 py-5 text-xl rounded-3xl hover:bg-quaternary hover:border-2 hover:border-primary hover:text-primary bg-primary text-quaternary">
+                        {/* <Button className="px-8 py-5 text-xl rounded-3xl hover:bg-quaternary hover:border-2 hover:border-primary hover:text-primary bg-primary text-quaternary">
                             Contact Us
-                         </Button>
+                         </Button> */}
                       </div>
                   </div>
 

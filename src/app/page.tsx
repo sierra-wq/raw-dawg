@@ -127,7 +127,7 @@ const handleProductClick = (side: "left"  | "right") => {
                     <span className="flex items-center gap-4 justify-center">   <p className="font-light text-xl  ">{item.tags[0]}</p>
 
                     <Button
-                      onClick={() => setActiveProduct(index)}
+                      onClick={() => router.push(`/Products/${item.id}`)}
                       className="self-start bg-tertiary text-primary hover:bg-primary hover:text-quaternary border-quaternary border-2"
                     >
                       Add to Cart
@@ -359,14 +359,14 @@ const handleProductClick = (side: "left"  | "right") => {
 
                     
                   
-                  <div className=" rounded-2xl  -top-48 absolute border-secondary w-[46em] h-[46em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)]" />
+                  <div className=" rounded-2xl  -top-48 absolute border-secondary w-[46em] h-[46em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)] pointer-events-none" />
                             
 
                   </div> 
 
 
 
-              <div className=" py-4 flex flex-col items-center text-center gap-6 px-6">
+              <div className="relative z-10 py-4 flex flex-col items-center text-center gap-6 px-6">
                   <center><p className="text-6xl md:text-7xl  mb-16 font-germania text-primary text-center " style={{ lineHeight: '1.5' }}>
                     The rebellion against Big Pet Food starts in your dog’s bowl.
                   </p>
@@ -378,7 +378,7 @@ const handleProductClick = (side: "left"  | "right") => {
                   <Button
                     onClick={() => router.push('/About')}
                     variant={'outline'}
-                    className="mt-2 h-auto text-2xl bg-primary rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-14 py-6 min-w-[15rem]"
+                    className="mt-2 h-auto text-2xl bg-primary rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-14 py-6 min-w-[15rem] "
                     style={{ boxShadow: 'inset 8px 7px 6px rgba(0,0,0,0.15),inset -8px -7px 6px rgba(255,255,255,0.3)' }}
                   >
                     Learn More

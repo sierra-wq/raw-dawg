@@ -12,7 +12,7 @@ export default function Post() {
                 
 
 
-                <div className="w-full  flex flex-col items-center justify-center ">
+                <div className="w-full  flex flex-col items-center justify-center mb-72 ">
                     <div className="w-8/12 h-[80vh] font-arvo mt-24 py-10 flex flex-wrap justify-around gap-[1rem]"
                         
                     >
@@ -85,7 +85,7 @@ export default function Post() {
                 </div>
             
 
-                <section className="flex flex-col w-full  items-center justify-center p-4 gap-x-32  justify-self-center py-24 ">
+                <section className="flex flex-col w-full  items-center justify-center p-4 gap-x-32  justify-self-center py-24 mt-40">
                    
                    <p className="text-center text-7xl text-tertiary font-germania"> Get intimate with <br /> @my.rawdawg</p>
                    

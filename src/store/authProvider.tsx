@@ -1,4 +1,3 @@
-// src/context/AuthContext.tsx
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -35,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  // hydrate customer from token
+
   useEffect(() => {
     let mounted = true;
     async function hydrate() {
@@ -118,6 +117,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     }
     const c = await getCustomer(tokenValue);
+    console.log("customer after login", c);
     setCustomer(c);
     router.push("/profile");
     return { ok: true };
@@ -152,9 +152,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   async function updateAddress(address : MailingAddressInput)
   {
     console.log("the address " , customer?.address);
-    const {customerUpdate} =  await ( customer?.address?.address1 === undefined || customer?.address?.address1 === "" ? createCustomerAddressApi(token as string, address) : updateCustomerAddressApi(token as string, customer?.id as string ,address));
-    if (customerUpdate.userErrors && customerUpdate.userErrors.length) {
-      return { ok: false, errors: customerUpdate.userErrors };
+    const {customerAddressUpdate} =  await ( customer?.address?.address1 === undefined || customer?.address?.address1 === "" ? createCustomerAddressApi(token as string, address) : updateCustomerAddressApi(token as string, customer.address?.id as string ,address));
+    if (customerAddressUpdate.userErrors && customerAddressUpdate.userErrors.length) {
+      return { ok: false, errors: customerAddressUpdate.userErrors };
     }
     const c = await getCustomer(token as string);
     setCustomer(c);

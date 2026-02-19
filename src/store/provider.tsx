@@ -52,6 +52,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCart(cartretrived);
   }
   async function addItem(variantId: string, qty = 1, sellingPlanId?: string) {
+
+    console.log("Adding item to cart: " , {variantId, qty, sellingPlanId});
     let newCart = cart;
     if (!newCart) newCart = await CartStore.createCart();
 

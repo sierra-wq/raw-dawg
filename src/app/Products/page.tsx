@@ -11,6 +11,7 @@ export type Product = {
     id: string;
     handle: string;
     title: string;
+    availableForSale: boolean;
     description: string;
     featuredImage: string;
     maxPrice : number;
@@ -49,28 +50,7 @@ export default function Products() {
     const [orderedProducts, setOrderedProducts] = useState<Product[]>([]);
     const varietyHandle = "best-seller-variety-pack";
     const turkeyHandle = "free-range-turkey-ancestral-blend";
-    const items = [
-    {
-      title: 'Item 1',
-      content: 'Content 1',
-    },
-    {
-      title: 'Item 2',
-      content: 'Content 2',
-    },
-    {
-      title: 'Item 3',
-      content: 'Content 3',
-    },
-     {
-      title: 'Item 3',
-      content: 'Content 3',
-    },
-     {
-      title: 'Item 3',
-      content: 'Content 3',
-    },
-  ];
+    
 
   const productQuery = `
     query getProducts($first: Int) {
@@ -79,6 +59,7 @@ export default function Products() {
           node {
             id
             handle
+            availableForSale
             priceRange{
                 maxVariantPrice{
                     amount
@@ -128,6 +109,7 @@ export default function Products() {
         };
         productTemp.push(product);
       });
+      console.log("Fetched Products:", productTemp);
       setProducts(productTemp);
     } catch (err) {
       console.error("Failed to fetch products", err);
@@ -169,7 +151,7 @@ export default function Products() {
       case "best-seller-variety-pack":
         return "Bestseller Variety Pack";
       default:
-        return product.title;
+        return product.handle;
     }
   };
 
@@ -192,19 +174,21 @@ export default function Products() {
                           </div>
                         ) : (
                           orderedProducts.map((item, index) => (
-                     <div key={index} className=" flex flex-col items-center justify-between group rounded-lg hover:cursor-pointer  shrink  w-[26em] text-clip text-center">
-                      <img alt="Progress Steps" className="w-[26em] h-[36em] justify-self-center border-black mb-5 rounded-lg border-2 " src={item.featuredImage}/>
-                     <p className="text-3xl font-germania text-center text-tertiary  ">{displayTitle(item)}</p>
-                     <Button
-                       
-                       onClick={() => router.push(`/Products/${item.handle}`)}
-                       size={'default'}
-                       className="my-5  font-germania text-2xl border-2  bg-tertiary hover:bg-tertiary hover:text-3xl py-5  text-primary w-3/4 disabled:opacity-60 disabled:cursor-not-allowed"
-                     >
-                       Add to cart — ${item?.variants?.edges[0]?.node?.price?.amount}
-                     </Button>
-                  </div>
-                  ))
+                            item.availableForSale ? (
+                              <div key={index} className=" flex flex-col items-center justify-between group rounded-lg hover:cursor-pointer  shrink  w-[26em] text-clip text-center">
+                                <img alt="Progress Steps" className="w-[26em] h-[36em] justify-self-center border-black mb-5 rounded-lg border-2 " src={item.featuredImage}/>
+                               <p className="text-3xl font-germania text-center text-tertiary  ">{displayTitle(item)}</p>
+                               <Button
+                                 
+                                 onClick={() => router.push(`/Products/${item.handle}`)}
+                                 size={'default'}
+                                 className="my-5  font-germania text-2xl border-2  bg-tertiary hover:bg-tertiary hover:text-3xl py-5  text-primary w-3/4 disabled:opacity-60 disabled:cursor-not-allowed"
+                               >
+                                 Add to cart — ${item?.variants?.edges[0]?.node?.price?.amount}
+                               </Button>
+                            </div>
+                            ) : null
+                          ))
                         )}
                         
                     </div>

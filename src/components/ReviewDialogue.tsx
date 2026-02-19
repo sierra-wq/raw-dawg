@@ -21,7 +21,6 @@ import { z } from "zod";
 
 import { useState } from "react";
 import { Star } from "lucide-react";
-import { ca } from "zod/v4/locales";
 
 
 export const ReviewSchema = z.object({
@@ -36,10 +35,12 @@ export default function ReviewDialog({
   productId,
   customerId,
   customerName,
+  triggerClassName,
 }: {
   productId: string;
   customerId: string;
   customerName: string;
+  triggerClassName?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
@@ -93,7 +94,7 @@ export default function ReviewDialog({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-primary text-secondary font-bold">
+        <Button className={triggerClassName ?? "bg-primary text-secondary font-bold"}>
           Write a Review
         </Button>
       </DialogTrigger>

@@ -70,8 +70,8 @@ export default function SignUp() {
       
     
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-                                    <Card className="text-primary text-2xl bg-quaternary">
+        <form onSubmit={handleSubmit(onSubmit)} className=''>
+                                    <Card className="text-primary text-2xl bg-quaternary   ">
                                 <CardHeader>
                                 <CardTitle>SignUp</CardTitle>
                                 <CardDescription className="text-surface text-xl font-bold">

@@ -88,10 +88,10 @@ export default function Profile() {
       
     
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="font-arvo">
           <Card className="text-primary bg-quaternary">
             <CardHeader className=" relative">
-              <CardTitle className="text-2xl">My Profile</CardTitle>
+              <CardTitle className="text-3xl font-germania">My Profile</CardTitle>
               
                 <Toggle
       aria-label="Toggle edit"
@@ -106,11 +106,11 @@ export default function Profile() {
            
             </CardHeader>
 
-            <CardContent className="grid gap-6">
+            <CardContent className="grid gap-6 ">
               <FieldSet>
                 <FieldGroup>
                 <Field>
-                  <FieldLabel htmlFor="firstname">Firstname</FieldLabel>
+                  <FieldLabel className="text-lg" htmlFor="firstname">Firstname</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your first name
@@ -130,7 +130,7 @@ export default function Profile() {
                 </Field>
 
                 <Field>
-                  <FieldLabel htmlFor="lastname">Lastname</FieldLabel>
+                  <FieldLabel className="text-lg" htmlFor="lastname">Lastname</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your last name
@@ -149,7 +149,7 @@ export default function Profile() {
                 </Field>
 
                 <Field>
-                  <FieldLabel htmlFor="phone">Phone</FieldLabel>
+                  <FieldLabel className="text-lg" htmlFor="phone">Phone</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your Phone name
@@ -170,7 +170,7 @@ export default function Profile() {
 
                   {/* Email */}
                   <Field>
-                    <FieldLabel htmlFor="email">Email</FieldLabel>
+                    <FieldLabel className="text-lg" htmlFor="email">Email</FieldLabel>
 
                   
                     <Input
@@ -193,7 +193,7 @@ export default function Profile() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !edit}
-                className="bg-primary text-secondary font-bold w-full"
+                className="bg-primary text-secondary font-germania text-2xl w-full"
               >
                 {isSubmitting ? "Updating ..." : "Update Details"}
               </Button>

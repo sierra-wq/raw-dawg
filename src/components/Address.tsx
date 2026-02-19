@@ -154,9 +154,9 @@ export default function Address() {
     
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Card className="text-primary bg-quaternary">
+          <Card className="text-primary bg-quaternary font-arvo">
             <CardHeader className=" relative">
-              <CardTitle className="text-2xl">Shipping Address</CardTitle>
+              <CardTitle className="text-3xl font-germania">Shipping Address</CardTitle>
               
               <Toggle
       aria-label="Toggle edit"
@@ -175,7 +175,7 @@ export default function Address() {
               <FieldSet>
                 <FieldGroup>
                 <Field>
-                  <FieldLabel htmlFor="firstname">Firstname</FieldLabel>
+                  <FieldLabel className="text-lg" htmlFor="firstname">Firstname</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your first name
@@ -183,6 +183,7 @@ export default function Address() {
 
                   <Input
                     id="firstname"
+                    disabled={!edit}
                     className="focus:border-2 focus-within:border-primary"
                     {...register("firstName")}
                   />
@@ -193,7 +194,7 @@ export default function Address() {
                 </Field>
 
                 <Field>
-                  <FieldLabel htmlFor="lastname">Lastname</FieldLabel>
+                  <FieldLabel className="text-lg" htmlFor="lastname">Lastname</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your last name
@@ -201,6 +202,7 @@ export default function Address() {
 
                   <Input
                     id="lastname"
+                    disabled={!edit}
                     className="focus:border-2 focus-within:border-primary"
                     {...register("lastName")}
                   />
@@ -212,7 +214,7 @@ export default function Address() {
                 
                 {/* Phone Number */}
                 <Field>
-                  <FieldLabel htmlFor="phone">Phone</FieldLabel>
+                  <FieldLabel className="text-lg" htmlFor="phone">Phone</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your Phone name
@@ -220,6 +222,7 @@ export default function Address() {
 
                   <Input
                     id="phone"
+                    disabled={!edit}
                     className="focus:border-2 focus-within:border-primary"
                     {...register("phone")}
                   />
@@ -232,12 +235,13 @@ export default function Address() {
 
                   {/* Street Address */}
                   <Field>
-                    <FieldLabel htmlFor="address1"> Address Line *</FieldLabel>
+                    <FieldLabel className="text-lg" htmlFor="address1"> Address Line *</FieldLabel>
 
                   
                     <Input
                       id="address1"
                       type="text"
+                      disabled={!edit}
                       
                       className="focus:border-2 focus-within:border-primary"
                       {...register("address1")}
@@ -248,12 +252,13 @@ export default function Address() {
 
                   {/* Street Address 2*/}
                   <Field>
-                    <FieldLabel htmlFor="address2"> Address Line 2</FieldLabel>
+                    <FieldLabel className="text-lg" htmlFor="address2"> Address Line 2</FieldLabel>
 
                   
                     <Input
                       id="address2"
                       type="text"
+                      disabled={!edit}
                       
                       className="focus:border-2 focus-within:border-primary"
                       {...register("address2")}
@@ -264,7 +269,7 @@ export default function Address() {
 
                   {/* Company */}
                   <Field>
-                    <FieldLabel htmlFor="company">Company</FieldLabel>
+                    <FieldLabel className="text-lg" htmlFor="company">Company</FieldLabel>
 
                     {edit && <FieldDescription className="text-surface/70">
                       Enter Your Company
@@ -272,6 +277,7 @@ export default function Address() {
 
                     <Input
                       id="company"
+                      disabled={!edit}
                       className="focus:border-2 focus-within:border-primary"
                       {...register("company")}
                     />
@@ -283,7 +289,7 @@ export default function Address() {
 
                   {/* City */}
                   <Field>
-                    <FieldLabel htmlFor="city">City</FieldLabel>
+                    <FieldLabel className="text-lg" htmlFor="city">City</FieldLabel>
 
                     {edit && <FieldDescription className="text-surface/70">
                       Enter Your City
@@ -291,6 +297,7 @@ export default function Address() {
 
                     <Input
                       id="city"
+                      disabled={!edit}
                       className="focus:border-2 focus-within:border-primary"
                       {...register("city")}
                     />
@@ -302,7 +309,7 @@ export default function Address() {
 
                   {/* Country */}
                   <Field>
-                    <FieldLabel htmlFor="country">Country</FieldLabel>
+                    <FieldLabel className="text-lg" htmlFor="country">Country</FieldLabel>
 
                     {edit && <FieldDescription className="text-surface/70">
                       Enter Your Country
@@ -310,6 +317,7 @@ export default function Address() {
 
                     <Input
                       id="country"
+                      disabled={!edit}
                       className="focus:border-2 focus-within:border-primary"
                       {...register("country")}                      
                     />
@@ -320,8 +328,8 @@ export default function Address() {
                   </Field>
 
                   {/* State */}
-                  <Field>
-                    <FieldLabel htmlFor="state">State</FieldLabel>
+                  {/* <Field>
+                    <FieldLabel className="text-lg" htmlFor="state">State</FieldLabel>
 
                     {edit && <FieldDescription className="text-surface/70">
                       Enter Your State
@@ -329,6 +337,7 @@ export default function Address() {
 
                     <Input
                       id="state"
+                      disabled={!edit}
                       className="focus:border-2 focus-within:border-primary"
                       {...register("state")}
                     />
@@ -336,11 +345,11 @@ export default function Address() {
                     <FieldError>
                       {errors.state?.message}
                     </FieldError>
-                  </Field>
+                  </Field> */}
 
                   {/* Zip */}
                   <Field>
-                    <FieldLabel htmlFor="zip">Zip</FieldLabel>   
+                    <FieldLabel className="text-lg" htmlFor="zip">Zip</FieldLabel>   
 
                     {edit && <FieldDescription className="text-surface/70">
                       Enter Your Zip
@@ -348,6 +357,7 @@ export default function Address() {
 
                     <Input
                       id="zip"
+                      disabled={!edit}
                       className="focus:border-2 focus-within:border-primary"
                       {...register("zip")}
                     />
@@ -368,7 +378,7 @@ export default function Address() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !edit}
-                className="bg-primary text-secondary font-bold w-full"
+                className="bg-primary text-secondary text-2xl font-germania w-full"
               >
                 {isSubmitting ? "Updating ..." : "Update Details"}
               </Button>

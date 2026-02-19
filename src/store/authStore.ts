@@ -23,6 +23,7 @@ export type MailingAddressInput = {
   company?: string
   country: string
   firstName: string
+  id?: string;
   lastName: string
   phone: string
   province?: string
@@ -101,6 +102,7 @@ export async function getCustomer(accessToken: string) {
         email
         firstName
         lastName
+        phone
         addresses(first: 1) {
           edges {
             node {
@@ -121,8 +123,10 @@ export async function getCustomer(accessToken: string) {
     }
   `;
   const { data, errors, extensions } = await client.request(query, { variables: { token: accessToken } });
+  console.log(" the data for the customer **" , data);
   data.customer.address = data?.customer.addresses?.edges[0]?.node;
   delete  data.customer.addresses ;
+  //data.customer.id = parseInt(data.customer.id.split("/").pop()); // extract ID from global ID
   console.log("the data for the customer " , data);
   return data?.customer;
 }
@@ -194,7 +198,7 @@ export async function updateCustomerAddress(customerAccessToken: string, id: str
   const { data, errors, extensions } = await client.request(query, { variables: { customerAccessToken, id, address } });
   console.log(" the data for the customer " , data);
   console.log(" the errors  ", errors);
-  return data?.customerAddressUpdate;
+  return data;
 }
 
 export async function createCustomerAddress(customerAccessToken: string, address : MailingAddressInput) {
