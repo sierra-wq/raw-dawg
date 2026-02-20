@@ -13,6 +13,7 @@ export async function POST(req: Request) {
     await connectMongo();
 
     const created = await Review.create({
+      customerId,
       productId,
       id,
       customerName,

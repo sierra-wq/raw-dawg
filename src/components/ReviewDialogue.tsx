@@ -81,11 +81,11 @@ export default function ReviewDialog({
       }),
     });
 
-    console.log(data);
+    console.log("Response data for review creation:", data);
     }
     catch(err)
     {
-      console.log(err);
+      console.log("Error creating review:", err);
     }
 
     setOpen(false);

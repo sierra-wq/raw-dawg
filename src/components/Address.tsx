@@ -25,7 +25,6 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Toggle } from "./ui/toggle"
 import { Edit } from "lucide-react"
-import { updateCustomerAddress } from "@/store/authStore"
 import { cleanInput } from "@/lib/utils"
 
 

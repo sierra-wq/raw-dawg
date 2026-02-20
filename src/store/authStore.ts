@@ -233,6 +233,51 @@ export async function createCustomerAddress(customerAccessToken: string, address
   return data;
 }
 
+
+export async function resetCustomerPassword(email: string) {
+  const query = `
+    mutation customerRecover($email: String!) {
+      customerRecover(email: $email) {
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `;
+  
+  const { data, errors, extensions } = await client.request(query, { variables: { email } });
+  console.log(" the data for password reset " , data);
+  console.log(" the errors for password reset ", errors);
+  return data;
+}
+
+export async function resetPasswordByUrlApi(newPassword: string, resetUrl: string) {
+  const mutation = `
+    mutation customerResetByUrl($resetUrl: URL!, $password: String!) {
+      customerResetByUrl( resetUrl: $resetUrl, password: $password ) {
+        customer {
+          id
+          email
+          firstName
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `;
+
+  console.log("the variables for reset password " , newPassword , resetUrl);
+  const { data, errors, extensions } = await client.request(mutation, { variables: { resetUrl, password: newPassword } });
+  console.log(" the data for password update " , data);
+  console.log(" the errors for password update ", errors);
+  return data;
+}
+
+
+
 export async function attachCustomerToCart(cartId: string, customerAccessToken: string) {
   const mutation = `
     mutation cartBuyerIdentityUpdate($cartId: ID!, $buyerIdentity: CartBuyerIdentityInput!) {

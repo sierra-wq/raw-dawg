@@ -120,6 +120,10 @@ export default function LogIn() {
         </CardContent>
 
         <CardFooter className="flex flex-col justify-center gap-3">
+
+          <a href="/Resetpasswd" className="text-primary text-sm w-full -my-1 hover:underline text-right ">Forgot Password?</a>
+
+
           <Button
             type="submit"
             disabled={isSubmitting}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { signup as signupApi, login as loginApi, logout as logoutApi, getCustomer, updateCustomer as updateCustomerApi, updateCustomerAddress as updateCustomerAddressApi, createCustomerAddress as createCustomerAddressApi, attachCustomerToCart, MailingAddressInput, UpdateInput } from "@/store/authStore";
+import { signup as signupApi, login as loginApi, logout as logoutApi, getCustomer, updateCustomer as updateCustomerApi, updateCustomerAddress as updateCustomerAddressApi, createCustomerAddress as createCustomerAddressApi, attachCustomerToCart, MailingAddressInput, UpdateInput, resetCustomerPassword, resetPasswordByUrlApi } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 
 type Customer = { id: string; email: string; firstName?: string; lastName?: string , phone?: string, acceptsMarketing?: boolean, cartId?: string, address?: MailingAddressInput } | null;
@@ -13,6 +13,8 @@ export type AuthContextType = {
   signup: (data: { email: string; password: string; firstName?: string; lastName?: string; cartId?: string }) => Promise<{ ok: boolean; errors?: any }>;
   login: (data: { email: string; password: string; cartId?: string }) => Promise<{ ok: boolean; errors?: any }>;
   logout: () => Promise<void>;
+  resetPassword: (email: string) => Promise<{ ok: boolean; errors?: any }>;
+  resetPasswordByUrl: (newPassword: string, resetUrl: string) => Promise<{ ok: boolean; errors?: any }>;
   customerUpdate: (data: UpdateInput) => Promise<{ ok: boolean; errors?: any }>;
   updateAddress: (data: MailingAddressInput) => Promise<{ ok: boolean; errors?: any }>;
 };
@@ -163,8 +165,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return { ok: true };
   }
 
+  async function resetPassword(email: string) {
+    // Implement password reset logic here, e.g., call a Shopify API to send a reset email
+    // For now, we'll just return a success response
+    const { customerRecover } = await resetCustomerPassword(email);
+    if (customerRecover.userErrors && customerRecover.userErrors.length) {
+      return { ok: false, errors: customerRecover.userErrors };
+    }
+    return { ok: true };
+  }
+
+  async function resetPasswordByUrl(newPassword: string, resetUrl: string) {
+    // Implement password reset logic here, e.g., call a Shopify API to reset the password using the reset URL
+    // For now, we'll just return a success response
+    // Note: Shopify's Storefront API does not support resetting password directly via API, this is just a placeholder
+    const { customerResetByUrl } = await resetPasswordByUrlApi(newPassword, resetUrl);
+    if (customerResetByUrl.userErrors && customerResetByUrl.userErrors.length) {
+      return { ok: false, errors: customerResetByUrl.userErrors };
+    }
+    return { ok: true };
+  }
+
   return (
-    <AuthContext.Provider value={{ customer, token, loading, signup, login, logout, customerUpdate,  updateAddress }}>
+    <AuthContext.Provider value={{ customer, token, loading, signup, login, logout, customerUpdate,  updateAddress, resetPassword, resetPasswordByUrl }}>
       {children}
     </AuthContext.Provider>
   );

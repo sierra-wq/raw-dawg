@@ -219,15 +219,15 @@ const handleProductClick = (side: "left"  | "right") => {
             const res = await fetch(`/api/review/read?productId=${handle}`);
             const data = await res.json();
             console.log(" the reviews  " , data);
-            if(data.length > 0)
+            if(data.reviews.length > 0)
             {
-              const total = data.reduce((acc: number, r : Review) => acc + r.rating, 0);
+              const total = data.reviews.reduce((acc: number, r : Review) => acc + r.rating, 0);
             console.log("the sum " , total);
-            const averageRating = total / data.length;
+            const averageRating = total / data.reviews.length;
             setReviewsAverage(averageRating);
-            setReviewsCount(data.length);
+            setReviewsCount(data.reviews.length);
             }
-            setReviews(data);
+            setReviews(data.reviews);
         } catch (err) {
           console.error(" cant fetch reviews check server ");
         } 
