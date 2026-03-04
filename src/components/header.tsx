@@ -20,6 +20,8 @@ import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { useAuth } from "@/store/authProvider";
 import { Badge } from "./ui/badge";
+
+
 export default function Header() {
   const router = useRouter();
   const path = usePathname();
@@ -32,7 +34,8 @@ export default function Header() {
   const productsPath = pathname[1] === "products" && pathname.length === 2;
   const hidePlanCta = pathname[1]?.toLowerCase() === "ingredients";
   const totalSize = cart?.lines.reduce((acc, item) => acc + (item.size * item.quantity), 0) ?? 0;
-
+  const message = process.env.NEXT_PUBLIC_MESSAGE || "Subscribe to get notified when we launch!";
+  const minimumOrderQuantity = parseInt(process.env.NEXT_MINIMUM_ORDER_QUANTITY || "15", 10);
   
   function handleLogIn() {
     router.push("/login");
@@ -50,7 +53,7 @@ export default function Header() {
 
    <header className=" absolute w-full top-0 flex-col font-acumin">
         <p className="bg-primary w-full px-2 text-2xs font-germania text-quaternary text-center">
-            hellow this is the announcement message! 
+            {message}
             {/* <span className="text-xl ps-2 underline underline-offset-2"> View More</span>  */}
         </p>
 
@@ -83,7 +86,7 @@ export default function Header() {
     </DropdownMenu>
             
             
-            <Sheet open={open}>
+            <Sheet  open={open}>
               <SheetTrigger asChild>
               <div className="relative">
                   <Badge
@@ -95,7 +98,7 @@ export default function Header() {
               
               </div>
               </SheetTrigger>
-              <SheetContent className="sm:max-w-[30rem] bg-primary font-germania">
+              <SheetContent className="sm:max-w-[30rem] overflow-y-auto bg-primary font-germania">
                 <SheetHeader className="  " >
                   <SheetTitle className=" items-center  text-4xl flex text-quaternary justify-between ">
                     <p>Your Cart</p>
@@ -108,7 +111,7 @@ export default function Header() {
                     All The Products You Have In Your Cart
                   </SheetDescription>
               </SheetHeader>
-                <div className=" h-4/5 py-6 overflow-y-auto px-4">
+                <div className="h-4/5  py-6 overflow-y-auto px-4">
                   
                   {cart?.lines.map((item, index) => (
                     
@@ -145,11 +148,11 @@ export default function Header() {
                       </p>
                       <p className="text-3xl font-bold text-quaternary "> {cart?.cost.totalAmount} <span className="text-2xl">$</span>  </p>
                   </div>
-                  <p className={` ${totalSize < 15 ? 'text-error' : 'hidden'}  text-lg font-bold font-arvo mt-2`}>
-                    Minimum shippable order is 15 lb.
+                  <p className={` ${totalSize < minimumOrderQuantity ? 'text-error' : 'hidden'}  text-lg font-bold font-arvo mt-2`}>
+                    Minimum shippable order is {minimumOrderQuantity} lb.
                   </p>
                   
-                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} disabled={totalSize  < 15} className="mt-4 border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
+                  <Button onClick={() => router.push(cart?.checkoutUrl ?? "" )} disabled={totalSize  < minimumOrderQuantity} className="mt-4 border-4 border-quaternary hover:text-primary hover:bg-quaternary  text-3xl p-6 font-bold  rounded-[2rem] " type="submit">Checkout</Button>
                   
                 </SheetFooter>
                

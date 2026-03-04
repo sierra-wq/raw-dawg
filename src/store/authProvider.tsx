@@ -4,12 +4,15 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { signup as signupApi, login as loginApi, logout as logoutApi, getCustomer, updateCustomer as updateCustomerApi, updateCustomerAddress as updateCustomerAddressApi, createCustomerAddress as createCustomerAddressApi, attachCustomerToCart, MailingAddressInput, UpdateInput, resetCustomerPassword, resetPasswordByUrlApi } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 
-type Customer = { id: string; email: string; firstName?: string; lastName?: string , phone?: string, acceptsMarketing?: boolean, cartId?: string, address?: MailingAddressInput } | null;
+type Customer = { id: string; email: string; firstName?: string; lastName?: string, phone?: string, acceptsMarketing?: boolean, cartId?: string, address?: MailingAddressInput } | null;
 
 export type AuthContextType = {
   customer: Customer;
-  token: string | null;
-  loading: boolean;
+  authenticated: boolean;
+  authloading: boolean;
+  subscribeLoading: boolean;
+  subscribeSuccess: boolean;
+  handleSubscribe: (email: string) => Promise<{ ok: boolean; message: string; errors?: any }>;
   signup: (data: { email: string; password: string; firstName?: string; lastName?: string; cartId?: string }) => Promise<{ ok: boolean; errors?: any }>;
   login: (data: { email: string; password: string; cartId?: string }) => Promise<{ ok: boolean; errors?: any }>;
   logout: () => Promise<void>;
@@ -28,166 +31,157 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [token, setToken] = useState<string | null>(() => {
-    if (typeof window === "undefined") return null;
-    return localStorage.getItem("shopify_customer_token");
-  });
+  const [authenticated, setAuthenticated] = useState(false);
   const [customer, setCustomer] = useState<Customer | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [authloading, setAuthLoading] = useState(true);
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
+  const [subscribeSuccess, setSubscribeSuccess] = useState(false);
+
   const router = useRouter();
 
 
   useEffect(() => {
     let mounted = true;
-    async function hydrate() {
-      if (!token) {
-        setCustomer(null);
-        setLoading(false);
-        return;
-      }
+
+    (async () => {
       try {
-        const c = await getCustomer(token);
-        console.log("customer", c);
-        if (mounted) {
-          setCustomer(c);
-        }
-      } catch (err) {
-        console.error("failed to get customer", err);
-        setCustomer(null);
-        setToken(null);
-        localStorage.removeItem("shopify_customer_token");
+        const res = await fetch("/api/auth/me", { cache: "no-store" });
+        const data = await res.json();
+        if (!mounted) return;
+
+        setAuthenticated(!!data.authenticated);
+        setCustomer(data.customer ?? null);
       } finally {
-        if (mounted) setLoading(false);
+        if (mounted) setAuthLoading(false);
       }
-    }
-    hydrate();
+    })();
+
     return () => {
       mounted = false;
     };
-  }, [token]);
+  }, []);
+
+
+
+  async function handleSubscribe(email: string) {
+      setSubscribeLoading(true);
+
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          source: "landing-hero",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) return { ok: false, message: data.message, errors: data.errors };
+      
+      setSubscribeSuccess(true);
+      setSubscribeLoading(false);
+      return { ok: true, message: data.message };      
+  }
+
+
 
   async function signup({ email, password, firstName, lastName, cartId }: { email: string; password: string; firstName?: string; lastName?: string; cartId?: string }) {
-    const { customerCreate } = await signupApi({
-      email,
-      password,
-      firstName,
-      lastName,
+    // keep your existing flow: signup then login
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password, firstName, lastName, cartId }),
     });
-    if (customerCreate.userErrors && customerCreate.userErrors.length) {
-      return { ok: false, errors: customerCreate.userErrors };
-    }
-    console.log(" signup waS COMPLETED  ", customerCreate.customer);
-    // auto-login after signup
-    const { customerAccessTokenCreate } = await loginApi(email, password);
-    if (customerAccessTokenCreate.userErrors && customerAccessTokenCreate.userErrors.length) {
-      return { ok: false, errors: customerAccessTokenCreate.userErrors };
-    }
-    const tokenValue = customerAccessTokenCreate.customerAccessToken.accessToken;
-    setToken(tokenValue);
-    localStorage.setItem("shopify_customer_token", tokenValue);
 
-    // attach cart to customer if cartId provided
-    if (cartId) {
-      try {
-        await attachCustomerToCart(cartId, tokenValue);
-      } catch (err) {
-        console.warn("failed to attach cart", err);
-      }
-    }
-
-    const c = await getCustomer(tokenValue);
-    setCustomer(c);
+    const data = await res.json();
+    if (!res.ok || !data.ok) return { ok: false, errors: data.errors };
+    setAuthenticated(true);
+    setCustomer(data.customer ?? null);
+    router.push("/profile");
 
     return { ok: true };
   }
 
   async function login({ email, password, cartId }: { email: string; password: string; cartId?: string }) {
-    const { customerAccessTokenCreate } = await loginApi(email, password);
-    if (customerAccessTokenCreate.userErrors && customerAccessTokenCreate.userErrors.length) {
-      return { ok: false, errors: customerAccessTokenCreate.userErrors };
-    }
-    const tokenValue = customerAccessTokenCreate.customerAccessToken.accessToken;
-    setToken(tokenValue);
-    localStorage.setItem("shopify_customer_token", tokenValue);
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password, cartId }),
+    });
 
-    // attach cart to customer if cartId provided
-    if (cartId) {
-      try {
-        await attachCustomerToCart(cartId, tokenValue);
-      } catch (err) {
-        console.warn("failed to attach cart", err);
-      }
-    }
-    const c = await getCustomer(tokenValue);
-    console.log("customer after login", c);
-    setCustomer(c);
-    router.push("/profile");
+    const data = await res.json();
+    if (!res.ok || !data.ok) return { ok: false, errors: data.errors };
+
+    setAuthenticated(true);
+    setCustomer(data.customer ?? null);
     return { ok: true };
   }
 
   async function logout() {
-    if (!token) return;
-    try {
-      await logoutApi(token);
-    } catch (err) {
-      // still clear local token
-      console.warn("logout request failed", err);
-    } finally {
-      setToken(null);
-      setCustomer(null);
-      localStorage.removeItem("shopify_customer_token");
-      router.push("/");
-    }
+
+    await fetch("/api/auth/logout", { method: "POST" });
+    setAuthenticated(false);
+    setCustomer(null);
+    router.push("/");
+
   }
 
-  async function customerUpdate(customer : UpdateInput)
-  {
-    const {customerUpdate} = await updateCustomerApi(token as string, customer);
-    if (customerUpdate.customerUserErrors && customerUpdate.customerUserErrors.length) {
-      return { ok: false, errors: customerUpdate.userErrors };
-    }
-    const c = await getCustomer(token as string);
-    setCustomer(c);
+  async function customerUpdate(customerUpdateInput: UpdateInput) {
+    const res = await fetch("/api/customer/update", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(customerUpdateInput),
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.ok) return { ok: false, errors: data.errors };
+
+    setCustomer(data.customer ?? null);
     return { ok: true };
   }
 
-  async function updateAddress(address : MailingAddressInput)
-  {
-    console.log("the address " , customer?.address);
-    const {customerAddressUpdate,customerAddressCreate} =  await ( customer?.address?.address1 === undefined || customer?.address?.address1 === "" ? createCustomerAddressApi(token as string, address) : updateCustomerAddressApi(token as string, customer.address?.id as string ,address));
-    
-    if ((customerAddressUpdate && customerAddressUpdate.userErrors && customerAddressUpdate.userErrors.length) || (customerAddressCreate && customerAddressCreate.customerUserErrors && customerAddressCreate.customerUserErrors.length)) {
-      return { ok: false, errors: customerAddressUpdate?.userErrors || customerAddressCreate?.customerUserErrors };
-    }
-    
-    const c = await getCustomer(token as string);
-    setCustomer(c);
+  async function updateAddress(address: MailingAddressInput) {
+    const res = await fetch("/api/customer/address", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(address),
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.ok) return { ok: false, errors: data.errors };
+
+    setCustomer(data.customer ?? null);
     return { ok: true };
   }
+
 
   async function resetPassword(email: string) {
-    // Implement password reset logic here, e.g., call a Shopify API to send a reset email
-    // For now, we'll just return a success response
-    const { customerRecover } = await resetCustomerPassword(email);
-    if (customerRecover.userErrors && customerRecover.userErrors.length) {
-      return { ok: false, errors: customerRecover.userErrors };
-    }
+    const res = await fetch("/api/auth/reset", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) return { ok: false, errors: data.errors };
     return { ok: true };
   }
 
   async function resetPasswordByUrl(newPassword: string, resetUrl: string) {
-    // Implement password reset logic here, e.g., call a Shopify API to reset the password using the reset URL
-    // For now, we'll just return a success response
-    // Note: Shopify's Storefront API does not support resetting password directly via API, this is just a placeholder
-    const { customerResetByUrl } = await resetPasswordByUrlApi(newPassword, resetUrl);
-    if (customerResetByUrl.userErrors && customerResetByUrl.userErrors.length) {
-      return { ok: false, errors: customerResetByUrl.userErrors };
-    }
+    const res = await fetch("/api/auth/reset-by-url", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ newPassword, resetUrl }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) return { ok: false, errors: data.errors };
     return { ok: true };
   }
 
   return (
-    <AuthContext.Provider value={{ customer, token, loading, signup, login, logout, customerUpdate,  updateAddress, resetPassword, resetPasswordByUrl }}>
+    <AuthContext.Provider value={{ customer, authenticated, authloading, subscribeLoading, subscribeSuccess, handleSubscribe, signup, login, logout, customerUpdate, updateAddress, resetPassword, resetPasswordByUrl }}>
       {children}
     </AuthContext.Provider>
   );

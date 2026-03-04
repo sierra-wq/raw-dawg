@@ -35,7 +35,6 @@ type LoginFormType = z.infer<typeof LoginSchema>;
 
 export default function LogIn() {
       const { customer, login } = useAuth();
-      const router = useRouter();
       const { cart } = useCart(); // optional: attach cart.id
       const form = useForm({
         resolver: zodResolver(LoginSchema),
@@ -59,8 +58,7 @@ export default function LogIn() {
         alert(res.errors?.map((e: any) => e.message).join(", "));
         return;
       }
-
-      window.location.href = "/profile";
+      
   }
     
       

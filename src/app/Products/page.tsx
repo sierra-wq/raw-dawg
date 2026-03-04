@@ -50,6 +50,7 @@ export default function Products() {
     const [orderedProducts, setOrderedProducts] = useState<Product[]>([]);
     const varietyHandle = "best-seller-variety-pack";
     const turkeyHandle = "free-range-turkey-ancestral-blend";
+    const storeMode = process.env.NEXT_STORE_MODE || "PRE_LAUNCH";
     
 
   const productQuery = `
@@ -184,7 +185,7 @@ export default function Products() {
                                  size={'default'}
                                  className="my-5  font-germania text-2xl border-2  bg-tertiary hover:bg-tertiary hover:text-3xl py-5  text-primary w-3/4 disabled:opacity-60 disabled:cursor-not-allowed"
                                >
-                                 Add to cart — ${item?.variants?.edges[0]?.node?.price?.amount}
+                                 {storeMode === "PRE_LAUNCH" ? "Pre-Order" : "Add to Cart"} — ${item?.variants?.edges[0]?.node?.price?.amount}
                                </Button>
                             </div>
                             ) : null

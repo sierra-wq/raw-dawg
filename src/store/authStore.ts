@@ -30,6 +30,8 @@ export type MailingAddressInput = {
   zip: string
 }
 
+
+
 export async function signup(input: SignupInput) {
   const mutation = `
     mutation customerCreate($input: CustomerCreateInput!) {
@@ -76,6 +78,20 @@ export async function login(email: string, password: string) {
   console.log("the data login ", data);
   console.log("the error login" , errors);
 
+  if (!data.customerAccessTokenCreate.userErrors && !data.customerAccessTokenCreate.userErrors.length) {
+         const {success} = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token: data.customerAccessTokenCreate.customerAccessToken.accessToken }),
+        }).then((res) => res.json());
+        console.log("the response from the login api route " , success);
+        if(success) {
+          return { ...data,success };
+        }
+    }
+
   return data;
 }
 
@@ -84,6 +100,7 @@ export async function logout(accessToken: string) {
     mutation customerAccessTokenDelete($customerAccessToken: String!) {
       customerAccessTokenDelete(customerAccessToken: $customerAccessToken) {
         deletedAccessToken
+        deletedCustomerAccessTokenId
         userErrors { field message }
       }
     }
@@ -128,6 +145,7 @@ export async function getCustomer(accessToken: string) {
   delete  data.customer.addresses ;
   //data.customer.id = parseInt(data.customer.id.split("/").pop()); // extract ID from global ID
   console.log("the data for the customer " , data);
+  console.log("the errors for the customer " , errors);
   return data?.customer;
 }
 
@@ -260,6 +278,13 @@ export async function resetPasswordByUrlApi(newPassword: string, resetUrl: strin
           id
           email
           firstName
+          lastName
+          phone
+          acceptsMarketing
+        }
+        customerAccessToken {
+            accessToken
+            expiresAt
         }
         userErrors {
           field

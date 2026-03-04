@@ -3,6 +3,9 @@ import img2 from "@/assets/product2.png"
 import img3 from "@/assets/product3.png"
 import { StaticImageData } from "next/image";
 
+
+
+
 export const items : {
     img: StaticImageData;
     discription: string;
@@ -19,7 +22,8 @@ export const items : {
 }[]  = [
     {
       img: img1,
-      id: 'instinct-blend-5-pack-1-lb-each',
+      //id: 'instinct-blend-5-pack-1-lb-each',
+      id: 'grass-fed-beef-instinct-blend',
       discription : 'A dense, whole-prey blend of muscle meat, organs, bone, trachea, and raw green tripe to support power, endurance, and real digestive health',
       detail : "A whole-prey beef recipe built for strength, stamina, and durability. Lean beef and heart support muscle and sustained energy, while liver, kidney, and spleen deliver essential nutrients for immune and metabolic health. Ground bone, green tripe, and trachea provide natural minerals, digestive support, and joint resilience.",
       price : '50$',
@@ -39,7 +43,9 @@ export const items : {
     
     {
       img: img2,
-      id: 'ancestral-blend-5-pack-1-lb-each',
+      //id: 'ancestral-blend-5-pack-1-lb-each',
+      id: 'free-range-turkey-ancestral-blend',
+
       discription : 'A clean, lower-fat turkey blend made with muscle meat, heart, gizzard and liver for steady energy and easy digestion.',
       detail : "A clean, single-protein turkey recipe for sensitive dogs and simplified feeding. Lean turkey provides highly digestible protein, while heart, liver, and gizzard supply essential nutrients for energy, immunity, and digestion. Turkey necks deliver natural calcium and phosphorus for strong bones and teeth.",
       price : '50$',
@@ -59,7 +65,8 @@ export const items : {
 
     {
       img: img3,
-      id: 'wild-blend-5-pack-1-lb-each',
+      //id: 'wild-blend-5-pack-1-lb-each',
+      id: 'turkey-salmon-wild-blend',
       discription : 'Free-range turkey and wild salmon deliver clean protien, essential organs, and natural omegas for full-body support.',
        detail : "A dual-protein recipe designed to support skin, joints, and balanced energy. Lean turkey fuels muscle and daily vitality, while wild-caught salmon delivers omega-3s for inflammation control and coat health. Bone, organs, and cartilage supply natural minerals and connective tissue support.",
       price : '50$',
@@ -92,7 +99,7 @@ export const items : {
         'Ash (max)': '2.61%',
       },
       canceledPrice : '70$',
-      name : 'GRASS-FED BEEF',
+      name : 'GRASS-FED BEEF' ,
       tags : ["Built for strength", "Single-Protein" , "Strength-Building" ,"Mineral-Dense"]
     },
   ];

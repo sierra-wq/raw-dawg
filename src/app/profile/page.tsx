@@ -11,20 +11,19 @@ import { CircleQuestionMark } from "lucide-react"
 export default function CustomerProfile() {
   
   const router = useRouter();
-  const { customer } = useAuth();
+  const { customer, authenticated, authloading } = useAuth();
   const [loading, setLoading] = useState(true);
 
   console.log("customer in profile page", customer);
   
   useEffect(() => {
-    const token = localStorage.getItem("shopify_customer_token");
-
-    if (!token) {
+    
+    if (!authenticated && !authloading) {
       router.replace("/login");
     } else {
       setLoading(false);
     }
-  }, [router]);
+  }, [authenticated, authloading]);
 
 
 

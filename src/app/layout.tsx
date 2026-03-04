@@ -43,9 +43,7 @@ export default function RootLayout({
           <TooltipProvider>
             {children}
           </TooltipProvider>
-          {
-            Footer()
-          }
+          <Footer />
         </CartProvider>
         </AuthProvider>
       </body>      

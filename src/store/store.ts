@@ -311,14 +311,14 @@ export const CartStore = {
     const  { data, errors, extensions }  = await client.request(QUERY,{variables});
     console.log("the responsee data for the product " , data);
 
-    const items = data.cartLinesAdd.cart?.lines.edges.map((e: any) => ({
+    const items = data.cartLinesAdd.cart?.lines.edges.map((e: any,index: number) => ({
       id: e.node.id,
       quantity: e.node.quantity,
       title: e.node.merchandise.product.title,
       handle: e.node.merchandise.product.handle,
       size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
-      price: parseFloat(data.cartLinesAdd.cart.cost.totalAmount.amount),
+      price: parseFloat(e.node.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
       merchandiseId: e.node.merchandise.id,
       sellingPlanId: {id: e.node.merchandise.product.sellingPlanGroups?.edges[0]?.node.sellingPlans.edges[0]?.node.id , 
@@ -460,7 +460,7 @@ export const CartStore = {
       handle: e.node.merchandise.product.handle,
       size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
-      price: parseFloat(data.cartLinesRemove.cart.cost.totalAmount.amount),
+      price: parseFloat(e.node.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
       merchandiseId: e.node.merchandise.id,
       sellingPlanId: {id: e.node.merchandise.product.sellingPlanGroups?.edges[0]?.node.sellingPlans.edges[0]?.node.id , 
@@ -600,7 +600,7 @@ export const CartStore = {
       handle: e.node.merchandise.product.handle,
       size : parseInt(e.node.merchandise.selectedOptions.find((o: any) => o.name.toLowerCase() === "size")?.value.split(" ")[0]),
       description: e.node.merchandise.product.description,
-      price: parseFloat(data.cartLinesUpdate.cart.cost.totalAmount.amount),
+      price: parseFloat(e.node.cost.totalAmount.amount),
       featuredImage: e.node.merchandise.product.featuredImage.url,
       merchandiseId: e.node.merchandise.id,
       sellingPlanId: {id: e.node.merchandise.product.sellingPlanGroups?.edges[0]?.node.sellingPlans.edges[0]?.node.id , 

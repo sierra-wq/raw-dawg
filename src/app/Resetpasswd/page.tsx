@@ -62,7 +62,7 @@ const { customer, resetPassword } = useAuth();
         return;
       }
 
-      window.location.href = "/profile";
+      //window.location.href = "/profile";
   }
     
   return (

@@ -46,7 +46,31 @@ const ReviewSchema = new Schema(
   { timestamps: true }
 );
 
+
+const SubscriberSchema = new Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+    },
+    source: { type: String }, // landing, footer, popup
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { timestamps: true }
+);
+
+
 // Prevent duplicates per product per customer
 ReviewSchema.index({ productId: 1, customerId: 1 }, { unique: true });
+
+SubscriberSchema.index({ email: 1 }, { unique: true });
+
+
+export const Subscriber = models.Subscriber || model("Subscriber", SubscriberSchema); 
 
 export const Review = models.Review || model("Review", ReviewSchema);

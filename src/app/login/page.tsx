@@ -1,32 +1,10 @@
 'use client'
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-  FieldSet,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { useForm } from "react-hook-form";
-import { set, z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Wave4 from "@/assets/layered-waves-haikei (4).svg"
 import { useEffect, useState } from "react"
 import { useAuth } from "@/store/authProvider"
 import { useCart } from "@/store/provider"
@@ -37,7 +15,7 @@ import SignUp from "@/components/signup"
 
 export default function Login() {
   
-  const { signup, login } = useAuth();
+  const { signup, login, authenticated } = useAuth();
   const router = useRouter();
   const { cart } = useCart(); // optional: attach cart.id
   const { customer } = useAuth();
@@ -45,15 +23,14 @@ export default function Login() {
   const [mode, setMode] = useState<"login" | "signup">("login");
   const isSignup = mode === "signup";
   
- const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem("shopify_customer_token")
-      : null;
-
-  if (token) {
-    router.replace("/profile");
-    return null; // prevent flash
-  }
+    useEffect(() => { 
+        if (authenticated) {
+            console.log("User authenticated, redirecting to profile...");
+            router.replace("/profile");
+        }
+    }, [authenticated]);
+    
+  
   return (
          <div className=" flex-col pb-20 content-center font-acumin justify-items-center bg-primary ">
 
