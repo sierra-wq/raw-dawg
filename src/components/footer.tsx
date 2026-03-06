@@ -118,7 +118,7 @@ export default function Footer() {
               <LucideYoutube className="w-9 h-9" />
             </a>
           </div>
-          <p className="text-sm text-primary/60 mt-6">Feed Instinct. Not Industry. © 2025 Raw Dawg™. All rights reserved.</p>
+          <p className="text-sm text-primary/60 mt-6">Feed Instinct. Not Industry. © {new Date().getFullYear()} Raw Dawg™. All rights reserved.</p>
         </div>
       </div>
 

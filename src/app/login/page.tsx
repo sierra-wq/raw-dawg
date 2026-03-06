@@ -35,7 +35,7 @@ export default function Login() {
          <div className=" flex-col pb-20 content-center font-acumin justify-items-center bg-primary ">
 
               
-                <div className="w-full h-screen flex font-germania flex-col items-center justify-center ">
+                <div className="w-full  flex font-germania flex-col items-center justify-center ">
                     <div className="flex w-full max-w-sm  flex-col gap-6">
                         
                         <Tabs defaultValue="login" onValueChange={(value)=> {

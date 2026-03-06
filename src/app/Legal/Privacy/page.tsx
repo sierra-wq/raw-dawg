@@ -14,7 +14,7 @@ export default function Post() {
                 
 
 
-                <div className="w-full h-[76vh] flex flex-col items-center justify-center ">
+                <div className="w-full mt-32 flex flex-col items-center justify-center ">
                     <div className="w-8/12  py-10 flex flex-wrap justify-around gap-[1rem]"
                         
                     >

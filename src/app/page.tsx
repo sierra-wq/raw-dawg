@@ -108,29 +108,30 @@ const handleProductClick = (side: "left"  | "right") => {
 
         <section className="py-24 flex flex-col items-center  font-germania  w-full">
           <p className="mb-8 text-7xl  text-quaternary font-bold">Meet the  Lineup</p>
-          <div className="flex flex-col  w-10/12 items-center">
+          <div className="flex flex-col  w-10/12 items-center  ">
             <div className="">
               <img alt="All Raw Dawg blends" className="w-[64em] rounded-xl " src={img8.src} />
             </div>
-            <div className="w-10/12 flex  gap-4">
+            <div className="w-full flex gap-6">
               {items.slice(0, 3).map((item, index) => (
                 <div
                   key={item.name}
-                  className={` rounded-2xl border-2 p-6 transition-colors hover:bg-primary ${
+                  onMouseEnter={()=> {setActiveProduct(index)}}
+                  className={` rounded-2xl border-2 p-6 transition-colors cursor-pointer w-1/3 hover:bg-primary ${
                     activeProduct === index
                       ? "bg-primary/60 text-quinary border-tertiary"
                       : "bg-primary/60 text-quinary border-primary/40"
                   }`}
                 >
-                  <div className="flex flex-col justify-between h-full">
-                    <div>
-                      <p className="text-3xl text-center ">{item.name}</p>
+                  <div className="flex flex-col items-center  h-full">
+                  
+                      <p className="text-3xl w-[6em] text-center  ">{item.name}</p>
 
-                    <span className="flex items-center gap-4 justify-center">   <p className="font-light text-xl  ">{item.tags[0]}</p>
+                    <span className="flex max-sm:flex-col mt-5  items-center gap-4 justify-center">   <p className="font-light text-xl  ">{item.tags[0]}</p>
 
                     <Button
                       onClick={() => router.push(`/Products/${item.id}`)}
-                      className="self-start bg-tertiary text-primary hover:bg-primary hover:text-quaternary border-quaternary border-2"
+                      className=" bg-tertiary text-primary hover:bg-primary hover:text-quaternary border-quaternary border-2"
                     >
                       Add to Cart
                     </Button> </span>
@@ -138,7 +139,7 @@ const handleProductClick = (side: "left"  | "right") => {
                     
                       <p className="mt-3 text-base italic font-arvo font-light">{item.discription}</p>
                     
-                    </div>
+                    
                     
                   </div>
                 </div>
