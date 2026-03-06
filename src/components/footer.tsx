@@ -103,18 +103,18 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex gap-4 items-center mt-6 text-primary">
-            <a href="https://www.tiktok.com/my.rawdawg" aria-label="TikTok">
+            <a href="https://www.tiktok.com/@my.rawdawg?_r=1&_t=ZP-94RmBu9WGty" aria-label="TikTok">
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M19.5 8.5a6.5 6.5 0 0 1-4.7-2V15a5.5 5.5 0 1 1-5.5-5.5c.4 0 .8 0 1.2.1v2.9a2.6 2.6 0 1 0 1.8 2.5V2h3a6.5 6.5 0 0 0 4.2 3.7v2.8z" />
               </svg>
             </a>
-            <a href="https://www.instagram.com/my.rawdawg" aria-label="Instagram">
+            <a href="https://www.instagram.com/my.rawdawg?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" aria-label="Instagram">
               <InstagramIcon className="w-9 h-9" />
             </a>
-            <a href="https://www.facebook.com/Rawdawg" aria-label="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61578821935838&mibextid=wwXIfr&mibextid=wwXIfr" aria-label="Facebook">
               <FacebookIcon className="w-9 h-9" />
             </a>
-            <a href="https://www.youtube.com/Feedinstinct" aria-label="YouTube">
+            <a href="https://m.youtube.com/@feedinstinct" aria-label="YouTube">
               <LucideYoutube className="w-9 h-9" />
             </a>
           </div>
