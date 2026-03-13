@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${germania.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} ${acumin.variable} ${pinksunset.variable} antialiased `}
+        className={` w-full  ${geistSans.variable} ${germania.variable} ${satisfy.variable} ${arvo.variable} ${inter.variable} ${robotoMono.variable} ${barlow.variable} ${playfair.variable} ${geistMono.variable} ${acumin.variable} ${pinksunset.variable} antialiased `}
       >
         <AuthProvider>
           <CartProvider>

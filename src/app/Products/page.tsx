@@ -160,11 +160,6 @@ export default function Products() {
          <div className="min-h-screen flex flex-col bg-primary content-center justify-items-center font-acumin ">
 
                 
-                
-                
-                   
-                
-
 
                 <div className="w-full flex-1 mt-32 pb-20 flex flex-col items-center justify-center">
                     <div className="w-10/12 mb-10 py-10 flex flex-wrap justify-around gap-[3rem]">

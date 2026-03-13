@@ -242,8 +242,8 @@ const handleProductClick = (side: "left"  | "right") => {
   return (
          <div className="pb-40 flex flex-col bg-tertiary content-center justify-items-center font-acumin ">
 
-               <div className="flex pt-48  ">
-                 <div className="w-3/5 flex  items-center justify-center ">
+               <div className="flex flex-col  pt-48  ">
+                 <div className=" lg:w-3/5 flex  items-center justify-center ">
                         <Button
                           variant={'outline'}
                           onClick={() => handleProductClick('left')}
@@ -263,7 +263,7 @@ const handleProductClick = (side: "left"  | "right") => {
                         </Button>
                 </div>
 
-                <div className="w-2/5 flex flex-col items-center justify-center ">
+                <div className="lg:w-2/5 flex flex-col items-center justify-center ">
                     <div className="w-10/12 text-primary mt-10 py-10 flex flex-col items-start gap-[1rem]">
                         
                        
@@ -329,12 +329,12 @@ const handleProductClick = (side: "left"  | "right") => {
                             setOpen(true);
                           }} variant={'outline'} className="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
 
-                        { customer?.id && <ReviewDialog
+                        {/* { customer?.id && <ReviewDialog
                           productId={product?.handle as string}
                           customerId={customer?.id as string}
                           customerName={`${customer?.firstName} ${customer?.lastName}`}
                           triggerClassName="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-primary text-quaternary"
-                        />}
+                        />} */}
                       
                         <p className="text-4xl mt-12 font-germania">
                           {displayTitle(product?.handle ?? params.product, product?.title)}
@@ -441,7 +441,7 @@ const handleProductClick = (side: "left"  | "right") => {
 
               
 
-              <div className="flex flex-col mt-16 items-center text-primary justify-center ">
+             {/*  <div className="flex flex-col mt-16 items-center text-primary justify-center ">
                       <p className="text-7xl font-extrabold text-center my-10 underline font-germania  underline-offset-8 "> What our Dawg's Say </p>
                       {(reviews.length > 0) && <div className="w-3/5   flex-col justify-between">
                               
@@ -491,7 +491,7 @@ const handleProductClick = (side: "left"  | "right") => {
                         </div>}
                       {!reviews.length  && <p className="text-5xl  font-germania text-center my-10"> No reviews Currently </p>}
                         
-              </div>
+              </div> */}
 
 
             

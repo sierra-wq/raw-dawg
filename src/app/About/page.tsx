@@ -20,9 +20,9 @@ export default function Post() {
                     >
 
 
-                                  <section className=" w-10/12 justify-self-center  py-32 px-20  text-lime-400 flex flex-col gap-16  font-arvo  ">
+                                  <section className=" w-full xl:w-10/12 justify-self-center  py-32 px-20  text-lime-400 flex flex-col gap-16  font-arvo  ">
 
-                                                      <div className="w-6/12 self-start ">
+                                                      <div className="w-full md:w-8/12 xl:w-6/12 self-start ">
                                                           <p className="text-3xl my-6 font-light"> WHY WE EXIST AND  <span className="font-bold font-germania block text-6xl">WHY RAW DAWG?</span> </p>
                                                           <p className="mt-4 text-lg" >
                                                             Raw Dawg exists to restore what the modern dog food industry abandoned: real nourishment
@@ -42,7 +42,7 @@ export default function Post() {
 
                                                       </div> 
 
-                                                      <div className="w-6/12 self-end">
+                                                      <div className="w-full md:w-8/12 xl:w-6/12 self-end">
                                                           <p className="text-5xl my-6 font-bold font-germania  "> OUR STORY </p>
                                                           <p className="mt-4 text-lg" >
                                                             Raw Dawg didn’t begin as a business. It began as a lifeline!
@@ -61,8 +61,8 @@ export default function Post() {
 
                                                       <div className=" self-center ">
                                                           <p className="text-3xl my-6 text-center font-light"> THE ANCESTRAL <span className="font-bold font-germania text-5xl">BLUEPRINT</span> </p>
-                                                          <div className="flex text-lg justify-center gap-20">
-                                                              <p className="w-4/12 mt-4 text-lg" >
+                                                          <div className="flex flex-wrap md:flex-nowrap text-lg justify-center md:gap-10 lg:gap-20 ">
+                                                              <p className="w-full xl:w-4/12 mt-4 text-lg" >
                                                           Dogs are still built like the animals they came from. Their biology was shaped long before
                           modern food systems existed. Humans and dogs evolved alongside each other. We hunted
                           together, moved together, survived together. That alignment held until humans changed how
@@ -72,7 +72,7 @@ export default function Post() {
                           
                           The biggest break came with kibble.
                                                             </p>
-                                                            <p className="w-4/12 mt-4 text-lg" >
+                                                            <p className="w-full xl:w-4/12 mt-4 text-lg" >
                                                           introduced in the 1920s, kibble was designed to be cheap, shelf-stable,
                           and easy to mass-produce. It solved a manufacturing problem, not a biological one. From that
                           point on, dog food became increasingly shaped by processing, preservation, and scale.
@@ -81,7 +81,7 @@ export default function Post() {
                           acid is highly acidic. Their digestive tract is short and fast. Their jaws tear and crush, not grind.
                           Every part of their anatomy points to raw, unprocessed food.
                                                             </p>
-                                                            <p className="w-4/12 mt-4 text-lg" >
+                                                            <p className="w-full xl:w-4/12 mt-4 text-lg" >
                                                           Cooking destroys nutrients dogs rely on. Raw food delivers nourishment in a form their bodies
                           recognize. This isn’t a trend. It’s a biological match. Once you understand that, kibble stops
                           making sense.
@@ -93,13 +93,14 @@ export default function Post() {
                                                       </div>
 
                                                       <div className="mt-40 gap-20 justify-center items-center self-center w-4/5 flex">
-                                                             <div className="border-2 rounded-2xl border-secondary w-[24em] h-[26em] bg-cover bg-[url(..\/assets\/founders-02.webp)]" />
+                                                             <div className="border-2 hidden lg:block rounded-2xl border-secondary w-[24em] h-[26em] bg-cover bg-[url(..\/assets\/founders-02.webp)]" />
                             
 
                                                             
-                                                          <div className="w-3/5">
+                                                          <div className="w-4/5  lg:w-3/5">
                                                               <p className="text-3xl text-center font-light"> From our <span className="font-bold font-germania text-6xl">Founders </span> </p>
-                                                                  
+                                                              
+                                                              
                                                             <p className="text-start mt-4"> 
                                                               “We made Raw Dawg for our dog just as much as we made it for every dog out there. Dogs give
                                   us everything without hesitation. Their energy. Their loyalty. Their presence. We believe feeding
@@ -109,6 +110,11 @@ export default function Post() {
                                   thrive!” <br /> <br />
                                   
                                                             </p>
+
+                                                            <div className="border-2 lg:hidden rounded-2xl border-secondary w-[24em] h-[26em] bg-cover bg-[url(..\/assets\/founders-02.webp)]" />
+                            
+
+
                                                             <span className="block text-end"> Sierra & Blake</span>
                                                           </div>
                                                     </div>
@@ -129,7 +135,7 @@ export default function Post() {
                    
                    <p className="text-center text-7xl font-germania"> Get intimate with <br /> @my.rawdawg</p>
                    
-                    <div className="mt-16 gap-5 justify-center items-center self-center w-full flex">
+                    <div className="mt-16 gap-5  self-center w-full  overflow-x-scroll no-scrollbar flex">
                        <div className=" grow flex flex-col items-center ">
                             <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/542874986_17866109619449043_818838866944933470_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzcxODI2MTkwMTY2NDI2NTgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=zW2i6fd3UAkQ7kNvwH3LF51&_nc_oc=AdmxSzndES5h_62sVXArWejD5da-Tobxu3s8if-HiNXESxT77Bl3VeAJJAGYaa2ABDs&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=zH5Ip7sxNBfGg6haltQwwA&_nc_ss=8&oh=00_AfxrWtqgFzYTxl2FjD_bCgE5exlxs9OfTBz7cwvv5BjdqQ&oe=69AE3EFD)]" />
                             </div>

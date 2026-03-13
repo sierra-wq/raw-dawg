@@ -20,6 +20,27 @@ export const items : {
     name : string;
     tags : string[];
 }[]  = [
+  {
+      img: img3,
+      id: 'wild-blend-5-pack-1-lb-each',
+      //id : '7963113685110',
+      //id: 'turkey-salmon-wild-blend',
+      discription : 'Free-range turkey and wild salmon deliver clean protien, essential organs, and natural omegas for full-body support.',
+       detail : "A dual-protein recipe designed to support skin, joints, and balanced energy. Lean turkey fuels muscle and daily vitality, while wild-caught salmon delivers omega-3s for inflammation control and coat health. Bone, organs, and cartilage supply natural minerals and connective tissue support.",
+      price : '50$',
+      content : ['Wild salmon (with skin)', 'whole turkey', 'turkey heart', 'turkey gizzard', 'ground turkey neck', 'turkey liver', 'salmon head'],
+      analysis_results: {
+        'Calories (min)': ' 123 kcal per 100g',
+        'Crude Protein (min)': '17.00%',
+        'Crude Fat (min)': '6.68%',
+        'Crude Fiber (max)': '0.20%',
+        'Moisture (max)': '73.90%',
+        'Ash (max)': '2.33%',
+      },
+      canceledPrice : '70$',
+      name : ' TURKEY & SALMON ​',
+      tags : ["Complete balance", "Dual-Protein" , "Omega-Rich" , "Anti-Inflammatory"]
+    },
     {
       img: img1,
       id: 'instinct-blend-5-pack-1-lb-each',
@@ -63,27 +84,7 @@ export const items : {
       tags : ["Lean & Clean ","Single-Protein" , "Lean",  "Sensitive-Dog Friendly"]
     },
 
-    {
-      img: img3,
-      id: 'wild-blend-5-pack-1-lb-each',
-      //id : '7963113685110',
-      //id: 'turkey-salmon-wild-blend',
-      discription : 'Free-range turkey and wild salmon deliver clean protien, essential organs, and natural omegas for full-body support.',
-       detail : "A dual-protein recipe designed to support skin, joints, and balanced energy. Lean turkey fuels muscle and daily vitality, while wild-caught salmon delivers omega-3s for inflammation control and coat health. Bone, organs, and cartilage supply natural minerals and connective tissue support.",
-      price : '50$',
-      content : ['Wild salmon (with skin)', 'whole turkey', 'turkey heart', 'turkey gizzard', 'ground turkey neck', 'turkey liver', 'salmon head'],
-      analysis_results: {
-        'Calories (min)': ' 123 kcal per 100g',
-        'Crude Protein (min)': '17.00%',
-        'Crude Fat (min)': '6.68%',
-        'Crude Fiber (max)': '0.20%',
-        'Moisture (max)': '73.90%',
-        'Ash (max)': '2.33%',
-      },
-      canceledPrice : '70$',
-      name : ' TURKEY & SALMON ​',
-      tags : ["Complete balance", "Dual-Protein" , "Omega-Rich" , "Anti-Inflammatory"]
-    },
+    
     {
       img: img1,
       id: 'best-seller-variety-pack',

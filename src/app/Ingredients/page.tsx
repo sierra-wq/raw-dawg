@@ -24,17 +24,14 @@ import Link from "next/link";
 
 export default function Ingredients() {
   return (
-         <div className=" flex-col content-center  bg-primary font-acumin justify-items-center ">
+         <div className=" flex-col content-center  bg-primary font-acumin justify-items-center overflow-hidden ">
 
             <section className="py-32 w-full font-arvo flex flex-col items-center bg-[#82866D] text-[#0b0b0b] text-center px-24 ">
-                <p className=" md:text-7xl font-germania uppercase mb-6">Ingredients chosen by biology,<br /> not industry trends.</p>
-                <p className="text-2xl max-w-5xl leading-relaxed">
+                <p className=" text-7xl font-germania uppercase mb-6 ">Ingredients chosen by biology,<br /> not industry trends.</p>
+                <p className="text-2xl max-w-5xl leading-relaxed ">
                   Dogs didn’t evolve eating formulas designed for shelf life.<br/> They evolved eating animals.
                 </p>
-
-                <p className="text-2xl max-w-5xl leading-relaxed mt-12">
-                  Raw Dawg’s recipes are built to reflect that reality.
-                </p>
+                
             </section>
 
             <div className="w-full flex justify-center bg-[#82866D]">
@@ -53,28 +50,28 @@ export default function Ingredients() {
 
 
 
-            <section className="w-full mx-auto bg-[#4f533d] text-white py-56 px-8 flex flex-col items-center gap-8">
+            <section className="w-full mx-auto bg-[#4e5042] text-white py-56 px-8 flex flex-col items-center gap-8">
               <p className="text-5xl md:text-7xl font-germania text-center text-[#0b0b0b]">The Whole Prey Formula</p>
               <p className="text-lg md:text-2xl font-arvo text-center max-w-4xl text-white/80">
                 RAW DAWG doesn't  "balance" nutrition in a lab. <br /> We  build it the way nature already solved it: through whole prey.
               </p>
               <p className="text-5xl md:text-7xl font-germania tracking-widest text-center mb-10">75-10-10-5</p>
-              <div className="font-arvo grid grid-cols-1 md:grid-cols-2  gap-12  w-full max-w-5xl text-white/85">
-                <div className="-mx-20">
-                  <p className="text-4xl  mb-2 text-white">75% Muscle Meat</p>
-                  <p className="text-2xl w-3/5  leading-relaxed">Whole-animal muscle and skin deliver  protein, fat, and amino acids dogs are <br/> biologically built to run on.</p>
+              <div className="font-arvo flex flex-col items-center lg:flex-row lg:justify-between lg:items-stretch md:gap-4 lg:gap-10 text-center flex-wrap gap-y-20  md:w-full  lg:w-10/12   text-white/85">
+                <div className="lg:w-5/12 w-full shrink-0">
+                  <p className="text-4xl  mb-4 text-white">75% Muscle Meat</p>
+                  <p className="text-2xl   leading-relaxed">Whole-animal muscle and skin deliver <br/> protein, fat, and amino acids dogs are <br/> biologically built to run on.</p>
                 </div>
-                <div className="ml-20">
-                  <p className="text-4xl font-arvo mb-2 text-white">10% Raw Meaty Bone</p>
-                  <p className="text-2xl w-4/5 leading-relaxed">Structure and minerals and <br/> bioavailable calcium and phosphorus <br/> no powders, no lab-made shortcuts.</p>
+                <div className="lg:w-5/12 w-full shrink-0 ">
+                  <p className="text-4xl font-arvo mb-4 text-white">10% Raw Meaty Bone</p>
+                  <p className="text-2xl  leading-relaxed">Structure and minerals and <br/> bioavailable calcium and phosphorus <br/> no powders, no lab-made shortcuts.</p>
                 </div>
-                <div className="-mx-20">
-                  <p className="text-4xl font-arvo mb-2 text-white">10% Organs</p>
-                  <p className="text-2xl w-3/5 leading-relaxed">Nature’s multivitamin. Liver  and secreting organs supply fat-soluble  vitamins and trace minerals.</p>
+                <div className="lg:w-5/12 w-full shrink-0">
+                  <p className="text-4xl font-arvo mb-4 text-white">10% Organs</p>
+                  <p className="text-2xl  leading-relaxed">Nature’s multivitamin. Liver  and  <br /> secreting organs supply fat-soluble <br /> vitamins and trace minerals.</p>
                 </div>
-                <div className="ml-20">
-                  <p className="text-4xl font-arvo mb-2 text-white">5% Instinct Boost</p>
-                  <p className="text-2xl w-4/5 leading-relaxed">Green tripe, connective tissue, and <br/> fur support digestion, joints, and gut <br/> health.</p>
+                <div className="lg:w-5/12 w-full shrink-0">
+                  <p className="text-4xl font-arvo mb-4 text-white">5% Instinct Boost</p>
+                  <p className="text-2xl  leading-relaxed">Green tripe, connective tissue, and <br/> fur support digestion, joints, and gut <br/> health.</p>
                 </div>
               </div>
               <p className="text-xl md:text-6xl font-germania text-center text-secondary mt-16">Nothing added. Nothing missing.</p>
@@ -102,13 +99,13 @@ export default function Ingredients() {
               <figcaption className="sr-only">Decorative wave divider between sections</figcaption>
             </figure> */}
             
-          <section className=" p-8 py-32 my-20  flex gap-[6rem] w-full  overflow-x-auto overflow-y-visible no-scrollbar justify-center  justify-self-start ">
+          <section className=" p-8 py-32 my-20  flex flex-wrap gap-2 lg:gap-[6rem] w-full  justify-center   ">
                   
 
                    
                   
-                  <div className="bg-tertiary text-primary p-4  rounded-lg relative   w-3/12 shrink-0">
-                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/beef.png')]"/>
+                  <div className="bg-tertiary text-primary p-4  rounded-lg relative    w-10/12 text-center mb-32 lg:mb-0 lg:w-5/12 xl:w-3/12 shrink-0">
+                        <div className=" absolute  -top-32 -right-24  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/beef.png')]"/>
 
                         <p className="text-5xl mb-3  capitalize  w-11/12 font-germania ">BEEF</p>
                         <span className="block w-4/5 text-xl leading-relaxed capitalize font-arvo mt-4"> 
@@ -116,8 +113,8 @@ export default function Ingredients() {
                         </span>
                     </div>
 
-                  <div className="bg-quaternary/20 text-quaternary p-4 rounded-lg relative w-3/12 shrink-0">
-                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/turkey.png')]"/>
+                  <div className="bg-quaternary/20 text-quaternary p-4 rounded-lg relative w-10/12 text-center mb-32 lg:mb-0 lg:w-5/12 xl:w-3/12 shrink-0">
+                        <div className=" absolute  -top-32 -right-24  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/turkey.png')]"/>
                         
                         <p className="text-5xl mb-3  capitalize font-germania w-11/12 ">TURKEY </p>
                         <span className="text-xl block w-4/5 font-arvo capitalize mt-4"> 
@@ -126,10 +123,10 @@ export default function Ingredients() {
                         </span>
                     </div>
 
-                    <div className="bg-quinary text-white p-4 rounded-lg relative w-3/12 shrink-0">
-                        <div className=" absolute  -top-32 -right-14  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/wild.png')]"/>
+                    <div className="bg-quinary text-white p-4 rounded-lg relative w-10/12 text-center mb-32 lg:mb-0 lg:w-5/12 xl:w-3/12 shrink-0">
+                        <div className=" absolute  -top-32 -right-24  h-64 w-56 bg-contain bg-no-repeat bg-right bg-[url('..\/assets\/wild.png')]"/>
                         
-                        <p className="text-5xl mb-3  capitalize font-germania w-11/12 "> TURKEY + SALMON </p>
+                        <p className="text-5xl mb-3  capitalize font-germania w-10/12 "> TURKEY + SALMON </p>
                         <span className="text-xl block w-4/5 font-arvo capitalize leading-relaxed mt-4"> 
                           Wild-caught salmon (with skin), free-range turkey muscle meat, turkey heart, turkey gizzard, turkey neck bone, turkey liver, wild-caught salmon head.
 
@@ -346,7 +343,7 @@ health, not trends.
 
           
 
-          <section className="bg-quaternary/20 font-acumin text-quaternary  w-10/12 flex flex-col items-center gap-[6rem] mb-32   py-16">
+          <section className="bg-quaternary/20 font-acumin text-quaternary  lg:w-10/12 flex flex-col items-center gap-[6rem] mb-32   py-16">
                    <p className="text-6xl  px-4  text-center font-germania capitalize font-extrabold ">
                         TRENDY INGREDIENTS WE REFUSE
                     </p>

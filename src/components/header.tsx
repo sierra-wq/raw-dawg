@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "@/components/ui/button";
-import { Activity, ArrowRight, Minus, Plus, ShoppingBag, User, X } from "lucide-react";
+import { Activity, ArrowRight, Minus, Plus, ShoppingBag, ShoppingBasket, User, X } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -30,7 +30,8 @@ export default function Header() {
   const {customer, logout } = useAuth();
   const [total, setTotal] = useState(0);
   const [count  , setCount] = useState(0);
-  const noBg= ["","products","about","ingredients"].includes(pathname[1]);
+  const noBg= ["","faq", "products","about","ingredients"].includes(pathname[1] );
+  const legal= ["legal", "about"].includes(pathname[1] );
   const productsPath = pathname[1] === "products" && pathname.length === 2;
   const hidePlanCta = pathname[1]?.toLowerCase() === "ingredients";
   const totalSize = cart?.lines.reduce((acc, item) => acc + (item.size * item.quantity), 0) ?? 0;
@@ -52,16 +53,16 @@ export default function Header() {
   return (
 
    <header className=" absolute w-full top-0 flex-col font-acumin">
-        <p className="bg-primary w-full px-2 text-2xs font-germania text-quaternary text-center">
+        <p className={`${noBg || legal ? "bg-primary text-quaternary" : "bg-quaternary text-secondary"} w-full px-2 text-2xs font-germania  text-center`}>
             {message}
             {/* <span className="text-xl ps-2 underline underline-offset-2"> View More</span>  */}
         </p>
 
         <div className={`px-2 py-3 flex  justify-center items-center content-center relative ${noBg ? "" : "bg-quaternary "}`}>
             {!hidePlanCta && (
-              <Button onClick={()=> handlePlan()} variant={'outline'} className={` ${productsPath ? "border-2 border-tertiary" : ""} absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]`} > <Activity/> Get Raw </Button>
+              <Button onClick={()=> handlePlan()} variant={'outline'} className={` ${productsPath ? "border-2 border-tertiary" : ""} absolute left-0 text-lg bg-primary text-tertiary hover:bg-white ms-3 hover:text-quaternary font-bold h-auto w-1/12 font-germania rounded-[2rem]`} > <ShoppingBasket/> <span className="hidden lg:block">Get Raw</span> </Button>
             )}
-            <a href="/" className=" "> {productsPath ? <Logo2 style={{width: '15rem', height: '4rem' , }} /> : <Logo style={{width: '15rem', height: '4rem' }} /> } </a>
+            <a href="/" className=" "> {productsPath  ? <Logo2 style={{width: '15rem', height: '4rem' , }} /> : <Logo style={{width: '15rem',  height: '4rem' , fill :  `${legal ? "#e3dac9" : "#000"}` }} /> } </a>
 
             <div className="absolute right-2  flex  ">
                   
