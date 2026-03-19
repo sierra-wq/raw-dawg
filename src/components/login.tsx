@@ -65,10 +65,10 @@ export default function LogIn() {
     
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-      <Card className="text-primary text-2xl bg-quaternary">
+      <Card className="text-primary text-lg sm:text-2xl bg-quaternary">
         <CardHeader>
           <CardTitle>LogIn</CardTitle>
-          <CardDescription className="text-surface text-xl">
+          <CardDescription className="text-surface sm:text-xl">
             Welcome back, Dawg.
           </CardDescription>
         </CardHeader>
@@ -78,9 +78,9 @@ export default function LogIn() {
             <FieldGroup>
               {/* USERNAME */}
               <Field>
-                <FieldLabel className="text-xl" htmlFor="email">Email</FieldLabel>
+                <FieldLabel className="text-sm sm:text-xl" htmlFor="email">Email</FieldLabel>
 
-                <FieldDescription className="text-surface/70 text-lg">
+                <FieldDescription className="text-surface/70 sm:text-lg">
                   Enter your email
                 </FieldDescription>
 
@@ -88,7 +88,7 @@ export default function LogIn() {
                   id="email"
                   type="text"
                   placeholder="Max Leiter"
-                  className="focus:border-2 text-lg focus-within:border-primary"
+                  className="focus:border-2 text-sm sm:text-lg focus-within:border-primary"
                   {...register("email")}
                 />
 
@@ -97,9 +97,9 @@ export default function LogIn() {
 
               {/* PASSWORD */}
               <Field>
-                <FieldLabel className="text-xl" htmlFor="password">Password</FieldLabel>
+                <FieldLabel className="text-sm sm:text-xl" htmlFor="password">Password</FieldLabel>
 
-                <FieldDescription className="text-surface/70 text-lg">
+                <FieldDescription className="text-surface/70 sm:text-lg">
                   Must be at least 8 characters long.
                 </FieldDescription>
 
@@ -107,7 +107,7 @@ export default function LogIn() {
                   id="password"
                   type="password"
                   placeholder="••••••••"
-                  className="focus:border-2 text-lg focus-within:border-primary"
+                  className="focus:border-2 text-sm sm:text-lg focus-within:border-primary"
                   {...register("password")}
                 />
 
@@ -125,14 +125,14 @@ export default function LogIn() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="bg-primary text-secondary text-xl font-bold w-full"
+            className="bg-primary text-secondary sm:text-xl font-bold w-full"
           >
             {isSubmitting ? "Logging In..." : "LogIn"}
           </Button>
 
           <Button
             type="button"
-            className="bg-primary/40 text-xl text-primary font-bold w-full"
+            className="bg-primary/40 sm:text-xl text-primary font-bold w-full"
             onClick={() => (window.location.href = "/")}
           >
             Cancel

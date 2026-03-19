@@ -13,16 +13,16 @@ export default function Post() {
 
 
       <div className="w-full  flex flex-col items-center justify-center  ">
-        <div className="w-8/12  font-arvo mt-24 py-10 flex flex-wrap justify-around gap-[1rem]"
+        <div className=" lg:w-8/12  font-arvo mt-24 py-10 flex flex-wrap justify-around gap-[1rem]"
 
         >
 
           <div className=" text-quaternary ">
 
-            <div className="max-w-4xl mx-auto px-4 py-10">
+            <div className=" mx-auto px-4 py-10">
               <section className="heading mb-10">
 
-                <h1 className="text-6xl text-center  font-germania underline underline-offset-8 font-light leading-tight mb-2">
+                <h1 className="text-4xl  sm:text-6xl text-center  font-germania underline underline-offset-8 font-light leading-tight mb-2">
                   SHIPPING & HANDLING
                 </h1>
 
@@ -31,10 +31,10 @@ export default function Post() {
 
               <div className=" max-w-none ">
 
-                <section className="max-w-4xl  mx-auto px-6 py-10">
-                  <h1 className="text-3xl font-germania underline mb-6 ">Shipping Policy</h1>
+                <section className="max-w-4xl  mx-auto px-6 py-6">
+                  <h1 className="text-xl sm:text-3xl font-germania underline mb-6 ">Shipping Policy</h1>
 
-                  <p className="mb-4">
+                  <p className="text-sm sm:text-base mb-4">
                     We only ship frozen because that’s how real food should arrive... raw, real, and ready to feed.
 
                     All orders are produced in a CDFA-registered facility and shipped from our fulfillment center using insulated liners,
@@ -44,15 +44,15 @@ export default function Post() {
                   </p>
 
 
-                  <h2 className="text-3xl font-germania underline mt-8 mb-4">Shipping Schedule</h2>
-                  <p className="mb-4">
+                  <h2 className="text-xl sm:text-3xl font-germania underline mt-8 mb-4">Shipping Schedule</h2>
+                  <p className="text-sm sm:text-base mb-4">
                     We ship on Mondays and Tuesdays to make sure your box doesn’t get stuck thawing over the weekend.
                     <br />
                     Orders placed after Tuesday will go out the following Monday.
                   </p>
 
-                  <h2 className="text-3xl font-germania underline mt-8 mb-4">When Your Box Arrives</h2>
-                  <ul className="list-disc ml-6 mb-4">
+                  <h2 className="text-xl sm:text-3xl font-germania underline mt-8 mb-4">When Your Box Arrives</h2>
+                  <ul className="text-sm sm:text-base list-disc ml-6 mb-4">
                     <li>Open your box right away.</li>
                     <li>If the food is still cold or partially thawed but under 40°F, it’s good to refreeze.</li>
                     <li>Move everything straight to your freezer.</li>
@@ -60,8 +60,8 @@ export default function Post() {
                     <li>Wash your hands, bowls, and surfaces like you would after handling any raw meat.</li>
                   </ul>
 
-                  <h2 className="text-3xl font-germania underline mt-8 mb-4">Carriers & Responsibility</h2>
-                  <p className="mb-4">
+                  <h2 className="text-xl sm:text-3xl font-germania underline mt-8 mb-4">Carriers & Responsibility</h2>
+                  <p className="text-sm sm:text-base mb-4">
                     Once your order leaves our facility, title and risk transfer to you.
                     Raw Dawg isn’t responsible for carrier delays, missed deliveries, or thawing in transit.
                     If FedEx drops the ball, they’re the ones to contact for delivery claims.

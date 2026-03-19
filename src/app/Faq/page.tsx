@@ -208,7 +208,7 @@ Real food covers the bases when it’s done right.`,
   return (
          <div className=" flex-col bg-primary font-acumin content-center  ">
 
-                <div className="text-3xl bg-quaternary w-full p-2 h-24 my-5 text-center justify-between " />
+                <div className="text-3xl  w-full p-2 h-24 my-5 text-center justify-between " />
                  
 
                 {/* <div className="bg-tertiary h-[45vh] bg-cover bg-bottom w-full py-20 text-center flex-col content-center justify-items-center ">
@@ -225,14 +225,14 @@ Real food covers the bases when it’s done right.`,
         </figure> */}
 
 
-               <section className=" pb-36 mt-44 flex-col justify-items-center  font-arvo font-light xl:w-3/5 gap-10 justify-self-center">
-            <p className="mb-10 text-7xl text-tertiary font-germania font-bold">FAQ's</p>
+               <section className=" pb-36 mt-20 sm:mt-44 flex-col justify-items-center  font-arvo font-light xl:w-3/5 gap-10 justify-self-center">
+            <p className="mb-10 text-5xl sm:text-7xl text-tertiary font-germania font-bold">FAQ's</p>
 
                 <Tabs defaultValue="Raw Feeding" onValueChange={(value)=> {
                             console.log("the value " , value);
                             setMode(value as "Raw Feeding" | "Our Products");
                         }}>
-                            <TabsList className=" mb-8 font-arvo p-1 text-2xl  text-primary " >
+                            <TabsList className=" mb-8 font-arvo p-1  sm:text-2xl  text-primary " >
                                 <TabsTrigger value="Raw Feeding" className="p-2 rounded-xl data-[state=active]:bg-tertiary data-[state=inactive]:text-tertiary data-[state=active]:font-bold me-6 ">Raw Feeding</TabsTrigger>
                                 <TabsTrigger value="Our Products" className="p-2 rounded-xl data-[state=active]:bg-tertiary data-[state=inactive]:text-tertiary data-[state=active]:font-bold  " >Our Products</TabsTrigger>
                             </TabsList>
@@ -247,8 +247,8 @@ Real food covers the bases when it’s done right.`,
                                  {
                                     data[mode].map((item,index) => (
                                               <AccordionItem value={"item-" + index} className="mb-8 py-4 border-b-2 border-primary">
-                                          <AccordionTrigger className="text-3xl capitalize text-start leading-10 hover:underline "> {item.title} </AccordionTrigger>
-                                          <AccordionContent className="flex flex-col gap-4 p-2 leading-9 text-base text-start">
+                                          <AccordionTrigger className="text-2xl sm:text-3xl capitalize text-start leading-10 hover:underline "> {item.title} </AccordionTrigger>
+                                          <AccordionContent className="flex flex-col gap-4 p-2 leading-9 text-sm sm:text-base text-start">
                                               <p className=""> {item.content} </p>
                                           </AccordionContent>
                                         </AccordionItem>
@@ -261,20 +261,20 @@ Real food covers the bases when it’s done right.`,
           
         </section>
 
-        <section className="flex flex-col w-full  items-center justify-center p-4 gap-x-32  justify-self-center py-24 ">
+        <section className="flex flex-col w-full  items-center  p-4 gap-x-32  justify-self-center py-24 ">
                    
-                   <p className="text-center text-7xl text-tertiary font-germania"> Get intimate with <br /> @my.rawdawg</p>
+                   <p className="text-center text-4xl w-10/12 sm:w-8/12 sm:text-6xl text-tertiary font-germania"> Get intimate with <br /> <span className="text-2xl sm:text-4xl"> @my.rawdawg </span></p>
                    
                    <div className="mt-16 gap-5  self-center w-full  overflow-x-scroll no-scrollbar flex">
                        <div className=" grow flex flex-col items-center ">
-                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/542874986_17866109619449043_818838866944933470_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzcxODI2MTkwMTY2NDI2NTgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=zW2i6fd3UAkQ7kNvwH3LF51&_nc_oc=AdmxSzndES5h_62sVXArWejD5da-Tobxu3s8if-HiNXESxT77Bl3VeAJJAGYaa2ABDs&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=zH5Ip7sxNBfGg6haltQwwA&_nc_ss=8&oh=00_AfxrWtqgFzYTxl2FjD_bCgE5exlxs9OfTBz7cwvv5BjdqQ&oe=69AE3EFD)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/542874986_17866109619449043_818838866944933470_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzcxODI2MTkwMTY2NDI2NTgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=zW2i6fd3UAkQ7kNvwH3LF51&_nc_oc=AdmxSzndES5h_62sVXArWejD5da-Tobxu3s8if-HiNXESxT77Bl3VeAJJAGYaa2ABDs&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=zH5Ip7sxNBfGg6haltQwwA&_nc_ss=8&oh=00_AfxrWtqgFzYTxl2FjD_bCgE5exlxs9OfTBz7cwvv5BjdqQ&oe=69AE3EFD)]" />
                             </div>
 
                   <div className=" grow flex flex-col items-center">
-                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-center bg-[url(https://instagram.fadd2-1.fna.fbcdn.net/v/t51.82787-15/569863911_17870785347449043_8027059021898139641_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0ODU2MDc4NTk1MTA3Mzg4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=YTyoWrhqjHIQ7kNvwFLE70-&_nc_oc=AdkfvFA07G3LDI99qyLuGNsT6xb0bPC1OAJ5_82jWGkybPrAKc1_CoOS99EP2lZ5oMk&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd2-1.fna&_nc_gid=yV5txgvyTu5zEA_SBgshBQ&_nc_ss=8&oh=00_AfxifeyOqEVjB3D8GAEOTaC1mtcnTMHfkPJyUnPMtPBl4g&oe=69AE4105)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-center bg-[url(https://instagram.fadd2-1.fna.fbcdn.net/v/t51.82787-15/569863911_17870785347449043_8027059021898139641_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0ODU2MDc4NTk1MTA3Mzg4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=YTyoWrhqjHIQ7kNvwFLE70-&_nc_oc=AdkfvFA07G3LDI99qyLuGNsT6xb0bPC1OAJ5_82jWGkybPrAKc1_CoOS99EP2lZ5oMk&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd2-1.fna&_nc_gid=yV5txgvyTu5zEA_SBgshBQ&_nc_ss=8&oh=00_AfxifeyOqEVjB3D8GAEOTaC1mtcnTMHfkPJyUnPMtPBl4g&oe=69AE4105)]" />
                             </div>
                    <div className=" grow flex flex-col items-center ">
-                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573382060_17871490380449043_4020381859724066317_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzc1MzQ4MDI0NjU2NjgwMjc1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=UsxkVuADcOsQ7kNvwE0lSCU&_nc_oc=AdkMoEvm4u_fA2z4QWj5Fax9c8rePhnda3-aIlW0IYWfdaVVCGTFIoOmPFbuSvM24D4&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=unOhZ6NrMFwedp4jQwUKzA&_nc_ss=8&oh=00_AfwFZbfb1X4GM-gigfVyAimvpvOHcJs4GbnwZSxEGjpzVQ&oe=69AE7029)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573382060_17871490380449043_4020381859724066317_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzc1MzQ4MDI0NjU2NjgwMjc1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=UsxkVuADcOsQ7kNvwE0lSCU&_nc_oc=AdkMoEvm4u_fA2z4QWj5Fax9c8rePhnda3-aIlW0IYWfdaVVCGTFIoOmPFbuSvM24D4&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=unOhZ6NrMFwedp4jQwUKzA&_nc_ss=8&oh=00_AfwFZbfb1X4GM-gigfVyAimvpvOHcJs4GbnwZSxEGjpzVQ&oe=69AE7029)]" />
                             </div>
                    </div>
                   

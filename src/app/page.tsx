@@ -67,11 +67,11 @@ const handleProductClick = (side: "left"  | "right") => {
 
     <div className="bg-primary overflow-hidden flex-col">
        
-        <div  className="h-[90vh] bg-black/30 bg-blend-darken bg-[url(..\/assets\/RAW-14.webp)] bg-cover lg:bg-center bg-right flex items-center justify-center lg:justify-end ">
+        <div  className="h-[100vh]  sm:h-[90vh] bg-black/30 bg-blend-darken bg-[url(..\/assets\/RAW-14.webp)] bg-cover lg:bg-center bg-right flex items-center justify-center lg:justify-end ">
              
-            <div className=" ms-10 mt-20 font-germania relative w-6/12 text-9xl lg:text-7xl lg:w-4/12  flex flex-col items-center lg:items-start gap-5 ps-5">
+            <div className=" lg:ms-10 lg:mt-20 font-germania relative w-10/12 sm:w-6/12  text-6xl  sm:text-9xl lg:text-7xl lg:w-4/12  flex flex-col items-center lg:items-start gap-5 ps-5">
                 
-                <p className=" mt-16 text-white text-center lg:text-left  text-wrap uppercase ">
+                <p className=" mt-16 text-white text-start lg:text-left  text-wrap uppercase ">
                   Feed Instinct.
                   <br />
                   Not Industry.
@@ -79,7 +79,7 @@ const handleProductClick = (side: "left"  | "right") => {
                 <Button
                     onClick={() => router.push('/Products')}
                     variant={'outline'}
-                    className="mt-2 h-auto text-2xl bg-white rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-4 py-4 min-w-[8em]"
+                    className="mt-2 h-auto text-xl bg-white rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-4 py-4 min-w-[10em]"
                     style={{ boxShadow: 'inset 8px 7px 6px rgba(0,0,0,0.15),inset -8px -7px 6px rgba(255,255,255,0.3)' }}
                   >
                     Shop All Blends
@@ -92,12 +92,12 @@ const handleProductClick = (side: "left"  | "right") => {
 
       <SubscriberDialog open={open} setOpen={setOpen} />
 
-        <div className="relative justify-self-center w-10/12 overflow-hidden my-4">
+        <div className="relative justify-self-center w-10/12 overflow-hidden my-2  sm:my-4">
           <div className="flex justify-center animate-marquee whitespace-nowrap  gap-32">
             {[...reels,].map((item, index) => (
               <span
                 key={index}
-                className="flex font-germania items-center justify-center  text-quaternary text-2xl px-6"
+                className="flex font-germania items-center justify-center  text-quaternary text-xl sm:text-2xl  sm:px-6"
               >
                  {item}
               </span>
@@ -107,17 +107,17 @@ const handleProductClick = (side: "left"  | "right") => {
 
 
         <section className="py-24 flex flex-col items-center justify-between font-germania bg-[#EAE9EE]  w-full ">
-          <p className=" text-9xl text-center   text-quaternary font-germania">Meet the  Lineup</p>
+          <p className=" text-5xl sm:text-9xl w-8/12 sm:w-10/12 text-center   text-quaternary font-germania">Meet the  Lineup</p>
           <div className="flex flex-col  w-10/12 items-center   ">
              <div className="">
-              <img alt="All Raw Dawg blends" className="w-[94em]  rounded-xl " src={img5.src} />
+              <img alt="All Raw Dawg blends" className="w-[80em]  sm:w-[94em]  rounded-xl " src={img5.src} />
             </div> 
-            <div className="w-full flex flex-col lg:flex-row  justify-center items-center gap-6">
+            <div className="w-full flex flex-col lg:flex-row   justify-center items-center gap-6">
               {items.slice(0, 3).map((item, index) => (
                 <div
                   key={item.name}
                   onMouseEnter={()=> {setActiveProduct(index)}}
-                  className={` rounded-2xl border-2 p-6 transition-colors cursor-pointer group  w-2/3 lg:w-1/3 hover:bg-tertiary hover:text-white ${
+                  className={` rounded-2xl border-2 p-6 transition-colors cursor-pointer group w-9/12  sm:w-2/3 lg:w-1/3 hover:bg-tertiary hover:text-white ${
                     activeProduct === index
                       ? " text-quinary border-tertiary"
                       : " text-quinary border-none"
@@ -125,15 +125,15 @@ const handleProductClick = (side: "left"  | "right") => {
                 >
                   <div className="flex flex-col items-center  h-full">
                   
-                      <p className="text-3xl lg:w-[6em] text-center  ">{item.name}</p>
+                      <p className="text-lg sm:text-3xl lg:w-[6em] text-center  ">{item.name}</p>
 
                     <span className="flex flex-col lg:flex-row mt-5  items-center gap-4 justify-center">   
                       
-                        <p className="font-light text-xl  ">{item.tags[0]}</p>
+                        <p className="font-light text-sm sm:text-xl  ">{item.tags[0]}</p>
 
                         <Button
                           onClick={() => router.push(`/Products/${item.id}`)}
-                          className=" bg-quaternary  text-primary group-hover:bg-primary group-hover:text-quaternary border-quaternary border-2"
+                          className=" bg-quaternary  text-sm sm:text-base text-primary group-hover:bg-primary group-hover:text-quaternary border-quaternary border-2"
                         >
                           Add to Cart
                         </Button> 
@@ -141,7 +141,7 @@ const handleProductClick = (side: "left"  | "right") => {
                     </span>
                     
                     
-                      <p className="mt-3 text-base italic font-arvo font-light">{item.discription}</p>
+                      <p className="mt-3 text-xs sm:text-base italic font-arvo font-light">{item.discription}</p>
                     
                     
                     
@@ -150,35 +150,39 @@ const handleProductClick = (side: "left"  | "right") => {
               ))}
             </div>
           </div>
-        </section>
 
-        
-        <div className="flex justify-center ">
+           <div className=" justify-center  sm:flex">
           
           <Button
             onClick={() => router.push('/Products')}
             variant={'outline'}
-            className="mt-10 hover:bg-primary hover:text-quaternary border-quaternary border-2 text-primary bg-quaternary text-2xl font-germania font-bold h-auto"
+            className="mt-10 hover:bg-primary hover:text-quaternary border-quaternary border-2 text-primary bg-quaternary  sm:text-2xl font-germania font-bold h-auto"
           >
             Shop Raw Blends
           </Button>
         </div>
+
+
+        </section>
+
+        
+       
        
 
       <section className="flex flex-col justify-around items-center lg:items-stretch gap-y-16 lg:flex-row lg:justify-center p-4  gap-x-16 w-full justify-self-center my-36">
                    
-                   <div className="w-2/6 lg:w-1/6 flex flex-col items-center ">
+                   <div className="w-4/6 sm:w-2/6 lg:w-1/6 flex flex-col items-center ">
                             <div className="border-2 rounded-2xl border-secondary w-72 h-64 bg-cover bg-[url(..\/assets\/contents-01.webp)]" />
-                            <p className="text-center mt-8 font-germania text-xl"> We use whole-animal, ethically sourced ingredients </p>
+                            <p className="text-center mt-8 font-germania text-lg sm:text-xl"> We use whole-animal, ethically sourced ingredients </p>
                    </div>
 
-                  <div className="w-2/6 lg:w-1/6 flex flex-col items-center ">
+                  <div className="w-4/6 sm:w-2/6 lg:w-1/6 flex flex-col items-center ">
                             <div className="border-2 rounded-2xl border-secondary w-72 h-64 bg-cover bg-center bg-[url(..\/assets\/product-in-fridge.webp)] " />
-                            <p className="text-center mt-8 font-germania text-xl"> Raw and frozen to preserve nutrients and protect instinct </p>
+                            <p className="text-center mt-8 font-germania text-lg sm:text-xl"> Raw and frozen to preserve nutrients and protect instinct </p>
                    </div>
-                   <div className="w-2/6 lg:w-1/6 flex flex-col items-center ">
+                   <div className="w-4/6 sm:w-2/6 lg:w-1/6 flex flex-col items-center ">
                             <div className="border-2 rounded-2xl border-secondary w-72 h-64 bg-cover bg-center bg-[url(..\/assets\/dog-eating.webp)]" />
-                            <p className="text-center mt-8 font-germania text-xl"> And deliver it straight to your door. <br /> Ancestral nutrition made simple! </p>
+                            <p className="text-center mt-8 font-germania text-lg sm:text-xl"> And deliver it straight to your door. <br /> Ancestral nutrition made simple! </p>
                    </div>
         
         </section>
@@ -186,11 +190,11 @@ const handleProductClick = (side: "left"  | "right") => {
 
 
         <section className="py-24 mt-20 flex flex-col items-center bg-primary font-arvo text-quinary">
-          <p className="mb-16 text-6xl  md:text-7xl font-germania font-bold text-quinary text-center">THE SECRET’S OUT… AND IT’S RAW DAWG.</p>
+          <p className="mb-16 text-5xl  md:text-7xl w-10/12 sm:w-full font-germania font-bold text-quinary text-center">THE SECRET’S  <br className="sm:hidden" /> OUT…  AND IT’S  <br className="sm:hidden" /> RAW DAWG.</p>
           <div className="w-11/12 xl:w-10/12 flex flex-col lg:grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 items-center">
              
              <div className="relative  flex lg:hidden justify-center">
-              <div className="relative w-[18em] h-[18em] lg:w-[28rem] lg:h-[28rem] rounded-full overflow-hidden  ">
+              <div className="relative w-[18em] h-[18em] sm:w-[28rem] sm:h-[28rem] rounded-full overflow-hidden  ">
                 <img src={img7.src} alt="Raw Dawg bowl" className="w-full h-full object-cover" />
                 
               </div>
@@ -198,29 +202,29 @@ const handleProductClick = (side: "left"  | "right") => {
             
             <div className="flex flex-col gap-10 w-10/12 text-center lg:text-right">
               <div>
-                <p className="text-4xl font-germania">Whole-Animal Nutrition</p>
-                <p className="mt-3 leading-relaxed text-xl">The ancestral diet built for the modern dog. Nose-to-tail exactly as nature intended.</p>
+                <p className="text-2xl font-germania">Whole-Animal Nutrition</p>
+                <p className="mt-3 leading-relaxed text-sm sm:text-xl">The ancestral diet built for the modern dog. Nose-to-tail exactly as nature intended.</p>
               </div>
               <div>
-                <p className="text-4xl font-germania">Restores Instinct & Immunity</p>
-                <p className="mt-3 leading-relaxed text-xl">Raw food feeds the microbiome, supports digestion, fuels energy, and strengthens immunity. The way a species-appropriate diet should.</p>
+                <p className="text-2xl font-germania">Restores Instinct & Immunity</p>
+                <p className="mt-3 leading-relaxed text-sm sm:text-xl">Raw food feeds the microbiome, supports digestion, fuels energy, and strengthens immunity. The way a species-appropriate diet should.</p>
               </div>
             </div>
             
             <div className="relative hidden lg:flex justify-center">
-              <div className="relative w-[10em] h-[10em] lg:w-[18rem] lg:h-[18rem] rounded-full overflow-hidden  ">
+              <div className="relative w-[10em] h-[10em] lg:w-[32rem] lg:h-[32rem] rounded-full overflow-hidden  ">
                 <img src={img7.src} alt="Raw Dawg bowl" className="w-full h-full object-cover" />
                 
               </div>
             </div>
             <div className="flex flex-col gap-10 w-10/12 text-center lg:text-left">
               <div>
-                <p className="text-4xl font-germania">Canine-Grade Ingredients</p>
-                <p className="mt-3 leading-relaxed text-xl">We feed dogs according to their biology. Rooted in evolution, not trendy human marketing or industry shortcut</p>
+                <p className="text-2xl font-germania">Canine-Grade Ingredients</p>
+                <p className="mt-3 leading-relaxed text-sm sm:text-xl">We feed dogs according to their biology. Rooted in evolution, not trendy human marketing or industry shortcut</p>
               </div>
               <div>
-                <p className="text-4xl font-germania">Lab Verified</p>
-                <p className="mt-3 leading-relaxed text-xl">Every batch is pathogen-tested and verified for safety.without sacrificing the natural trace nutrients your dog's biology depends on.</p>
+                <p className="text-2xl font-germania">Lab Verified</p>
+                <p className="mt-3 leading-relaxed text-sm sm:text-xl">Every batch is pathogen-tested and verified for safety.without sacrificing the natural trace nutrients your dog's biology depends on.</p>
               </div>
             </div>
            
@@ -230,15 +234,15 @@ const handleProductClick = (side: "left"  | "right") => {
           
 
             <div className="w-full mb-32 py-16 bg-quinary flex flex-col items-center justify-center gap-16">
-              <div className="text-7xl gap-y-8 font-germania text-primary px-4 justify-self-start items-center leading-[5rem] flex flex-col-reverse lg:flex-row">
-                <p className="text-center">Some things are better raw… <br/> including our ingredients. </p>
+              <div className="text-5xl sm:text-7xl gap-y-8 font-germania text-primary px-4 justify-self-start items-center leading-[5rem] flex flex-col-reverse lg:flex-row">
+                <p className="text-center ">Some things are better raw… <br/> including our ingredients. </p>
                  <Dog className=" justify-self-end fill-primary size-60" />
               </div>
              
                  <Button
                     onClick={() => router.push('/Ingredients')}
                     variant={'outline'}
-                    className="mt-2 h-auto text-3xl bg-white rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-4 py-4 min-w-[15rem]"
+                    className="mt-2 h-auto text-xl bg-white rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-4 py-4 min-w-[10rem]"
                     style={{ boxShadow: 'inset 8px 7px 6px rgba(0,0,0,0.15),inset -8px -7px 6px rgba(255,255,255,0.3)' }}
                   >
                     Learn More
@@ -249,69 +253,74 @@ const handleProductClick = (side: "left"  | "right") => {
           
 
 
-        <section className="my-10   font-arvo text-quinary border-tertiary  rounded-lg w-full lg:w-11/12 py-10 flex-col justify-items-center justify-self-center">
-            <p className="mb-10 text-7xl text-center  font-bold font-germania ">Not All “Dog Food” Is Food </p>
-            <p className="mb-10 text-1xl font-light text-lg italic"> Here’s how Raw Dawg stacks up against the industry. </p>
+        <section className="mt-10   font-arvo text-quinary border-tertiary overflow-scroll sm:overflow-hidden  rounded-lg w-full lg:w-11/12  flex-col justify-items-center justify-self-center">
+            <p className="mb-6 text-5xl w-10/12 sm:w-11/12 sm:text-7xl text-center  font-bold font-germania ">Not All “Dog Food” Is Food </p>
+            <p className="mb-8  font-light text-sm w-10/12 text-center sm:text-lg italic"> Here’s how Raw Dawg stacks up against the industry. </p>
             
-            <table className=" lg:w-11/12  bg-quaternary/30 table-fixed">
+            
+          
+        </section>
+
+        <section className="mb-10 px-2 sm:p-0  font-arvo text-quinary border-tertiary overflow-scroll sm:overflow-hidden  rounded-lg w-full lg:w-11/12  flex-col justify-items-center justify-self-center">
+                <table className="w-full lg:w-11/12  justify-self-start sm:justify-self-center overflow-x-scroll no-scrollbar rounded-md bg-quaternary/30 table-fixed">
                 <thead className="">
-                    <tr >
+                    <tr className="text-sm sm:text-3xl">
                         <th></th>
                         <th>
-                          <p className="text-3xl font-germania font-bold">Dry Food</p>
+                          <p className=" font-germania font-bold">Dry Food</p>
                         </th>
                         {/* <th><img alt="Progress Steps" className="w-28 my-4 justify-self-center " src="https://magicspoon.com/cdn/shop/files/MS_G_VARIETY4_DCA_HERO.png?v=1738958405"/></th> */}
                         <th>
-                          <p className="text-3xl font-germania font-bold">Gently Cooked</p>
+                          <p className=" font-germania font-bold">Gently Cooked</p>
                         </th>
                        
                         
-                        <th className="bg-tertiary rounded-t-2xl text-primary font-bold font-germania text-3xl">
+                        <th className="bg-tertiary lg:rounded-t-2xl text-primary font-bold font-germania ">
                           <p className="my-8">Raw Dawg</p>
                           </th>
                         
                     </tr>
                 </thead>
-                <tbody className="text-center font-extralight italic">
-                    <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center p-10 align-middle text-2xl font-bold font-germania ">Heat-Free</td>
-                        <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                         <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
+                <tbody className="text-center font-extralight italic text-sm sm:text-2xl leading-[2rem]">
+                    <tr className=" border-y py-20 border-quaternary border-collapse ">
+                        <td className="text-center p-5 sm:p-10 align-middle  font-bold font-germania ">Heat-Free</td>
+                        <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                         <td className=" p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                        <td className=" p-5 sm:p-10 align-middle bg-tertiary ">< CheckCircle className=" size-4 sm:size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
 
-                    <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">Species-Appropriate Ingredients</td>
-                        <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                         <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
+                    <tr className=" border-y py-20 border-quaternary border-collapse ">
+                        <td className="text-center  p-5 sm:p-10 align-middle  font-bold font-germania ">Species-Appropriate Ingredients</td>
+                        <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                         <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                        <td className="p-5 sm:p-10 align-middle bg-tertiary ">< CheckCircle className=" size-4 sm:size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
 
-                    <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">No fillers or synthetics</td>
-                        <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                         <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
+                    <tr className=" border-y py-20 border-quaternary border-collapse ">
+                        <td className="text-center  p-5 sm:p-10 align-middle  font-bold font-germania ">No fillers or synthetics</td>
+                        <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                         <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                        <td className="p-5 sm:p-10 align-middle bg-tertiary ">< CheckCircle className=" size-4 sm:size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
-                    <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">100 % Animal Based</td>
-                        <td className="p-10 align-middle ">< CircleX className="size-14 mx-auto" /></td>
-                        <td className="p-10 align-middle "><CircleX className="size-14  mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
+                    <tr className=" border-y py-20 border-quaternary border-collapse ">
+                        <td className="text-center  p-5 sm:p-10 align-middle  font-bold font-germania ">100 % Animal Based</td>
+                        <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14 mx-auto" /></td>
+                        <td className="p-5 sm:p-10 align-middle "><CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                        <td className="p-5 sm:p-10 align-middle bg-tertiary ">< CheckCircle className=" size-4 sm:size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
-                    <tr className=" border-y text-2xl leading-[2rem] py-20 border-quaternary border-collapse ">
-                        <td className="text-center  p-10 align-middle text-2xl font-bold font-germania ">Built For Longevity</td>
-                        <td className="p-10 align-middle ">< CircleX className="size-14  mx-auto" /></td>
-                         <td className="p-10 align-middle ">< CheckCircle className="size-14   mx-auto" /></td>
-                        <td className="p-10 align-middle bg-tertiary ">< CheckCircle className="size-14  mx-auto stroke-[#39FF14]" /></td>
+                    <tr className=" border-y py-20 border-quaternary border-collapse ">
+                        <td className="text-center  p-5 sm:p-10 align-middle  font-bold font-germania ">Built For Longevity</td>
+                        <td className="p-5 sm:p-10 align-middle ">< CircleX className=" size-4 sm:size-14  mx-auto" /></td>
+                         <td className="p-5 sm:p-10 align-middle ">< CheckCircle className=" size-4 sm:size-14   mx-auto" /></td>
+                        <td className="p-5 sm:p-10 align-middle bg-tertiary ">< CheckCircle className=" size-4 sm:size-14  mx-auto stroke-[#39FF14]" /></td>
                         
                         
                     </tr>
@@ -319,7 +328,6 @@ const handleProductClick = (side: "left"  | "right") => {
                     
                 </tbody>
             </table>
-          
         </section>
 
         
@@ -371,7 +379,7 @@ const handleProductClick = (side: "left"  | "right") => {
         </section> */}
 
 
-        <section className="my-32 py-8 text-quinary bg-[#EAE9EE] w-full  font-arvo flex-col justify-items-center justify-self-center">
+        <section className="my-40 py-8 text-quinary bg-[#EAE9EE] w-full  font-arvo flex-col justify-items-center justify-self-center">
             
             <div className="flex justify-between items-center w-full  ">
                  
@@ -379,7 +387,7 @@ const handleProductClick = (side: "left"  | "right") => {
 
                     
                   
-                  <div className=" rounded-2xl  -top-44 absolute border-secondary w-[44em] h-[36em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)] pointer-events-none" />
+                    <div className=" rounded-2xl  -top-44 absolute border-secondary w-[44em] h-[36em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)] pointer-events-none" />
                             
 
                   </div> 
@@ -387,21 +395,21 @@ const handleProductClick = (side: "left"  | "right") => {
 
 
               <div className="relative z-10 py-4  flex flex-col  items-center text-center gap-6 px-6">
-                  <center><p className="text-6xl  xl:text-7xl mb-6 lg:mb-16 font-germania text-tertiary/80 text-center " style={{ lineHeight: '1.5' }}>
+                  <center><p className="text-4xl sm:text-7xl  xl:text-7xl mb-6 lg:mb-16 font-germania text-tertiary/80 text-center " style={{ lineHeight: '1.5' }}>
                     The rebellion against Big Pet Food starts in your dog’s bowl.
                   </p>
-
-                  <p className=" w-2/3 text-xl xl:text-2xl mb-16 leading-relaxed text-secondary/70" style={{lineHeight:'1.5'}}>
+                    
+                  <p className=" w-2/3 text-sm sm:text-xl leading-relaxed  text-tertiary font-bold sm:font-normal sm:text-secondary/70" style={{lineHeight:'1.5'}}>
                     Decades of ultra-processing, fillers, synthetic vitamins, and profit-driven shortcuts have turned dog food into a
                     billion-dollar lie, and our dogs are paying the price.
                   </p>
 
-                  <div className=" rounded-2xl lg:hidden -z-10 top-[16em] left-0 absolute border-secondary w-[36em] h-[26em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)] pointer-events-none" />
+                  <div className=" rounded-2xl lg:hidden -z-10 top-[20em] left-0 absolute border-secondary w-[32em] h-[24em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)] pointer-events-none" />
                         
                   <Button
                     onClick={() => router.push('/About')}
                     variant={'outline'}
-                    className="mt-2 h-auto text-2xl bg-white rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-14 py-6 min-w-[15rem] "
+                    className="my-8 h-auto text-xl sm:text-2xl bg-white rounded-[8rem] font-germania hover:bg-tertiary hover:text-primary px-10 py-4 min-w-[10rem] "
                     style={{ boxShadow: 'inset 8px 7px 6px rgba(0,0,0,0.15),inset -8px -7px 6px rgba(255,255,255,0.3)' }}
                   >
                     Learn More
@@ -420,18 +428,18 @@ const handleProductClick = (side: "left"  | "right") => {
         
           <section className="flex flex-col w-full  items-center  p-4 gap-x-32  justify-self-center py-24 ">
                    
-                   <p className="text-center text-7xl text-tertiary font-germania"> Get intimate with <br /> @my.rawdawg</p>
+                   <p className="text-center text-4xl w-10/12 sm:w-8/12 sm:text-6xl text-tertiary font-germania"> Get intimate with <br /> <span className="text-2xl sm:text-4xl"> @my.rawdawg </span></p>
                    
                    <div className="mt-16 gap-5  self-center w-full  overflow-x-scroll no-scrollbar flex">
                        <div className=" grow flex flex-col items-center ">
-                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/542874986_17866109619449043_818838866944933470_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzcxODI2MTkwMTY2NDI2NTgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=zW2i6fd3UAkQ7kNvwH3LF51&_nc_oc=AdmxSzndES5h_62sVXArWejD5da-Tobxu3s8if-HiNXESxT77Bl3VeAJJAGYaa2ABDs&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=zH5Ip7sxNBfGg6haltQwwA&_nc_ss=8&oh=00_AfxrWtqgFzYTxl2FjD_bCgE5exlxs9OfTBz7cwvv5BjdqQ&oe=69AE3EFD)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/542874986_17866109619449043_818838866944933470_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzcxODI2MTkwMTY2NDI2NTgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=zW2i6fd3UAkQ7kNvwH3LF51&_nc_oc=AdmxSzndES5h_62sVXArWejD5da-Tobxu3s8if-HiNXESxT77Bl3VeAJJAGYaa2ABDs&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=zH5Ip7sxNBfGg6haltQwwA&_nc_ss=8&oh=00_AfxrWtqgFzYTxl2FjD_bCgE5exlxs9OfTBz7cwvv5BjdqQ&oe=69AE3EFD)]" />
                             </div>
 
                   <div className=" grow flex flex-col items-center">
-                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-center bg-[url(https://instagram.fadd2-1.fna.fbcdn.net/v/t51.82787-15/569863911_17870785347449043_8027059021898139641_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0ODU2MDc4NTk1MTA3Mzg4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=YTyoWrhqjHIQ7kNvwFLE70-&_nc_oc=AdkfvFA07G3LDI99qyLuGNsT6xb0bPC1OAJ5_82jWGkybPrAKc1_CoOS99EP2lZ5oMk&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd2-1.fna&_nc_gid=yV5txgvyTu5zEA_SBgshBQ&_nc_ss=8&oh=00_AfxifeyOqEVjB3D8GAEOTaC1mtcnTMHfkPJyUnPMtPBl4g&oe=69AE4105)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-center bg-[url(https://instagram.fadd2-1.fna.fbcdn.net/v/t51.82787-15/569863911_17870785347449043_8027059021898139641_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0ODU2MDc4NTk1MTA3Mzg4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=YTyoWrhqjHIQ7kNvwFLE70-&_nc_oc=AdkfvFA07G3LDI99qyLuGNsT6xb0bPC1OAJ5_82jWGkybPrAKc1_CoOS99EP2lZ5oMk&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd2-1.fna&_nc_gid=yV5txgvyTu5zEA_SBgshBQ&_nc_ss=8&oh=00_AfxifeyOqEVjB3D8GAEOTaC1mtcnTMHfkPJyUnPMtPBl4g&oe=69AE4105)]" />
                             </div>
                    <div className=" grow flex flex-col items-center ">
-                            <div className="border-2 rounded-2xl border-secondary w-[30em] h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573382060_17871490380449043_4020381859724066317_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzc1MzQ4MDI0NjU2NjgwMjc1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=UsxkVuADcOsQ7kNvwE0lSCU&_nc_oc=AdkMoEvm4u_fA2z4QWj5Fax9c8rePhnda3-aIlW0IYWfdaVVCGTFIoOmPFbuSvM24D4&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=unOhZ6NrMFwedp4jQwUKzA&_nc_ss=8&oh=00_AfwFZbfb1X4GM-gigfVyAimvpvOHcJs4GbnwZSxEGjpzVQ&oe=69AE7029)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573382060_17871490380449043_4020381859724066317_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzc1MzQ4MDI0NjU2NjgwMjc1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=UsxkVuADcOsQ7kNvwE0lSCU&_nc_oc=AdkMoEvm4u_fA2z4QWj5Fax9c8rePhnda3-aIlW0IYWfdaVVCGTFIoOmPFbuSvM24D4&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=unOhZ6NrMFwedp4jQwUKzA&_nc_ss=8&oh=00_AfwFZbfb1X4GM-gigfVyAimvpvOHcJs4GbnwZSxEGjpzVQ&oe=69AE7029)]" />
                             </div>
                    </div>
                   

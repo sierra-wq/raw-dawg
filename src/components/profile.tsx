@@ -91,14 +91,14 @@ export default function Profile() {
         <form onSubmit={handleSubmit(onSubmit)} className="font-arvo">
           <Card className="text-primary bg-quaternary">
             <CardHeader className=" relative">
-              <CardTitle className="text-3xl font-germania">My Profile</CardTitle>
+              <CardTitle className="text-2xl lg:text-3xl font-germania">My Profile</CardTitle>
               
                 <Toggle
       aria-label="Toggle edit"
       size="sm"
       variant="outline"
       onClick={()=> setEdit(!edit)}
-      className="absolute top-3 text-lg font-black right-6 data-[state=on]:bg-primary hover:bg-transparent data-[state=on]:text-secondary data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
+      className="absolute top-3  lg:text-lg font-black right-6 data-[state=on]:bg-primary hover:bg-transparent data-[state=on]:text-secondary data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
     >
       <Edit />
       Edit
@@ -110,7 +110,7 @@ export default function Profile() {
               <FieldSet>
                 <FieldGroup>
                 <Field>
-                  <FieldLabel className="text-lg" htmlFor="firstname">Firstname</FieldLabel>
+                  <FieldLabel className=" lg:text-lg" htmlFor="firstname">Firstname</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your first name
@@ -120,7 +120,7 @@ export default function Profile() {
                     id="firstname"
                     disabled={!edit}
                     placeholder="Max Leiter"
-                    className="focus:border-2 focus-within:border-primary"
+                    className="focus:border-2 text-sm lg:text-base focus-within:border-primary"
                     {...register("firstName")}
                   />
 
@@ -130,7 +130,7 @@ export default function Profile() {
                 </Field>
 
                 <Field>
-                  <FieldLabel className="text-lg" htmlFor="lastname">Lastname</FieldLabel>
+                  <FieldLabel className=" lg:text-lg" htmlFor="lastname">Lastname</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your last name
@@ -139,7 +139,7 @@ export default function Profile() {
                   <Input
                     id="lastname"
                     disabled={!edit}
-                    className="focus:border-2 focus-within:border-primary"
+                    className="focus:border-2 text-sm lg:text-base focus-within:border-primary"
                     {...register("lastName")}
                   />
 
@@ -149,7 +149,7 @@ export default function Profile() {
                 </Field>
 
                 <Field>
-                  <FieldLabel className="text-lg" htmlFor="phone">Phone</FieldLabel>
+                  <FieldLabel className=" lg:text-lg" htmlFor="phone">Phone</FieldLabel>
 
                   {edit && <FieldDescription className="text-surface/70">
                     Enter your Phone name
@@ -158,7 +158,7 @@ export default function Profile() {
                   <Input
                     id="phone"
                     disabled={!edit}
-                    className="focus:border-2 focus-within:border-primary"
+                    className="focus:border-2 text-sm lg:text-base focus-within:border-primary"
                     {...register("phone")}
                   />
 
@@ -170,14 +170,14 @@ export default function Profile() {
 
                   {/* Email */}
                   <Field>
-                    <FieldLabel className="text-lg" htmlFor="email">Email</FieldLabel>
+                    <FieldLabel className=" lg:text-lg" htmlFor="email">Email</FieldLabel>
 
                   
                     <Input
                       id="email"
                       type="text"
                       disabled
-                      className="focus:border-2 focus-within:border-primary disabled:text-primary disabled:bg-secondary disabled:cursor-not-allowed"
+                      className="focus:border-2 text-sm lg:text-base focus-within:border-primary disabled:text-primary disabled:bg-secondary disabled:cursor-not-allowed"
                       {...register("email")}
                     />
 
@@ -193,7 +193,7 @@ export default function Profile() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !edit}
-                className="bg-primary text-secondary font-germania text-2xl w-full"
+                className="bg-primary text-secondary font-germania text-lg lg:text-2xl w-full"
               >
                 {isSubmitting ? "Updating ..." : "Update Details"}
               </Button>

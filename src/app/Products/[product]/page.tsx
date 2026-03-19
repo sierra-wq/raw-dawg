@@ -242,7 +242,7 @@ const handleProductClick = (side: "left"  | "right") => {
   return (
          <div className="pb-40 flex flex-col bg-tertiary content-center justify-items-center font-acumin ">
 
-               <div className="flex flex-col  pt-48  ">
+               <div className="flex flex-col lg:flex-row  pt-48  ">
                  <div className=" lg:w-3/5 flex  items-center justify-center ">
                         <Button
                           variant={'outline'}
@@ -268,21 +268,21 @@ const handleProductClick = (side: "left"  | "right") => {
                         
                        
                       <div tabIndex={0} onClick={() => handleSelect('one-time')} className="flex w-full justify-between items-center bg-primary mt-5 border-2 py-2 px-4 rounded-[4rem]">
-                          <div className="flex items-center gap-[3rem] w-2/3">
+                          <div className="flex items-center gap-[2em] sm:gap-[3rem] w-2/3">
                               <input type='radio' checked={selectedOption === 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
-                              <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania "> One Time purchase </p>
+                              <p className="text-quaternary/60 peer-checked:text-quaternary  sm:text-xl font-germania "> One Time purchase </p>
                           </div>
-                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${product?.variants?.edges[portion]?.node?.price.amount} </p>
+                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 sm:text-2xl font-germania "> ${product?.variants?.edges[portion]?.node?.price.amount} </p>
                       </div>
 
                       <div tabIndex={0} onClick={() => handleSelect(null)} className={`flex w-full justify-between ${product?.sellingPlan?.id !== undefined ?  '' : 'hidden'}  items-center bg-primary mt-5  py-2 px-4 rounded-[4rem]`}>
-                          <div className="flex items-center gap-[3rem] w-2/3">
+                          <div className="flex items-center gap-[3em] sm:gap-[3rem] w-2/3">
                               <input type='radio' checked={selectedOption !== 'one-time'} onChange={() => {}} className="peer checked:text-quaternary ring-quaternary checked:ring-quaternary focus:ring-quaternary  border-0 size-6 text-primary  text-center "/>
-                              <p className="text-quaternary/60 peer-checked:text-quaternary text-xl font-germania"> Subscribe &amp; Save </p>
+                              <p className="text-quaternary/60 peer-checked:text-quaternary  sm:text-xl font-germania"> Subscribe &amp; Save </p>
                           </div>
-                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 text-2xl font-germania "> ${formatPrice(subscriptionPrice)} </p>
+                          <p className="me-5 text-quaternary peer-checked:text-quaternary/60 sm:text-2xl font-germania "> ${formatPrice(subscriptionPrice)} </p>
                       </div>
-                      <p className={`text-lg mb-1 py-2 border-b-0 border-primary font-germania mt-3 ${product?.sellingPlan?.id !== undefined ? '' : 'hidden'}`}>
+                      <p className={`text-xs sm:text-lg mb-1 sm:py-2 border-b-0 border-primary font-germania sm:mt-3 ${product?.sellingPlan?.id !== undefined ? '' : 'hidden'}`}>
                         Subscription orders ship every 2 weeks.
                       </p>
 
@@ -296,9 +296,9 @@ const handleProductClick = (side: "left"  | "right") => {
                                       disabled={count === 0}
                                       variant={'outline'}
                                       size={'icon'}
-                                      className="rounded-full  border-quaternary hover:bg-quaternary/10"
+                                      className="rounded-full size-4 sm:size-auto  border-quaternary hover:bg-quaternary/10"
                                     >
-                                      <Minus className="stroke-quaternary"/>
+                                      <Minus className="stroke-quaternary "/>
                                     </Button>
                                   </TooltipTrigger>
                                  <TooltipContent className="bg-quaternary text-primary rounded-lg p-2">
@@ -306,10 +306,14 @@ const handleProductClick = (side: "left"  | "right") => {
                                   </TooltipContent>
                               </Tooltip>
                               
-                              <p className="text-3xl font-germania mx-5 text-quaternary"> {count} </p>
+                              <p className=" text-xl sm:text-3xl font-germania mx-5 text-quaternary"> {count} </p>
                               <Tooltip>
                                  <TooltipTrigger asChild>
-                                      <Button onClick={() =>  setCount((prev) => prev + 1)} variant={'outline'} size={'icon'} className="rounded-full border-quaternary hover:bg-quaternary/10 "> <Plus className="stroke-quaternary"/> </Button>
+                                      <Button onClick={() =>  setCount((prev) => prev + 1)} 
+                                          variant={'outline'} size={'icon'} 
+                                          className="rounded-full size-4 sm:size-auto border-quaternary hover:bg-quaternary/10 "> 
+                                          <Plus className="stroke-quaternary"/> 
+                                    </Button>
                                   </TooltipTrigger>
                                  <TooltipContent className="bg-quaternary text-primary rounded-lg p-2">
                                     <p> Sold in 5 lb increments (minimum 15 lb) </p>
@@ -317,7 +321,7 @@ const handleProductClick = (side: "left"  | "right") => {
                               </Tooltip>
                           </div>
                           <div className="w-2/3 flex me-3  items-center justify-end">
-                                      <p className="text-quaternary text-4xl font-germania" > ${formatPrice(totalPrice)} <span className="text-xl">({count* parseInt(product?.variants?.edges[portion]?.node?.title?.split(" ")[0] ?? "0")} lb)</span></p>
+                                      <p className="text-quaternary text-xl sm:text-4xl font-germania" > ${formatPrice(totalPrice)} <span className="text-xl">({count* parseInt(product?.variants?.edges[portion]?.node?.title?.split(" ")[0] ?? "0")} lb)</span></p>
                           </div>
                           
                       </div>
@@ -327,7 +331,7 @@ const handleProductClick = (side: "left"  | "right") => {
                             const cartnow = addItem(product?.variants?.edges[portion]?.node?.id ?? "", count,subscriptionDiscounts );
                             console.log("the cart now  " ,cartnow)
                             setOpen(true);
-                          }} variant={'outline'} className="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
+                          }} variant={'outline'} className="sm:h-full w-10/12 self-center sm:w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-quaternary "> Add to Cart </Button>
 
                         {/* { customer?.id && <ReviewDialog
                           productId={product?.handle as string}
@@ -336,7 +340,7 @@ const handleProductClick = (side: "left"  | "right") => {
                           triggerClassName="h-full w-full p-4 hover:bg-quaternary text-xl hover:text-2xl hover:text-white font-germania rounded-[4rem] bg-primary text-quaternary"
                         />} */}
                       
-                        <p className="text-4xl mt-12 font-germania">
+                        <p className="text-xl sm:text-4xl mt-12 font-germania">
                           {displayTitle(product?.handle ?? params.product, product?.title)}
                         </p>
 
@@ -346,22 +350,22 @@ const handleProductClick = (side: "left"  | "right") => {
                                   className="w-11/12 py-2 bg-tertiary text-3xl text-primary font-germania font-light"
                                   defaultValue="item-0">
                                  <AccordionItem value={"item-0"} className="mb-1 py-2 border-b-0 border-primary">
-                                          <AccordionTrigger className="text-xl capitalize text-start leading-8 hover:underline"> Description </AccordionTrigger>
-                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-base text-start">
-                                               <p className="text-lg"> {product?.description} </p>
+                                          <AccordionTrigger className="text-base sm:text-xl capitalize text-start leading-8 hover:underline"> Description </AccordionTrigger>
+                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-sm sm:text-base text-start">
+                                               <p > {product?.description} </p>
                                             </AccordionContent>
                                   </AccordionItem>
                                    <AccordionItem value={"item-1"} className="mb-1 py-2 border-b-0 border-primary">
-                                          <AccordionTrigger className="text-xl capitalize text-start leading-8 hover:underline"> Feeding Guide </AccordionTrigger>
-                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-base text-start">
+                                          <AccordionTrigger className="text-base sm:text-xl capitalize text-start leading-8 hover:underline"> Feeding Guide </AccordionTrigger>
+                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-sm sm:text-base text-start">
                                               <p className=""> 
                                                Feed based on your dog's age, activity level, and life stage. Every dog is an individual—these guidelines are a starting point, not a prescription.                                                
                                                  
-                                                 <ul className="my-3">
-                                                    <li className="list-disc list-inside">Adult Dogs: Feed 2–3% of ideal body weight per day. Active dogs need more, less active dogs need less.</li>
-<li className="list-disc list-inside">Puppies: Feed 5–6% of current body weight daily, split into 2–3 meals. Reduce gradually as growth slows.
+                                                 <ul className="my-3 list-disc ch list-inside *:mt-4">
+                                                    <li >Adult Dogs: Feed 2–3% of ideal body weight per day. Active dogs need more, less active dogs need less.</li>
+<li >Puppies: Feed 5–6% of current body weight daily, split into 2–3 meals. Reduce gradually as growth slows.
 </li>
-<li className="list-disc list-inside">Pregnant/Nursing Females: Increase to 4–8% of body weight depending on stage and litter size.
+<li >Pregnant/Nursing Females: Increase to 4–8% of body weight depending on stage and litter size.
 </li>
                                                  </ul>
 
@@ -370,8 +374,8 @@ const handleProductClick = (side: "left"  | "right") => {
                                             </AccordionContent>
                                   </AccordionItem>
                                   <AccordionItem value={"item-2"} className="mb-1 py-2 border-b-0 border-primary">
-                                          <AccordionTrigger className="text-xl capitalize text-start leading-8 hover:underline"> Storage Instructions </AccordionTrigger>
-                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-base text-start">
+                                          <AccordionTrigger className="text-base sm:text-xl capitalize text-start leading-8 hover:underline"> Storage Instructions </AccordionTrigger>
+                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-sm sm:text-base text-start">
                                               
                                               <p className=""> 
                                                 Raw Dawg is real food. Treat it that way.
@@ -396,13 +400,13 @@ const handleProductClick = (side: "left"  | "right") => {
                                           </AccordionContent>
                                   </AccordionItem>
                                   <AccordionItem value={"item-3"} className="mb-1 py-2 border-b-0 border-primary">
-                                          <AccordionTrigger className="text-xl capitalize text-start leading-8 hover:underline"> Ingredients </AccordionTrigger>
-                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-base text-start">
+                                          <AccordionTrigger className="text-base sm:text-xl capitalize text-start leading-8 hover:underline"> Ingredients </AccordionTrigger>
+                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-sm sm:text-base text-start">
                                               <ul className=""> 
                                                 {
                                                   items[itemIndex].content.map((item, index) => (
                                                     <li key={index} className="mb-2 list-disc list-inside">
-                                                      <span className="font-bold capitalize text-lg">{item.replace(/-/g, ' ')}</span>
+                                                      <span className="font-bold capitalize ">{item.replace(/-/g, ' ')}</span>
                                                       
                                                     </li>
                                                   ))
@@ -412,12 +416,12 @@ const handleProductClick = (side: "left"  | "right") => {
                                   </AccordionItem>
                                   
                                   <AccordionItem value={"item-5"} className="mb-1 py-2 border-b-0 border-primary">
-                                          <AccordionTrigger className="text-xl capitalize text-start leading-8 hover:underline"> Guaranteed Analysis </AccordionTrigger>
-                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-base text-start">
+                                          <AccordionTrigger className="text-base sm:text-xl capitalize text-start leading-8 hover:underline"> Guaranteed Analysis </AccordionTrigger>
+                                          <AccordionContent className="flex flex-col gap-3 p-1 leading-7 text-sm sm:text-base text-start">
                                               <ul className=""> 
                                                 {
                                                   Object.entries(items[itemIndex].analysis_results).map(([key, value], index) => (
-                                                    <li key={index} className="mb-2 list-disc list-inside text-lg">
+                                                    <li key={index} className="mb-2 list-disc list-inside ">
                                                       <span className="font-bold capitalize ">{key.replace(/-/g, ' ')}</span> : {value}
                                                     </li>
                                                   ))
