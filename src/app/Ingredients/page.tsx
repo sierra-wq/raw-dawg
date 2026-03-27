@@ -472,7 +472,7 @@ health, not trends.
    <Dog2 className=" justify-self-center size-full fill-primary " />
 
   {/* Fade overlay */}
-  <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-b from-transparent to-quaternary" />
+
 </section>
 
          </div>

@@ -87,9 +87,9 @@ export default function SubscriberDialog({
       
       <DialogContent className="max-w-md bg-primary">
         <DialogHeader>
-          <DialogTitle>Subscribe to Our Newsletter</DialogTitle>
+          <DialogTitle className=" font-bold ">Join the Pack </DialogTitle>
           <DialogDescription>
-            Stay updated with the latest news and offers.
+            Be first in line for launch, drops, and exclusive updates.
           </DialogDescription>
         </DialogHeader>
 

@@ -92,7 +92,11 @@ const handleProductClick = (side: "left"  | "right") => {
 
       <SubscriberDialog open={open} setOpen={setOpen} />
 
-        <div className="relative justify-self-center w-10/12 overflow-hidden my-2  sm:my-4">
+       
+
+
+        <section className="pb-24 pt-12 flex flex-col items-center justify-between font-germania bg-[#EAE9EE]  w-full ">
+           <div className="relative justify-self-center w-10/12  overflow-hidden mb-24  sm:mb-24 ">
           <div className="flex justify-center animate-marquee whitespace-nowrap  gap-32">
             {[...reels,].map((item, index) => (
               <span
@@ -104,12 +108,10 @@ const handleProductClick = (side: "left"  | "right") => {
             ))}
           </div>
         </div>
-
-
-        <section className="py-24 flex flex-col items-center justify-between font-germania bg-[#EAE9EE]  w-full ">
+          
           <p className=" text-5xl sm:text-9xl w-8/12 sm:w-10/12 text-center   text-quaternary font-germania">Meet the  Lineup</p>
           <div className="flex flex-col  w-10/12 items-center   ">
-             <div className="">
+             <div className=" -mt-40">
               <img alt="All Raw Dawg blends" className="w-[80em]  sm:w-[94em]  rounded-xl " src={img5.src} />
             </div> 
             <div className="w-full flex flex-col lg:flex-row   justify-center items-center gap-6">
@@ -191,7 +193,7 @@ const handleProductClick = (side: "left"  | "right") => {
 
         <section className="py-24 mt-20 flex flex-col items-center bg-primary font-arvo text-quinary">
           <p className="mb-16 text-5xl  md:text-7xl w-10/12 sm:w-full font-germania font-bold text-quinary text-center">THE SECRET’S  <br className="sm:hidden" /> OUT…  AND IT’S  <br className="sm:hidden" /> RAW DAWG.</p>
-          <div className="w-11/12 xl:w-10/12 flex flex-col lg:grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 items-center">
+          <div className="w-11/12 xl:w-10/12 flex  gap-6 ">
              
              <div className="relative  flex lg:hidden justify-center">
               <div className="relative w-[18em] h-[18em] sm:w-[28rem] sm:h-[28rem] rounded-full overflow-hidden  ">
@@ -200,7 +202,7 @@ const handleProductClick = (side: "left"  | "right") => {
               </div>
             </div>
             
-            <div className="flex flex-col gap-10 w-10/12 text-center lg:text-right">
+            <div className="flex flex-col items-center justify-center gap-10 w-10/12 text-center lg:text-right ">
               <div>
                 <p className="text-2xl font-germania">Whole-Animal Nutrition</p>
                 <p className="mt-3 leading-relaxed text-sm sm:text-xl">The ancestral diet built for the modern dog. Nose-to-tail exactly as nature intended.</p>
@@ -211,13 +213,13 @@ const handleProductClick = (side: "left"  | "right") => {
               </div>
             </div>
             
-            <div className="relative hidden lg:flex justify-center">
-              <div className="relative w-[10em] h-[10em] lg:w-[32rem] lg:h-[32rem] rounded-full overflow-hidden  ">
-                <img src={img7.src} alt="Raw Dawg bowl" className="w-full h-full object-cover" />
+            <div className="relative  h-[10em] lg:w-10/12 lg:h-[32rem]  hidden lg:flex justify-center">
+              <div className="absolute -top-12  w-[10em] h-[10em] lg:w-[74rem] lg:h-[42rem] rounded-full overflow-hidden bg-[url(..\/assets\/meal2.png)] bg-cover ">
+                
                 
               </div>
             </div>
-            <div className="flex flex-col gap-10 w-10/12 text-center lg:text-left">
+            <div className="flex flex-col  items-center justify-center gap-10 w-10/12 text-center lg:text-left ">
               <div>
                 <p className="text-2xl font-germania">Canine-Grade Ingredients</p>
                 <p className="mt-3 leading-relaxed text-sm sm:text-xl">We feed dogs according to their biology. Rooted in evolution, not trendy human marketing or industry shortcut</p>
@@ -404,7 +406,7 @@ const handleProductClick = (side: "left"  | "right") => {
                     billion-dollar lie, and our dogs are paying the price.
                   </p>
 
-                  <div className=" rounded-2xl lg:hidden -z-10 top-[20em] left-0 absolute border-secondary w-[32em] h-[24em] bg-cover bg-top bg-[url(..\/assets\/rebellion2.png)] pointer-events-none" />
+                  <div className=" rounded-2xl lg:hidden -z-10 top-[20em] left-0 absolute border-secondary w-[32em] h-[24em] bg-cover bg-top bg-[url(..\/assets\/social_img1.jpg)] pointer-events-none" />
                         
                   <Button
                     onClick={() => router.push('/About')}
@@ -428,18 +430,18 @@ const handleProductClick = (side: "left"  | "right") => {
         
           <section className="flex flex-col w-full  items-center  p-4 gap-x-32  justify-self-center py-24 ">
                    
-                   <p className="text-center text-4xl w-10/12 sm:w-8/12 sm:text-6xl text-tertiary font-germania"> Get intimate with <br /> <span className="text-2xl sm:text-4xl"> @my.rawdawg </span></p>
+                   <p className="text-center text-6xl w-10/12 sm:w-8/12 sm:text-7xl text-tertiary font-germania"> Get intimate with  <span className="text-6xl mt-4 block sm:text-7xl"> @my.rawdawg </span></p>
                    
                    <div className="mt-16 gap-5  self-center w-full  overflow-x-scroll no-scrollbar flex">
                        <div className=" grow flex flex-col items-center ">
-                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/542874986_17866109619449043_818838866944933470_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzcxODI2MTkwMTY2NDI2NTgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=zW2i6fd3UAkQ7kNvwH3LF51&_nc_oc=AdmxSzndES5h_62sVXArWejD5da-Tobxu3s8if-HiNXESxT77Bl3VeAJJAGYaa2ABDs&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=zH5Ip7sxNBfGg6haltQwwA&_nc_ss=8&oh=00_AfxrWtqgFzYTxl2FjD_bCgE5exlxs9OfTBz7cwvv5BjdqQ&oe=69AE3EFD)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(..\/assets\/social_img1.jpg)]" />
                             </div>
 
                   <div className=" grow flex flex-col items-center">
-                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-center bg-[url(https://instagram.fadd2-1.fna.fbcdn.net/v/t51.82787-15/569863911_17870785347449043_8027059021898139641_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0ODU2MDc4NTk1MTA3Mzg4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=YTyoWrhqjHIQ7kNvwFLE70-&_nc_oc=AdkfvFA07G3LDI99qyLuGNsT6xb0bPC1OAJ5_82jWGkybPrAKc1_CoOS99EP2lZ5oMk&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd2-1.fna&_nc_gid=yV5txgvyTu5zEA_SBgshBQ&_nc_ss=8&oh=00_AfxifeyOqEVjB3D8GAEOTaC1mtcnTMHfkPJyUnPMtPBl4g&oe=69AE4105)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-center bg-[url(..\/assets\/social_img2.jpg)]" />
                             </div>
                    <div className=" grow flex flex-col items-center ">
-                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(https://instagram.fadd1-1.fna.fbcdn.net/v/t51.82787-15/573382060_17871490380449043_4020381859724066317_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzc1MzQ4MDI0NjU2NjgwMjc1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM0Ni5zZHIuQzMifQ%3D%3D&_nc_ohc=UsxkVuADcOsQ7kNvwE0lSCU&_nc_oc=AdkMoEvm4u_fA2z4QWj5Fax9c8rePhnda3-aIlW0IYWfdaVVCGTFIoOmPFbuSvM24D4&_nc_ad=z-m&_nc_cid=1735&_nc_zt=23&_nc_ht=instagram.fadd1-1.fna&_nc_gid=unOhZ6NrMFwedp4jQwUKzA&_nc_ss=8&oh=00_AfwFZbfb1X4GM-gigfVyAimvpvOHcJs4GbnwZSxEGjpzVQ&oe=69AE7029)]" />
+                            <div className="border-2 rounded-2xl border-secondary w-[20em] h-[26em] sm:w-[30em] sm:h-[36em] bg-cover bg-[url(..\/assets\/social_img3.jpg)]" />
                             </div>
                    </div>
                   

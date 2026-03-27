@@ -53,7 +53,7 @@ export default function Header() {
   return (
 
    <header className=" absolute w-full top-0 flex-col font-acumin">
-        <p className={`${noBg || legal ? "bg-primary text-quaternary" : "bg-tertiary text-secondary"} w-full px-2 text-2xs font-germania  text-center`}>
+        <p className={`bg-tertiary text-secondary w-full px-2 text-2xs font-germania  text-center`}>
             {message}
             {/* <span className="text-xl ps-2 underline underline-offset-2"> View More</span>  */}
         </p>
