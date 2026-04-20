@@ -32,6 +32,7 @@ import { useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs"
 import { items } from "@/constants/constants";
 import SubscriberDialog from "@/components/SubscriberDialogue";
+import NotificationDialog from "@/components/NotificationDialogue";
 
 export default function Home() {
 
@@ -88,7 +89,6 @@ const handleProductClick = (side: "left"  | "right") => {
             </div>
 
         </div>
-
 
       <SubscriberDialog open={open} setOpen={setOpen} />
 

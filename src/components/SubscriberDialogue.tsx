@@ -38,7 +38,7 @@ export default function SubscriberDialog({
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  
+
 
   const {
     register,
@@ -53,8 +53,11 @@ export default function SubscriberDialog({
   });
 
   const { handleSubscribe, subscribeLoading } = useAuth();
-  
-  
+  const [message, setMessage] = useState("Subscribe to get notified when we launch!");
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+
+
   useEffect(() => {
     const storedEmail = localStorage.getItem("subscriberEmail");
     if (storedEmail) {
@@ -64,27 +67,34 @@ export default function SubscriberDialog({
       }
     }
   }, []);
-  
-  
-  
-  
+
+
+
+
   async function onSubmit(values: SubscriberFormType) {
-    
-   const subscriberValues = values as SubscriberFormType;
-       const res = await handleSubscribe(subscriberValues.email);
-   
-       if (!res.ok) {
-         //alert(res.errors?.map((e: any) => e.message).join(", "));
-         console.error("Error subscribing to newsletter:", res.errors);
-         return;
-       }
+
+    const subscriberValues = values as SubscriberFormType;
+    const res = await handleSubscribe(subscriberValues.email);
+
+    if (!res.ok) {
+      //alert(res.errors?.map((e: any) => e.message).join(", "));
+      setMessage(res?.message || "Error subscribing to newsletter. Please try again.");
+      setDialogOpen(true);
+      setValue("email", ""); // Clear the input field after error
+      console.error("Error subscribing to newsletter:", res.errors);
+      return;
+    }
+    setMessage("Thank you for subscribing! We'll keep you updated.");
+    setDialogOpen(true);
+    setValue("email", ""); // Clear the input field after successful subscription
+
 
     setOpen(false);
   }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      
+
       <DialogContent className="max-w-md bg-primary">
         <DialogHeader>
           <DialogTitle className=" font-bold ">Join the Pack </DialogTitle>
@@ -96,16 +106,16 @@ export default function SubscriberDialog({
         {/* FORM */}
         <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 mt-2">
 
-         
+
 
           {/* Review Text */}
           <div>
             <Input
-            type='email'
+              type='email'
               className="focus:border-2 focus-within:outline-none text-lg"
               {...register("email")}
               placeholder="Enter your email address"
-              
+
             />
             {errors.email && (
               <p className="text-red-500 text-sm">
@@ -118,9 +128,10 @@ export default function SubscriberDialog({
             <Button
               type="button"
               variant="outline"
-              onClick={() => {   
-                localStorage.setItem("subscriberEmail",JSON.stringify({'show': false}));
-                setOpen(false)}}
+              onClick={() => {
+                localStorage.setItem("subscriberEmail", JSON.stringify({ 'show': false }));
+                setOpen(false)
+              }}
               className="w-full hover:bg-quinary hover:text-white"
             >
               Cancel

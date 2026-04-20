@@ -6,6 +6,11 @@ import { useRouter } from "next/navigation";
 
 type Customer = { id: string; email: string; firstName?: string; lastName?: string, phone?: string, acceptsMarketing?: boolean, cartId?: string, address?: MailingAddressInput } | null;
 
+
+const KLAVIYO_COMPANY_ID = process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID;
+const KLAVIYO_LIST_ID = process.env.NEXT_PUBLIC_KLAVIYO_LIST_ID;
+const KLAVIYO_REVISION = process.env.NEXT_PUBLIC_KLAVIYO_REVISION;
+
 export type AuthContextType = {
   customer: Customer;
   authenticated: boolean;
@@ -65,26 +70,69 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   async function handleSubscribe(email: string) {
       setSubscribeLoading(true);
-
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+       const normalizedEmail = email.trim().toLowerCase();
+      const payload = {
+      data: {
+        type: "subscription",
+        attributes: {
+          profile: {
+            data: {
+              type: "profile",
+              attributes: {
+                email: normalizedEmail,
+              },
+            },
+          },
+          custom_source: "Vercel custom signup form",
         },
-        body: JSON.stringify({
-          email,
-          source: "landing-hero",
-        }),
-      });
+        relationships: {
+          list: {
+            data: {
+              type: "list",
+              id: KLAVIYO_LIST_ID,
+            },
+          },
+        },
+      },
+    };
 
-      const data = await res.json();
+    try {
+      const res = await fetch(
+        `https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_COMPANY_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(KLAVIYO_REVISION ? { revision: KLAVIYO_REVISION } : {}),
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+      const data = res.ok ? { ok: true, message: "Subscribed successfully!" } : null;
+      console.log("Klaviyo response:", data);
+      const errText = await res.text();
+      if (!res.ok || !data?.ok) {
+        const message = errText || data?.message || "Subscription failed";
+        return { ok: false, message, errors: message };
+      }
 
-      if (!res.ok || !data.ok) return { ok: false, message: data.message, errors: data.errors };
-      
       setSubscribeSuccess(true);
       setSubscribeLoading(false);
-      return { ok: true, message: data.message };      
+      return { ok: true, message: data?.message || "Subscribed successfully!" };
+
+    } catch (error) {
+      console.error("Network error:", error);
+      return { ok: false, message: "Network error. Please try again.", errors: error instanceof Error ? error.message : String(error) };
+
+    }
+      
+   
   }
+
+ 
+
+
+
 
 
 
