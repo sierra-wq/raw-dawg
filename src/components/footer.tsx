@@ -93,7 +93,7 @@ export default function Footer() {
             <p className="text-3xl font-germania font-bold text-primary">Join the Pack</p>
             <p className="text-base text-primary/70 mt-2">Drop your email for drops, deals, and real-dawg updates.</p>
             <div className="mt-5 flex flex-col sm:flex-row items-stretch gap-3">
-              <Input {...register("email")} className="py-4 px-4 outline-0 outline-dark border-primary/40  bg-primary text-primary font-semibold text-lg" type="email" placeholder="Email" />
+              <Input {...register("email")} className="py-4 px-4 outline-0 outline-dark border-primary/40  bg-primary text-quaternary font-semibold text-lg" type="email" placeholder="Email" />
               <Button  onClick={()=> {
                 console.log("submitting the form");
                 handleSubmit(onSubmit)();
